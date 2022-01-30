@@ -8,7 +8,7 @@
       <img class="absolute top-0 left-0" src="/images/sections/home-section-1/05.svg" alt="">
       <img class="absolute top-0 left-0" src="/images/sections/home-section-1/06.svg" alt=""> -->
       <img class="absolute w-[310px] bottom-0" src="/images/sections/home-section-1/screenshot.png" alt="">
-      <div class="text-[4.9rem] mt-[112px] font-bold text-normal leading-none">
+      <div class="text-[4.9rem] mt-[112px] font-bold text-normal text-center leading-none">
         One App is Enough
       </div>
       <div class="pt-10 leading-none text-light text-2xl">

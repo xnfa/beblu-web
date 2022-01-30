@@ -63,11 +63,9 @@
               <NuxtLink to="/download" class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md">
                 Contact us
               </NuxtLink>
-              <!-- <a v-for="item in navigation" :key="item.name" :href="item.href" class="text-normal" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a> -->
             </div>
           </div>
         </div>
-        <!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"> -->
         <div class="relative items-center pr-2 hidden md:flex">
           <NuxtLink class="text-normal" to="/download">
             Download
@@ -77,7 +75,7 @@
           <Menu as="div" class="ml-3 relative text-normal z-50">
             <div>
               <MenuButton class="bg-[#E4E9ED] flex text-sm rounded-full items-center justify-center px-2 space-x-1">
-                <img src="/images/icons/global.svg" alt="">
+                <img src="/images/icons/global_small.svg" alt="">
                 <span>English</span>
               </MenuButton>
             </div>
@@ -103,7 +101,6 @@
     >
       <DisclosurePanel class="absolute w-full bg-[#F4F6FA] z-0 h-[100vh]" v-slot="{ close }">
         <div class="px-2 pt-[5.375rem] pb-3 flex flex-col">
-          <!-- <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton> -->
           <NuxtLink to="/download" class="text-[2rem] font-light text-center p-5 rounded-md leading-none" @click="close(); closeMenu()">
             Our Story
           </NuxtLink>
@@ -124,7 +121,7 @@
           </NuxtLink>
           <div class="flex items-center justify-center mt-[4rem]">
             <button class="bg-[#E4E9ED] flex text-xl rounded-full items-center justify-center p-2 space-x-1 leading-none">
-              <img src="/images/icons/global.svg" alt="">
+              <img src="/images/icons/global_small.svg" alt="">
               <span>English</span>
             </button>
           </div>
@@ -135,7 +132,7 @@
 </template>
 
 <script>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue/dist/index.esm'
 import { BellIcon, MenuIcon, XIcon, GlobeAltIcon, ChevronUpIcon } from '@heroicons/vue/outline'
 
 const navigation = [
