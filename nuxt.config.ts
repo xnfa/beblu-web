@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   },
   css: ["@/assets/css/tailwind.css", "@/assets/fonts/stylesheet.css"],
   build: {
+    transpile: ["@heroicons/vue"],
     postcss: {
       postcssOptions: {
         plugins: {

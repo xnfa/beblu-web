@@ -15,7 +15,7 @@
             <!-- Mobile menu button-->
             <DisclosureButton @click="openMenu" class="inline-flex items-center justify-center p-2 rounded-md text-black">
               <span class="sr-only">Open main menu</span>
-              <img src="/assets/images/icons/close.svg" class="block h-6 w-6" alt="">
+              <img src="/images/icons/close.svg" class="block h-6 w-6" alt="">
             </DisclosureButton>
           </div>
           <div v-else class="absolute inset-y-0 right-0 flex items-center sm:hidden">
@@ -27,7 +27,7 @@
           </div>
         </transition>
         <div class="flex-1 flex items-center justify-start sm:items-stretch sm:justify-start">
-          <img class="block h-7 w-auto" src="/assets/images/logo.svg" alt="Workflow" />
+          <img class="block h-7 w-auto" src="/images/logo.svg" alt="Workflow" />
           <div class="hidden items-center justify-center sm:flex sm:ml-6 flex-1">
             <div class="space-x-8 text-normal">
               <NuxtLink to="/download" class="inline-block hover:bg-[#ECFCFE] h-8 w-20 px-2 py-1 rounded-md">
@@ -66,7 +66,7 @@
           </div>
         </div>
         <!-- <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"> -->
-        <div class="absolute inset-y-0 right-0 items-center pr-2 hidden md:flex">
+        <div class="relative items-center pr-2 hidden md:flex">
           <NuxtLink class="text-normal" to="/download">
             Download
           </NuxtLink>
@@ -75,7 +75,7 @@
           <Menu as="div" class="ml-3 relative text-normal z-50">
             <div>
               <MenuButton class="bg-[#E4E9ED] flex text-sm rounded-full items-center justify-center px-2 space-x-1">
-                <img src="/assets/images/icons/global.svg" alt="">
+                <img src="/images/icons/global.svg" alt="">
                 <span>English</span>
               </MenuButton>
             </div>
@@ -122,7 +122,7 @@
           </NuxtLink>
           <div class="flex items-center justify-center mt-[5rem]">
             <button class="bg-[#E4E9ED] flex text-xl rounded-full items-center justify-center p-2 space-x-1 leading-none">
-              <img src="/assets/images/icons/global.svg" alt="">
+              <img src="/images/icons/global.svg" alt="">
               <span>English</span>
             </button>
           </div>

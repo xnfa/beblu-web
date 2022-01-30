@@ -2,7 +2,7 @@
   <footer class="container mx-auto body-font text-normal text-xl md:text-sm px-8 border-t-[#E9E9E9] border-t">
     <div class="py-10 md:py-24 flex items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
       <div class="flex items-start flex-col md:flex-row md:mx-0">
-        <img class="block h-14 w-auto mr-16 mb-6" src="/assets/images/logo.svg" alt="Workflow" />
+        <img class="block h-14 w-auto mr-16 mb-6" src="/images/logo.svg" alt="Workflow" />
         <p class="">
           7 Harvey Road, #10-01, Lebond Singapore 369613<br>Email: hello@beblu.com<br>Contact: +65 69803921
         </p>
@@ -53,19 +53,19 @@
       </div>
       <div class="md:order-3 py-4 flex justify-center md:justify-end items-center w-72 md:w-1/3">
         <a class="block md:w-5" href="#">
-          <img src="/assets/images/icons/facebook.svg" alt="">
+          <img src="/images/icons/facebook.svg" alt="">
         </a>
         <a class="block md:w-5 ml-4" href="#">
-          <img src="/assets/images/icons/instagram.svg" alt="">
+          <img src="/images/icons/instagram.svg" alt="">
         </a>
         <a class="block md:w-5 ml-4" href="#">
-          <img src="/assets/images/icons/linkedin.svg" alt="">
+          <img src="/images/icons/linkedin.svg" alt="">
         </a>
         <a class="block md:w-5 ml-4" href="#">
-          <img src="/assets/images/icons/youtube.svg" alt="">
+          <img src="/images/icons/youtube.svg" alt="">
         </a>
         <a class="block md:w-5 ml-4" href="#">
-          <img src="/assets/images/icons/medium.svg" alt="">
+          <img src="/images/icons/medium.svg" alt="">
         </a>
       </div>
       <div class="md:order-1 my-6 w-72 md:w-1/3">
