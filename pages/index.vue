@@ -43,7 +43,7 @@
       </app-link>
     </section>
     <section
-      class="relative flex justify-center overflow-hidden h-[100vh]"
+      class="relative flex justify-center overflow-hidden h-[100vh] snap-start"
       ref="section_2"
     >
       <div class="fixed -z-10 top-0 left-0 h-[100vh] w-[100vw]">
@@ -68,10 +68,13 @@
       </div>
       <div ref="canvas_2" class="absolute bottom-0 w-[1080px]"></div>
     </section>
-    <section class="overflow-hidden h-[100vh] bg-[#768797]" ref="section_3">
+    <section
+      class="overflow-hidden h-[100vh] bg-[#768797] snap-start"
+      ref="section_3"
+    >
       <div class="flex flex-col md:flex-row container mx-auto w-full h-full">
         <div
-          class="w-full md:w-[50%] flex-1 md:h-full relative overflow-hidden order-6 md:order-1 mx-auto"
+          class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full relative overflow-hidden order-6 md:order-1 mx-auto"
         >
           <div ref="canvas_3" class="absolute bottom-0"></div>
         </div>
@@ -100,13 +103,14 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header2"
               >
-                2
+                Lights
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text2"
               >
-                123123
+                Smart office lighting gives you more control over your workspace
+                ambience.
               </p>
             </div>
             <div class="absolute">
@@ -114,13 +118,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header3"
               >
-                3
+                Aircon
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text3"
               >
-                123123
+                Control temperature settings and more for maximum comfort.
               </p>
             </div>
             <div class="absolute">
@@ -128,13 +132,14 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header4"
               >
-                4
+                Blinds
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text4"
               >
-                123123
+                Enjoy complete privacy and manage the amount of sunlight with
+                ease.
               </p>
             </div>
             <div class="absolute">
@@ -142,13 +147,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header5"
               >
-                5
+                CCTV
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text5"
               >
-                123123
+                24/7 encrypted footage to protect your works and property.
               </p>
             </div>
           </div>
@@ -156,7 +161,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-[#000000]"
+      class="overflow-hidden relative h-[100vh] bg-[#000000] snap-start"
       ref="section_4"
     >
       <div class="h-full">
@@ -202,7 +207,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-cover bg-center"
+      class="overflow-hidden relative h-[100vh] bg-cover bg-center snap-start"
       ref="section_5"
       style="background-image: url('/images/sections/download/bg.jpg')"
     >
@@ -227,7 +232,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center"
+      class="overflow-hidden relative h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center snap-start"
       ref="section_6"
     >
       <div id="form">
@@ -653,6 +658,7 @@
         gsap.to(section5Text, {
           opacity: 1,
           duration: 2,
+          ease: "power3",
           y: "-50vh",
           repeatRefresh: true,
           scrollTrigger: {
