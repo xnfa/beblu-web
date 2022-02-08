@@ -232,7 +232,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center snap-start"
+      class="overflow-hidden relative h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center"
       ref="section_6"
     >
       <div id="form">
