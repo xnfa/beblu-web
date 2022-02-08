@@ -43,7 +43,7 @@
       </app-link>
     </section>
     <section
-      class="relative flex justify-center overflow-hidden h-[100vh] snap-start"
+      class="relative flex justify-center overflow-hidden h-[100vh]"
       ref="section_2"
     >
       <div class="fixed -z-10 top-0 left-0 h-[100vh] w-[100vw]">
@@ -68,10 +68,7 @@
       </div>
       <div ref="canvas_2" class="absolute bottom-0 w-[1080px]"></div>
     </section>
-    <section
-      class="overflow-hidden h-[100vh] bg-[#768797] snap-start"
-      ref="section_3"
-    >
+    <section class="overflow-hidden h-[100vh] bg-[#768797]" ref="section_3">
       <div class="flex flex-col md:flex-row container mx-auto w-full h-full">
         <div
           class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full relative overflow-hidden order-6 md:order-1 mx-auto"
@@ -161,7 +158,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-[#000000] snap-start"
+      class="overflow-hidden relative h-[100vh] bg-[#000000]"
       ref="section_4"
     >
       <div class="h-full">
@@ -207,7 +204,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-cover bg-center snap-start"
+      class="overflow-hidden relative h-[100vh] bg-cover bg-center"
       ref="section_5"
       style="background-image: url('/images/sections/download/bg.jpg')"
     >

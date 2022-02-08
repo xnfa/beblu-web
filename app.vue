@@ -32,7 +32,7 @@
     font-family: "FF Good Pro Cond";
     font-weight: 400;
     font-style: normal;
-    scroll-snap-type: y proximity;
+    /* scroll-snap-type: y proximity; */
   }
   .article h1 {
     font-size: 3rem;
