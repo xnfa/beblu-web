@@ -68,13 +68,13 @@
                 to="lang-download"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
-                Our Story
+                {{ l("our_story") }}
               </app-link>
               <Disclosure v-slot="{ open }">
                 <DisclosureButton
                   class="inline-flex relative items-center hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md box-border"
                 >
-                  <span>Solutions</span>
+                  <span>{{ l("solution") }}</span>
                   <ChevronUpIcon
                     :class="open ? 'transform rotate-180' : ''"
                     class="ml-1 w-4 h-4 text-[#A5B3C1]"
@@ -101,25 +101,27 @@
                 to="lang-download"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
-                Portfolio
+                {{ l("portfolio") }}
               </app-link>
               <app-link
                 to="lang-download"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
-                Community
+                {{ l("community") }}
               </app-link>
               <app-link
-                to="lang-download"
+                to="lang-contact-us"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
-                Contact us
+                {{ l("contact_us") }}
               </app-link>
             </div>
           </div>
         </div>
         <div class="relative items-center pr-2 hidden md:flex">
-          <app-link class="text-normal" to="lang-download"> Download </app-link>
+          <app-link class="text-normal" to="lang-download">
+            {{ l("download") }}
+          </app-link>
 
           <!-- Profile dropdown -->
           <Menu as="div" class="ml-3 relative text-normal z-50">
@@ -128,7 +130,7 @@
                 class="bg-[#E4E9ED] flex text-sm rounded-full items-center justify-center px-2 space-x-1"
               >
                 <img src="/images/icons/global_small.svg" alt="" />
-                <span>{{ langLabel }}</span>
+                <span>{{ langName }}</span>
               </MenuButton>
             </div>
             <transition
@@ -150,7 +152,7 @@
                       'block px-4 py-2 text-normal',
                     ]"
                   >
-                    {{ lang.label }}
+                    {{ lang.name }}
                   </a>
                 </MenuItem>
               </MenuItems>
@@ -181,7 +183,7 @@
               closeMenu();
             "
           >
-            Our Story
+            {{ l("our_story") }}
           </app-link>
           <app-link
             to="lang-download"
@@ -211,7 +213,7 @@
               closeMenu();
             "
           >
-            Portfolio
+            {{ l("portfolio") }}
           </app-link>
           <app-link
             to="lang-download"
@@ -221,24 +223,24 @@
               closeMenu();
             "
           >
-            Community
+            {{ l("community") }}
           </app-link>
           <app-link
-            to="lang-download"
+            to="lang-contact-us"
             class="text-[2rem] font-light text-center p-5 rounded-md leading-none"
             @click="
               close();
               closeMenu();
             "
           >
-            Contact us
+            {{ l("contact_us") }}
           </app-link>
           <div class="flex items-center justify-center mt-[4rem]">
             <button
               class="bg-[#E4E9ED] flex text-xl rounded-full items-center justify-center p-2 space-x-1 leading-none"
             >
               <img src="/images/icons/global_small.svg" alt="" />
-              <span>English</span>
+              <span>{{ langName }}</span>
             </button>
           </div>
         </div>
@@ -247,7 +249,27 @@
   </Disclosure>
 </template>
 
-<script>
+<script setup lang="ts">
+  import { useRoute, useRouter } from "vue-router";
+  import { useQuery } from "@urql/vue";
+  import { useLabels } from "~~/composables/useLabels";
+  const route = useRoute();
+  const lang = route.params.lang || "en";
+  const { data, error } = await useQuery({
+    query: `
+    {
+      languages {
+        name
+        code
+      }
+    }
+  `,
+  });
+  const l = await useLabels();
+  const languages = data.value.languages;
+  const langName = data.value.languages.filter((v) => v.code === lang)[0]?.name;
+</script>
+<script lang="ts">
   import {
     Disclosure,
     DisclosureButton,
@@ -264,26 +286,6 @@
     GlobeAltIcon,
     ChevronUpIcon,
   } from "@heroicons/vue/outline";
-  import { useRoute, useRouter } from "vue-router";
-
-  const navigation = [
-    { name: "Our Story", href: "#", current: true },
-    { name: "Solutions", href: "#", current: false },
-    { name: "Portfolio", href: "#", current: false },
-    { name: "Community", href: "#", current: false },
-    { name: "Contact us", href: "#", current: false },
-  ];
-
-  const languages = [
-    {
-      code: "en-US",
-      label: "English",
-    },
-    {
-      code: "zh-CN",
-      label: "Chinese",
-    },
-  ];
 
   export default {
     components: {
@@ -299,16 +301,6 @@
       XIcon,
       GlobeAltIcon,
       ChevronUpIcon,
-    },
-    setup() {
-      const route = useRoute();
-      const langCode = route.params.lang || "en-US";
-      return {
-        navigation,
-        languages,
-        lang: langCode,
-        langLabel: languages.filter((v) => v.code === langCode)[0]?.label,
-      };
     },
     methods: {
       openMenu() {

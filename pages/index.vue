@@ -13,21 +13,21 @@
           class="absolute translate-x-[-50%] opacity-0 scale-50"
           :src="pop.url"
           :ref="setSection1PopRefs"
-          alt
+          alt=""
         />
       </div>
       <img
         class="absolute w-[310px] bottom-0"
         src="/images/sections/home-section-1/screenshot.png"
-        alt
+        alt=""
       />
       <div
         class="text-5xl md:text-[4.875rem] md:mt-[112px] mt-[56px] font-bold text-normal text-center leading-none"
       >
-        One App is Enough
+        {{ p("section_1_title") }}
       </div>
       <div class="pt-6 md:pt-10 mb-6 leading-none text-light text-[1.375rem]">
-        AI for your workspace
+        {{ p("section_1_content") }}
       </div>
       <app-link
         to="lang-download"
@@ -38,7 +38,7 @@
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[172px]"
           style="box-shadow: 0px 2px 10px rgba(104, 252, 252, 0.25)"
         >
-          DOWNLOAD
+          {{ l("download").toUpperCase() }}
         </button>
       </app-link>
     </section>
@@ -50,21 +50,41 @@
         <img
           class="absolute top-[75px] left-[-45px] w-[178px]"
           src="/images/sections/home-section-2/ball.png"
-          alt
+          alt=""
           ref="ball_0"
         />
         <img
           class="absolute bottom-[-85px] left-[148px] w-[249px]"
           src="/images/sections/home-section-2/ball.png"
-          alt
+          alt=""
           ref="ball_1"
         />
         <img
           class="absolute top-[125px] right-[-90px] w-[293px]"
           src="/images/sections/home-section-2/ball.png"
-          alt
+          alt=""
           ref="ball_2"
         />
+      </div>
+      <div class="absolute">
+        <h2
+          class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          ref="section2Text1"
+        >
+          {{ p("section_2_text_1") }}
+        </h2>
+        <h2
+          class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          ref="section2Text1"
+        >
+          {{ p("section_2_text_2") }}
+        </h2>
+        <h2
+          class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          ref="section2Text1"
+        >
+          {{ p("section_2_text_3") }}
+        </h2>
       </div>
       <div ref="canvas_2" class="absolute bottom-0 w-[1080px]"></div>
     </section>
@@ -84,15 +104,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header1"
               >
-                Take control of your surroundings
+                {{ p("section_3_title_1") }}
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text1"
               >
-                Thanks to advanced and intuitive features, Beblu allows you to
-                control your office’s Smart features at the ease and comfort of
-                your desk.
+                {{ p("section_3_title_1") }}
               </p>
             </div>
             <div class="absolute">
@@ -100,14 +118,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header2"
               >
-                Lights
+                {{ p("section_3_title_2") }}
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text2"
               >
-                Smart office lighting gives you more control over your workspace
-                ambience.
+                {{ p("section_3_title_2") }}
               </p>
             </div>
             <div class="absolute">
@@ -115,13 +132,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header3"
               >
-                Aircon
+                {{ p("section_3_title_3") }}
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text3"
               >
-                Control temperature settings and more for maximum comfort.
+                {{ p("section_3_title_3") }}
               </p>
             </div>
             <div class="absolute">
@@ -129,14 +146,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header4"
               >
-                Blinds
+                {{ p("section_3_title_4") }}
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text4"
               >
-                Enjoy complete privacy and manage the amount of sunlight with
-                ease.
+                {{ p("section_3_title_4") }}
               </p>
             </div>
             <div class="absolute">
@@ -144,13 +160,13 @@
                 class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
                 ref="section3Header5"
               >
-                CCTV
+                {{ p("section_3_title_5") }}
               </h2>
               <p
                 class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
                 ref="section3Text5"
               >
-                24/7 encrypted footage to protect your works and property.
+                {{ p("section_3_title_5") }}
               </p>
             </div>
           </div>
@@ -179,25 +195,23 @@
           <h2
             class="text-[3rem] md:text-[4.875rem] font-black leading-none text-center md:text-left"
           >
-            Meet. Learn. Play.
+            {{ p("section_4_title") }}
           </h2>
           <p class="text-[1.375rem] font-light mt-[2.5rem]">
-            Want to network with like-minded people but not sure how to? With
-            Beblu, you can explore and sign up for events or even promote your
-            events.
+            {{ p("section_4_content") }}
           </p>
           <div class="flex flex-col md:flex-row gap-6 md:gap-10 mt-6">
             <button
               type="button"
               class="border-white border-2 rounded-full p-3 text-[1.375rem] leading-none flex-1"
             >
-              Upcoming Events
+              {{ p("section_4_btn_events") }}
             </button>
             <button
               type="button"
               class="border-white border-2 rounded-full p-3 text-[1.375rem] leading-none flex-1"
             >
-              Blog
+              {{ p("section_4_btn_blog") }}
             </button>
           </div>
         </div>
@@ -211,10 +225,10 @@
       <div class="absolute bottom-0 w-full text-black text-center">
         <div class="mx-auto md:w-[37rem] opacity-0" ref="section5Text">
           <h2 class="text-[3rem] md:text-[4.875rem] font-black leading-none">
-            Work Smart Now.
+            {{ p("section_5_title") }}
           </h2>
           <p class="text-[1.375rem] mt-5">
-            Live, work, play and connect with Beblu
+            {{ p("section_5_content") }}
           </p>
           <div class="mt-10">
             <button
@@ -222,7 +236,7 @@
               class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[172px]"
               style="box-shadow: 0px 2px 10px rgba(104, 252, 252, 0.25)"
             >
-              DOWNLOAD
+              {{ l("download").toUpperCase() }}
             </button>
           </div>
         </div>
@@ -232,51 +246,38 @@
       class="overflow-hidden relative h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center"
       ref="section_6"
     >
-      <div id="form">
-        <h2
-          class="text-[3rem] md:text-[4rem] font-black leading-none text-normal text-center mb-8"
-        >
-          Want to know more?<br />Talk to us!
-        </h2>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name*"
-          class="mb-4 block w-full px-3 py-2 bg-white border border-[#EBEDF0] rounded-md text-sm shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        />
-        <input
-          type="text"
-          name="company"
-          placeholder="Company"
-          class="mb-4 block w-full px-3 py-2 bg-white border border-[#EBEDF0] rounded-md text-sm shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email*"
-          class="mb-4 block w-full px-3 py-2 bg-white border border-[#EBEDF0] rounded-md text-sm shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        />
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone"
-          class="mb-4 block w-full px-3 py-2 bg-white border border-[#EBEDF0] rounded-md text-sm shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        />
-        <p class="text-[#37C0BA] text-xs">*required field</p>
-        <div class="text-center pt-5">
-          <button
-            type="button"
-            class="border-black border-2 rounded-full p-3 text-lg leading-none flex-1 font-bold w-[172px]"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
+      <app-contact-us></app-contact-us>
     </section>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+  import { useLabels } from "~~/composables/useLabels";
+  import { usePageLabels } from "~~/composables/usePageLabels";
+  const l = await useLabels();
+  const p = await usePageLabels("home", [
+    "section_1_content",
+    "section_1_title",
+    "section_2_text_1",
+    "section_2_text_2",
+    "section_2_text_3",
+    "section_3_content_1",
+    "section_3_content_2",
+    "section_3_content_3",
+    "section_3_content_4",
+    "section_3_content_5",
+    "section_3_title_1",
+    "section_3_title_2",
+    "section_3_title_3",
+    "section_3_title_4",
+    "section_3_title_5",
+    "section_4_btn_blog",
+    "section_4_btn_events",
+    "section_4_content",
+    "section_4_title",
+    "section_5_content",
+    "section_5_title",
+  ]);
   const section1Pops = [
     {
       url: "/images/sections/home-section-1/01.svg",
@@ -323,7 +324,7 @@
   ];
 </script>
 
-<script>
+<script lang="ts">
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import lottie from "lottie-web";
@@ -370,7 +371,15 @@
         });
       },
       section2Animate() {
-        const { section_2, ball_0, ball_1, ball_2, canvas_2 } = this.$refs;
+        const {
+          section_2,
+          ball_0,
+          ball_1,
+          ball_2,
+          canvas_2,
+          section2Text1,
+          section3Text2,
+        } = this.$refs;
         const handle = lottie.loadAnimation({
           container: canvas_2, // the dom element that will contain the animation
           renderer: "svg",
@@ -379,14 +388,44 @@
           path: "lottie/home-section-2/data.json", // the path to the animation json
         });
 
+        const tl = gsap.timeline({
+          repeat: -1,
+          paused: true,
+        });
+
+        tl.fromTo(
+          section2Text1,
+          {
+            y: 50,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: "power3",
+          },
+          "<+=2"
+        ).to(
+          section2Text1,
+          {
+            y: -50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3",
+          },
+          5
+        );
+
         ScrollTrigger.create({
           trigger: section_2,
           start: "top bottom",
           onToggle: (self) => {
             if (self.isActive) {
               handle.play();
+              tl.play();
             } else {
               handle.stop();
+              tl.pause();
             }
           },
         });

@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   },
   css: ["@/assets/css/tailwind.css", "@/assets/fonts/stylesheet.css"],
   build: {
-    transpile: ["@heroicons/vue", "gsap"],
+    transpile: ["@heroicons/vue", "gsap", "moment", "@urql/vue"],
     postcss: {
       postcssOptions: {
         plugins: {

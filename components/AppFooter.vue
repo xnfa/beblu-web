@@ -23,33 +23,33 @@
           <div class="lg:w-1/4 md:w-1/3 w-1/2">
             <nav class="list-none">
               <li class="mb-4">
-                <a class="" href="#">Our Story</a>
+                <a class="" href="#">{{ l("our_story") }}</a>
               </li>
               <li class="mb-4">
-                <a class="" href="#">Solutions</a>
+                <a class="" href="#">{{ l("our_story") }}</a>
               </li>
               <li>
-                <a class="" href="#">Portfolio</a>
+                <a class="" href="#">{{ l("portfolio") }}</a>
               </li>
             </nav>
           </div>
           <div class="lg:w-1/4 md:w-1/3 w-1/2">
             <nav class="list-none">
               <li class="mb-4">
-                <a class="" href="#">Community</a>
+                <a class="" href="#">{{ l("community") }}</a>
               </li>
               <li class="mb-4">
-                <a class="" href="#">Careers</a>
+                <app-link to="lang-careers">{{ l("careers") }}</app-link>
               </li>
               <li class="mb-4">
-                <a class="" href="#">Contact Us</a>
+                <app-link to="lang-contact-us">{{ l("contact_us") }}</app-link>
               </li>
             </nav>
           </div>
           <div class="lg:w-1/4 md:w-1/3 w-1/2">
             <nav class="list-none">
               <li class="mb-4">
-                <NuxtLink to="/download"> Download </NuxtLink>
+                <app-link to="lang-download">{{ l("download") }}</app-link>
               </li>
             </nav>
           </div>
@@ -61,9 +61,13 @@
         <div
           class="md:order-2 flex justify-center items-center mt-8 md:mt-0 flex-1 w-72 md:w-1/3 text-black"
         >
-          <app-link class="block mr-10" to="lang-privacy"> Privacy </app-link>
-          <app-link class="block mr-10" to="lang-terms"> Terms </app-link>
-          <a class="block" href="#">Sitemap</a>
+          <app-link class="block mr-10" to="lang-privacy">
+            {{ l("privacy") }}
+          </app-link>
+          <app-link class="block mr-10" to="lang-terms">
+            {{ l("terms") }}
+          </app-link>
+          <a class="block" href="#">{{ l("sitemap") }}</a>
         </div>
         <div
           class="md:order-3 py-4 flex justify-center md:justify-end items-center w-72 md:w-1/3"
@@ -94,12 +98,7 @@
   </footer>
 </template>
 
-<script>
-  export default {
-    computed: {
-      lang() {
-        return this.$route.params.lang || "en-US";
-      },
-    },
-  };
+<script setup lang="ts">
+  import { useLabels } from "~~/composables/useLabels";
+  const l = await useLabels();
 </script>

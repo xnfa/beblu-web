@@ -3,7 +3,7 @@
     :class="$attrs.class"
     :to="{
       name: to,
-      params: { lang: $route.params.lang || 'en-US', ...params },
+      params: { lang: $route.params.lang || 'en', ...params },
     }"
   >
     <slot />
