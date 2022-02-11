@@ -106,7 +106,8 @@
         class="text-white text-xs cookie-privacy-text mb-[0.875rem] md:mb-0 md:mr-8"
       >
         This site uses cookies to ensure that you get the best experience
-        possible. Learn more
+        possible.
+        <NuxtLink to="/cookie-policy" class="underline">Learn more</NuxtLink>
       </div>
       <button
         type="button"

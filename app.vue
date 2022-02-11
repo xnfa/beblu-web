@@ -64,14 +64,24 @@
     font-size: 1.5rem;
     line-height: 1.5rem;
     color: #353535;
-    font-weight: 800;
+    font-weight: bold;
     margin-bottom: 2.5rem;
   }
   .article p {
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 24px;
     color: #707070;
     margin-bottom: 2.5rem;
+  }
+  .article ul {
+    margin-bottom: 2.5rem;
+  }
+  .article ul li {
+    font-size: 1.125rem;
+    line-height: 24px;
+    list-style-type: disc;
+    margin-left: 1rem;
+    color: #707070;
   }
   .router-link-active {
     color: #37c0ba;

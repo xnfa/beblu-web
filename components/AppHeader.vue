@@ -22,10 +22,22 @@
             <!-- Mobile menu button-->
             <DisclosureButton
               @click="openMenu"
-              class="inline-flex items-center justify-center p-2 rounded-md text-black"
+              class="inline-flex items-center justify-center rounded-md text-black"
             >
               <span class="sr-only">Open main menu</span>
-              <img src="/images/icons/close.svg" class="block h-6 w-6" alt="" />
+              <svg
+                class="block h-8 w-8"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6 8C6 7.44772 6.44772 7 7 7H25C25.5523 7 26 7.44772 26 8C26 8.55229 25.5523 9 25 9H7C6.44772 9 6 8.55229 6 8ZM6 16C6 15.4477 6.44772 15 7 15H20C20.5523 15 21 15.4477 21 16C21 16.5523 20.5523 17 20 17H7C6.44772 17 6 16.5523 6 16ZM7 23C6.44772 23 6 23.4477 6 24C6 24.5523 6.44772 25 7 25H20C20.5523 25 21 24.5523 21 24C21 23.4477 20.5523 23 20 23H7Z"
+                  fill="#353535"
+                />
+              </svg>
             </DisclosureButton>
           </div>
           <div
@@ -35,10 +47,29 @@
             <!-- Mobile menu button-->
             <DisclosureButton
               @click="closeMenu"
-              class="inline-flex items-center justify-center p-2 rounded-md text-black"
+              class="inline-flex items-center justify-center rounded-md text-black"
             >
               <span class="sr-only">Open main menu</span>
-              <XIcon class="block h-6 w-6" aria-hidden="true" />
+              <svg
+                class="block h-8 w-8"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_163_1198)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.92879 7.51472C8.53827 7.12419 7.9051 7.12419 7.51458 7.51472C7.12405 7.90524 7.12405 8.53841 7.51458 8.92893L14.5856 16L7.51458 23.0711C7.12405 23.4616 7.12405 24.0948 7.51458 24.4853C7.9051 24.8758 8.53827 24.8758 8.92879 24.4853L15.9999 17.4142L23.0709 24.4853C23.4614 24.8758 24.0946 24.8758 24.4851 24.4853C24.8757 24.0948 24.8757 23.4616 24.4851 23.0711L17.4141 16L24.4851 8.92893C24.8757 8.53841 24.8757 7.90524 24.4851 7.51472C24.0946 7.12419 23.4615 7.12419 23.0709 7.51472L15.9999 14.5858L8.92879 7.51472Z"
+                    fill="#353535"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_163_1198">
+                    <rect width="32" height="32" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
             </DisclosureButton>
           </div>
         </transition>
@@ -327,13 +358,7 @@
     MenuItem,
     MenuItems,
   } from "@headlessui/vue/dist/index.esm";
-  import {
-    BellIcon,
-    MenuIcon,
-    XIcon,
-    GlobeAltIcon,
-    ChevronUpIcon,
-  } from "@heroicons/vue/outline";
+  import { ChevronUpIcon } from "@heroicons/vue/outline";
 
   export default {
     components: {
@@ -344,10 +369,6 @@
       MenuButton,
       MenuItem,
       MenuItems,
-      BellIcon,
-      MenuIcon,
-      XIcon,
-      GlobeAltIcon,
       ChevronUpIcon,
     },
     methods: {
