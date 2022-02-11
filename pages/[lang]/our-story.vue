@@ -13,7 +13,7 @@
         class="pt-[3.75rem] pb-[2.5rem] md:pt-[5rem] md:pb-[3.75rem] px-[1.875rem]"
       >
         <div
-          class="max-w-[64rem] mx-auto flex flex-col md:flex-row md:items-center"
+          class="xl:max-w-[64rem] container mx-auto flex flex-col md:flex-row md:items-center"
         >
           <div class="md:w-72">
             <h1
@@ -48,11 +48,10 @@
         </div>
       </div>
       <div
-        class="container mx-auto flex flex-col md:flex-row gap-5 -translate-y-6 flex-wrap"
+        class="container mx-auto flex flex-col md:flex-row gap-[1.25rem] md:gap-5 -translate-y-6 flex-wrap px-8 md:px-0"
       >
         <div
-          class="rounded-xl shadow-md bg-white p-6"
-          style="width: calc(25% - 1.25rem)"
+          class="rounded-xl shadow-md bg-white p-6 w-full md:w-[calc(25%-1.25rem)]"
           v-for="card in p('section_2_cards')"
         >
           <h3
@@ -66,7 +65,7 @@
             {{ card.item.title }}
           </h3>
           <p
-            class="text-[#707070] overflow-hidden"
+            class="text-[#707070] overflow-hidden text-xl md:text-base"
             style="
               display: -webkit-box;
               -webkit-line-clamp: 6;
@@ -80,21 +79,27 @@
     </section>
     <section class="py-10 relative">
       <div
-        class="absolute h-[7.5rem] bg-[#F4F6FA] w-full bottom-[13%] z-[-1]"
+        class="absolute h-[7.5rem] bg-[#F4F6FA] w-full bottom-1/2 md:bottom-[13%] z-[-1]"
       ></div>
-      <h2 class="font-black text-[4rem] leading-none text-center mb-6">
+      <h2
+        class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
+      >
         {{ p("section_3_title") }}
       </h2>
-      <p class="max-w-[27rem] mx-auto mb-10">{{ p("section_3_content") }}</p>
+      <p
+        class="md:max-w-[27rem] mx-auto mb-10 px-8 md:px-0 text-xl md:text-base"
+      >
+        {{ p("section_3_content") }}
+      </p>
       <div
-        class="container mx-auto flex flex-col md:flex-row gap-5 flex-wrap justify-center"
+        class="container flex flex-row gap-4 md:gap-5 flex-wrap md:justify-center px-8 md:px-0 mx-auto"
       >
         <div
-          class="rounded-xl shadow-md bg-white p-2 pb-4 text-center"
+          class="rounded-xl shadow-md bg-white p-2 pb-4 text-center w-[calc(50%-0.5rem)] md:w-auto"
           v-for="card in p('section_3_cards')"
         >
           <div
-            class="bg-cover bg-center w-[8.625rem] h-[8.625rem] rounded-2xl mb-[0.875rem]"
+            class="bg-cover bg-center aspect-square md:w-[8.625rem] rounded-2xl mb-[0.875rem]"
             :style="`background-image: url('${
               'http://nathan.local.deansel.com:8055/assets/' +
               card.item.cover.filename_disk
@@ -120,64 +125,76 @@
       </div>
     </section>
     <section class="py-10">
-      <div class="container mx-auto flex flex-col md:flex-row">
+      <div class="container mx-auto flex flex-col-reverse md:flex-row">
         <img
-          class="block mr-[3.75rem] h-[27.75rem]"
+          class="block md:mr-[3.75rem] md:h-[27.75rem]"
           :src="
             'http://nathan.local.deansel.com:8055/assets/' +
             p('section_4_cover').filename_disk
           "
           alt=""
         />
-        <div class="flex-1 flex flex-col justify-center">
-          <h2 class="text-[3rem] font-bold leading-none mb-6">
+        <div class="flex-1 flex flex-col justify-center md:mb-0 mb-10">
+          <h2
+            class="text-[3rem] font-bold leading-none mb-6 px-8 md:px-0 text-center md:text-left"
+          >
             {{ p("section_4_title") }}
           </h2>
-          <p class="text-[#707070]">{{ p("section_4_content") }}</p>
+          <p class="text-[#707070] px-8 md:px-0">
+            {{ p("section_4_content") }}
+          </p>
         </div>
       </div>
     </section>
     <section class="py-10 bg-[#F4F6FA]">
       <div class="container mx-auto">
-        <h2 class="font-black text-[4rem] leading-none text-center mb-6">
+        <h2
+          class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
+        >
           {{ p("section_5_title") }}
         </h2>
         <div class="flex w-[55.25rem]"></div>
       </div>
     </section>
     <section class="py-10">
-      <h2 class="font-black text-[4rem] leading-none text-center mb-6">
+      <h2
+        class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
+      >
         {{ p("section_6_title") }}
       </h2>
-      <div class="container mx-auto flex gap-5 flex-wrap justify-center">
+      <div
+        class="container mx-auto px-8 md:px-0 flex gap-5 flex-wrap justify-center"
+      >
         <div
-          class="rounded-xl shadow-md w-[16rem] h-[6.25rem] bg-contain bg-center bg-no-repeat bg-origin-content p-6"
+          class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 md:p-6 w-[calc(25%-1.25rem)] aspect-[78/30]"
           v-for="card in p('section_6_cards')"
           :style="`background-image: url('${
             'http://nathan.local.deansel.com:8055/assets/' +
             card.item.cover.filename_disk
-          }'); width: calc(25% - 1.25rem);`"
+          }');`"
         ></div>
       </div>
     </section>
     <section
-      class="h-[25rem] bg-cover bg-center flex justify-center items-center"
+      class="h-[25rem] px-8 md:px-8 bg-cover bg-center flex flex-col md:flex-row justify-center items-center"
       :style="`background-image: url('${
         'http://nathan.local.deansel.com:8055/assets/' +
         p('section_7_bg').filename_disk
       }');`"
     >
       <h2
-        class="font-black text-[2rem] leading-none text-center text-black mr-10"
+        class="font-black text-[3rem] md:text-[2rem] leading-none text-center text-black md:mr-10 mb-10 md:mb-0"
       >
         {{ p("section_7_title") }}
       </h2>
-      <button
-        type="button"
-        class="border-black border-2 rounded-full p-3 text-lg leading-none font-bold w-[10.75rem]"
-      >
-        {{ p("section_7_btn_label") }}
-      </button>
+      <app-link to="lang-careers">
+        <button
+          type="button"
+          class="border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none font-bold w-[16rem] md:w-[10.75rem]"
+        >
+          {{ p("section_7_btn_label") }}
+        </button>
+      </app-link>
     </section>
   </div>
 </template>

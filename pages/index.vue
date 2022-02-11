@@ -233,7 +233,7 @@
             <app-link to="lang-download">
               <button
                 type="button"
-                class="rounded-full p-3 text-lg text-normal hover:text-white leading-none flex-1 bg-white hover:bg-[#28DAD2] shadow-[0_2px_10px_rgba(104,252,252,0.25)] hover:shadow-[0_2px_10px_#68FCFC] font-bold w-[172px]"
+                class="rounded-full p-3 text-lg text-normal hover:text-white leading-none flex-1 bg-white hover:bg-[#28DAD2] shadow-[0_2px_10px_rgba(104,252,252,0.25)] hover:shadow-[0_2px_10px_#68FCFC] font-bold w-[10.75rem]"
               >
                 {{ l("download").toUpperCase() }}
               </button>

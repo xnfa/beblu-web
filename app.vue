@@ -68,10 +68,18 @@
     margin-bottom: 2.5rem;
   }
   .article p {
-    font-size: 1.125rem;
-    line-height: 24px;
+    font-size: 1.25rem;
+    line-height: 1.5;
     color: #707070;
     margin-bottom: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .article p {
+      font-size: 1.125rem;
+      line-height: 1.5;
+      color: #707070;
+      margin-bottom: 2.5rem;
+    }
   }
   .article ul {
     margin-bottom: 2.5rem;

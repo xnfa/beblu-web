@@ -44,7 +44,7 @@
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
+                class="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-[#37C0BA]"
                 aria-hidden="true"
               >
                 <path
@@ -60,7 +60,7 @@
                 Search
               </button>
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-3 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 pl-10 ring-1 ring-slate-200 shadow-sm"
                 type="text"
                 aria-label="Job role"
                 placeholder="Job role"
@@ -69,13 +69,13 @@
             <h2 class="text-[2rem] font-bold mb-4">Filter by</h2>
             <form>
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-3 px-4 ring-1 ring-slate-200 shadow-sm mb-4"
+                class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 px-4 ring-1 ring-slate-200 shadow-sm mb-4"
                 type="text"
                 aria-label="Location"
                 placeholder="Location"
               />
               <input
-                class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-3 px-4 ring-1 ring-slate-200 shadow-sm"
+                class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 px-4 ring-1 ring-slate-200 shadow-sm"
                 type="text"
                 aria-label="Department"
                 placeholder="Department"
