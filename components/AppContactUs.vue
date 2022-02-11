@@ -44,7 +44,7 @@
       <div class="text-center pt-5">
         <button
           type="button"
-          class="border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none flex-1 font-bold w-[172px]"
+          class="border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none flex-1 font-bold w-[10.75rem]"
         >
           {{ l("contact_us_submit") }}
         </button>
