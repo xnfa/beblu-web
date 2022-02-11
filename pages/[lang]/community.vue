@@ -65,7 +65,7 @@
       <div class="text-center">
         <button
           type="button"
-          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border border-[#353535] disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
+          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border hover:bg-black hover:text-white border-black disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
           :disabled="!blogsHasMore"
         >
@@ -134,7 +134,7 @@
               <app-link
                 to="lang-event-id"
                 :params="{ id: event.id }"
-                class="rounded-full p-1 leading-none font-bold w-full md:w-[6.25rem] border border-[#353535] text-center"
+                class="rounded-full p-1 leading-none font-bold w-full md:w-[6.25rem] border-black border hover:bg-black hover:text-white text-center"
               >
                 Sign up
               </app-link>
@@ -145,7 +145,7 @@
       <div class="text-center">
         <button
           type="button"
-          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-[#353535] disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
+          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-black hover:bg-black hover:text-white disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreEvents"
           :disabled="!eventsHasMore"
         >
