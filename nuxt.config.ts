@@ -17,4 +17,50 @@ export default defineNuxtConfig({
       },
     },
   },
+  meta: {
+    link: [
+      {
+        rel: "preload",
+        href: "/fonts/FFGoodProCond-Regular.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: true,
+      },
+      {
+        rel: "preload",
+        href: "/fonts/FFGoodProCond-Black.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: true,
+      },
+      {
+        rel: "preload",
+        href: "/fonts/FFGoodProCond-Italic.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: true,
+      },
+      {
+        rel: "preload",
+        href: "/fonts/FFGoodProCond-Medium.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: true,
+      },
+      {
+        rel: "preload",
+        href: "/fonts/FFGoodProCond-Bold.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: true,
+      },
+      {
+        rel: "preload",
+        href: "/fonts/FFGoodProCond-Light.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: true,
+      },
+    ],
+  },
 });

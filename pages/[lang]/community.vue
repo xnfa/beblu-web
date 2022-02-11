@@ -1,32 +1,42 @@
 <template>
-  <div>
+  <app-not-found v-if="p.notFound"></app-not-found>
+  <div v-else>
     <div class="mx-auto text-normal mb-[2.5rem]">
       <div
         class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg flex items-center justify-center"
         :style="`background-image: url('${
-          'http://localhost:8055/assets/' + p('cover').filename_disk
+          'http://nathan.local.deansel.com:8055/assets/' +
+          p('cover').filename_disk
         }'); background-color: rgba(0, 0, 0, 0.1);`"
       >
-        <h1 class="text-white text-[4rem] font-black">{{ p("title") }}</h1>
+        <h1
+          class="text-white text-center md:text-left text-[3.375rem] md:text-[4rem] font-black"
+        >
+          {{ p("title") }}
+        </h1>
       </div>
     </div>
     <section class="mb-20 text-normal">
-      <div class="flex gap-[1.25rem] container mx-auto mb-16 flex-wrap">
-        <div
+      <div
+        class="flex gap-3 md:gap-[1.25rem] px-5 md:px-0 container xl:max-w-[70.25rem] mx-auto mb-16 flex-wrap"
+      >
+        <app-link
+          to="lang-blog-id"
+          :params="{ id: blog.id }"
           v-for="blog in blogs"
           :key="blog.id"
-          class="h-[26.5rem] rounded-2xl shadow-lg bg-white overflow-hidden"
-          style="width: calc(25% - 1.25rem)"
+          class="block rounded-2xl shadow-md bg-white overflow-hidden w-[calc(50%-0.375rem)] md:w-[calc(25%-0.938rem)]"
         >
           <div
-            class="bg-cover bg-center h-[16rem]"
+            class="bg-cover bg-center h-[9.625rem] md:h-[16rem]"
             :style="`background-image: url('${
-              'http://localhost:8055/assets/' + blog.cover.filename_disk
+              'http://nathan.local.deansel.com:8055/assets/' +
+              blog.cover.filename_disk
             }');`"
           ></div>
           <div class="pt-4 px-6 pb-5">
             <h2
-              class="overflow-hidden text-2xl font-bold mb-[0.625rem] leading-none"
+              class="overflow-hidden text-[1.375rem] md:text-2xl font-bold mb-[0.625rem] leading-none"
               style="
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
@@ -45,30 +55,34 @@
             >
               {{ blog.content.replace(/<[^>]+>/g, "") }}
             </p>
-            <div>By Beblu Communications Team</div>
+            <div class="text-sm text-[#37C0BA]">
+              By Beblu Communications Team
+            </div>
           </div>
-        </div>
+        </app-link>
       </div>
 
       <div class="text-center">
         <button
           type="button"
-          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[172px] border border-[#353535]"
+          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border border-[#353535] disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
-          v-if="blogsHasMore"
+          :disabled="!blogsHasMore"
         >
-          Read More
+          {{ blogsHasMore ? "Read More" : "No More" }}
         </button>
       </div>
     </section>
-    <section class="bg-[#F4F6FA] text-normal py-[5rem]">
-      <h2 class="text-center text-[4rem] font-black mb-10">Upcoming Events</h2>
-      <form class="group relative w-[33.375rem] mx-auto mb-16">
+    <section class="bg-[#F4F6FA] text-normal py-[5rem] px-[1.875rem] md:px-0">
+      <h2 class="text-center text-[3rem] md:text-[4rem] font-black mb-10">
+        Upcoming Events
+      </h2>
+      <form class="group relative md:w-[33.375rem] mx-auto md:mb-16 mb-8">
         <svg
           width="20"
           height="20"
           fill="currentColor"
-          class="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
+          class="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-[37C0BA]"
           aria-hidden="true"
         >
           <path
@@ -79,12 +93,12 @@
         </svg>
         <button
           type="button"
-          class="absolute right-3 top-1/2 -mt-4 bg-[#37C0BA] text-white text-sm leading-8 font-medium px-4 rounded-lg"
+          class="absolute right-3 top-1/2 -mt-4 bg-[#37C0BA] active:bg-[#00938C] text-white leading-8 font-medium px-4 rounded-lg"
         >
           Search
         </button>
         <input
-          class="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-md py-3 pl-10 ring-1 ring-slate-200 shadow-sm"
+          class="focus:ring-2 focus:ring-[37C0BA] focus:outline-none appearance-none w-full text-lg leading-6 text-slate-900 placeholder-slate-400 rounded-md py-3 pl-10 ring-1 ring-slate-200 shadow-sm pr-[5.5rem]"
           type="text"
           aria-label="Search events"
           placeholder="Search events"
@@ -95,34 +109,35 @@
         <div
           v-for="event in events"
           :key="event.id"
-          class="rounded-2xl shadow-lg bg-white overflow-hidden"
-          style="width: calc(33.33% - 1.25rem)"
+          class="rounded-2xl shadow-md bg-white overflow-hidden w-[calc(50%-0.625rem)] md:w-[calc(33.33%-1.25rem)]"
         >
           <div
-            class="bg-cover bg-center h-[16rem]"
+            class="bg-cover bg-center h-[6.375rem] md:h-[16rem]"
             :style="`background-image: url('${
-              'http://localhost:8055/assets/' + event.cover.filename_disk
+              'http://nathan.local.deansel.com:8055/assets/' +
+              event.cover.filename_disk
             }');`"
           ></div>
-          <div class="pt-4 pb-6 px-6">
+          <div class="p-[0.875rem] md:pt-4 md:pb-6 md:px-6">
             <div class="text-[#707070] mb-1">
               {{ moment(event.date).format("DD MMM YYYY")
               }}<span v-if="event.endDate">
                 - {{ moment(event.endDate).format("DD MMM YYYY") }}</span
               >
             </div>
-            <div class="flex items-center">
+            <div class="flex flex-col md:flex-row md:items-center">
               <h2
-                class="font-bold text-2xl flex-1 leading-none whitespace-nowrap overflow-hidden text-ellipsis"
+                class="font-bold text-[1.375rem] md:text-2xl flex-1 leading-none whitespace-nowrap overflow-hidden text-ellipsis mb-6 md:mb-0"
               >
                 {{ event.title }}
               </h2>
-              <button
-                type="button"
-                class="rounded-full p-1 leading-none font-bold w-[6.25rem] border border-[#353535]"
+              <app-link
+                to="lang-event-id"
+                :params="{ id: event.id }"
+                class="rounded-full p-1 leading-none font-bold w-full md:w-[6.25rem] border border-[#353535] text-center"
               >
                 Sign up
-              </button>
+              </app-link>
             </div>
           </div>
         </div>
@@ -130,11 +145,11 @@
       <div class="text-center">
         <button
           type="button"
-          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-[#353535]"
+          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-[#353535] disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreEvents"
-          v-if="eventsHasMore"
+          :disabled="!eventsHasMore"
         >
-          View More
+          {{ eventsHasMore ? "View More" : "No More" }}
         </button>
       </div>
     </section>
@@ -161,7 +176,7 @@
   const blogsLimit = ref(4);
   const blogsPage = ref(1);
   const blogsHasMore = ref(true);
-  const { data: blogsResponse, error: blogsError } = useQuery({
+  const { data: blogsResponse, error: blogsError } = await useQuery({
     query: `
       query ($page: Int!, $limit: Int!) {
         blog(limit: $limit, page: $page, filter: {translations: {languages_code: {code: {_eq: "${lang}"}}}}) {
@@ -179,6 +194,14 @@
     `,
     variables: { page: blogsPage, limit: blogsLimit },
   });
+
+  if (blogsResponse.value.blog.length < blogsLimit.value) {
+    blogsHasMore.value = false;
+  }
+  blogs.value = blogsResponse.value.blog.map((v) => ({
+    ...v.translations[0],
+    id: v.id,
+  }));
   watch(
     () => blogsResponse.value,
     (result) => {
@@ -204,7 +227,7 @@
   const eventsPage = ref(1);
   const eventsHasMore = ref(true);
 
-  const { data: eventsResponse, error: eventsError } = useQuery({
+  const { data: eventsResponse, error: eventsError } = await useQuery({
     query: `
       query ($page: Int!, $limit: Int!) {
         event(limit: $limit, page: $page, filter: {translations: {languages_code: {code: {_eq: "${lang}"}}}}) {
@@ -229,6 +252,13 @@
     `,
     variables: { page: eventsPage, limit: eventsLimit },
   });
+  events.value = eventsResponse.value.event.map((v) => ({
+    ...v.translations[0],
+    id: v.id,
+  }));
+  if (eventsResponse.value.event.length < eventsLimit.value) {
+    eventsHasMore.value = false;
+  }
   watch(
     () => eventsResponse.value,
     (result) => {

@@ -1,8 +1,8 @@
 <template>
   <footer
-    class="bg-white body-font text-normal text-xl md:text-sm px-8 border-t-[#E9E9E9] border-t"
+    class="bg-white body-font text-normal text-xl md:text-sm border-t-[#E9E9E9] border-t"
   >
-    <div class="container mx-auto">
+    <div class="container mx-auto px-8 md:px-6 lg:px-0">
       <div
         class="py-10 md:py-24 flex items-start md:flex-row md:flex-nowrap flex-wrap flex-col"
       >
@@ -23,20 +23,22 @@
           <div class="lg:w-1/4 md:w-1/3 w-1/2">
             <nav class="list-none">
               <li class="mb-4">
-                <a class="" href="#">{{ l("our_story") }}</a>
+                <app-link to="lang-our-story">{{ l("our_story") }}</app-link>
               </li>
               <li class="mb-4">
-                <a class="" href="#">{{ l("our_story") }}</a>
+                <app-link to="lang-solutions-beblu-suite">{{
+                  l("solution")
+                }}</app-link>
               </li>
               <li>
-                <a class="" href="#">{{ l("portfolio") }}</a>
+                <app-link to="lang-portfolio">{{ l("portfolio") }}</app-link>
               </li>
             </nav>
           </div>
           <div class="lg:w-1/4 md:w-1/3 w-1/2">
             <nav class="list-none">
               <li class="mb-4">
-                <a class="" href="#">{{ l("community") }}</a>
+                <app-link to="lang-community">{{ l("community") }}</app-link>
               </li>
               <li class="mb-4">
                 <app-link to="lang-careers">{{ l("careers") }}</app-link>
@@ -56,7 +58,7 @@
         </div>
       </div>
       <div
-        class="flex flex-col md:flex-row border-t border-[#E9E9E9] items-center md:justify-between -mx-8 px-8"
+        class="flex flex-col md:flex-row border-t border-[#E9E9E9] items-center md:justify-between"
       >
         <div
           class="md:order-2 flex justify-center items-center mt-8 md:mt-0 flex-1 w-72 md:w-1/3 text-black"
@@ -95,10 +97,41 @@
         </div>
       </div>
     </div>
+    <div
+      class="flex px-[1.25rem] py-4 flex-col md:flex-row md:items-center justify-center fixed bottom-0 w-full"
+      style="background: rgba(0, 0, 0, 0.9)"
+      v-if="!cookiesPrivacyAgreed"
+    >
+      <div
+        class="text-white text-xs cookie-privacy-text mb-[0.875rem] md:mb-0 md:mr-8"
+      >
+        This site uses cookies to ensure that you get the best experience
+        possible. Learn more
+      </div>
+      <button
+        type="button"
+        class="border-white text-white border rounded-full p-2 text-xs leading-none w-[7.125rem] cookie-privacy-btn"
+        @click="agreeCookiesPrivacy"
+      >
+        Accept
+      </button>
+    </div>
   </footer>
 </template>
 
 <script setup lang="ts">
   import { useLabels } from "~~/composables/useLabels";
   const l = await useLabels();
+
+  const cookiesPrivacyAgreed = ref(true);
+
+  if (process.client) {
+    cookiesPrivacyAgreed.value =
+      localStorage.getItem("cookiesPrivacyAgreed") === "true";
+  }
+
+  function agreeCookiesPrivacy() {
+    cookiesPrivacyAgreed.value = true;
+    localStorage.setItem("cookiesPrivacyAgreed", "true");
+  }
 </script>

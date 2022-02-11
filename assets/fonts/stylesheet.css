@@ -26,71 +26,6 @@
 }
 
 @font-face {
-    font-family: 'FF Good Pro Cond Ultra';
-    src: url('/fonts/FFGoodProCond-UltraItalic.eot');
-    src: local('FF Good Pro Cond Ultra Italic'), local('/fonts/FFGoodProCond-UltraItalic'),
-        url('/fonts/FFGoodProCond-UltraItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-UltraItalic.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-UltraItalic.woff') format('woff'),
-        url('/fonts/FFGoodProCond-UltraItalic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'FF Good Pro Cond News';
-    src: url('/fonts/FFGoodProCond-News.eot');
-    src: local('FF Good Pro Cond News'), local('/fonts/FFGoodProCond-News'),
-        url('/fonts/FFGoodProCond-News.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-News.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-News.woff') format('woff'),
-        url('/fonts/FFGoodProCond-News.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'FF Good Pro Cond';
-    src: url('/fonts/FFGoodProCond-BoldItalic.eot');
-    src: local('FF Good Pro Cond Bold Italic'), local('/fonts/FFGoodProCond-BoldItalic'),
-        url('/fonts/FFGoodProCond-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-BoldItalic.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-BoldItalic.woff') format('woff'),
-        url('/fonts/FFGoodProCond-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'FF Good Pro Cond';
-    src: url('/fonts/FFGoodProCond-LightItalic.eot');
-    src: local('FF Good Pro Cond Light Italic'), local('/fonts/FFGoodProCond-LightItalic'),
-        url('/fonts/FFGoodProCond-LightItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-LightItalic.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-LightItalic.woff') format('woff'),
-        url('/fonts/FFGoodProCond-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'FF Good Pro Cond News';
-    src: url('/fonts/FFGoodProCond-NewsItalic.eot');
-    src: local('FF Good Pro Cond News Italic'), local('/fonts/FFGoodProCond-NewsItalic'),
-        url('/fonts/FFGoodProCond-NewsItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-NewsItalic.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-NewsItalic.woff') format('woff'),
-        url('/fonts/FFGoodProCond-NewsItalic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: fallback;
-}
-
-@font-face {
     font-family: 'FF Good Pro Cond';
     src: url('/fonts/FFGoodProCond-Italic.eot');
     src: local('FF Good Pro Cond Italic'), local('/fonts/FFGoodProCond-Italic'),
@@ -99,19 +34,6 @@
         url('/fonts/FFGoodProCond-Italic.woff') format('woff'),
         url('/fonts/FFGoodProCond-Italic.ttf') format('truetype');
     font-weight: normal;
-    font-style: italic;
-    font-display: fallback;
-}
-
-@font-face {
-    font-family: 'FF Good Pro Cond';
-    src: url('/fonts/FFGoodProCond-MediumItalic.eot');
-    src: local('FF Good Pro Cond Medium Italic'), local('/fonts/FFGoodProCond-MediumItalic'),
-        url('/fonts/FFGoodProCond-MediumItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-MediumItalic.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-MediumItalic.woff') format('woff'),
-        url('/fonts/FFGoodProCond-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
     font-style: italic;
     font-display: fallback;
 }
@@ -142,18 +64,6 @@
     font-display: fallback;
 }
 
-@font-face {
-    font-family: 'FF Good Pro Cond';
-    src: url('/fonts/FFGoodProCond-BlackItalic.eot');
-    src: local('FF Good Pro Cond Black Italic'), local('/fonts/FFGoodProCond-BlackItalic'),
-        url('/fonts/FFGoodProCond-BlackItalic.eot?#iefix') format('embedded-opentype'),
-        url('/fonts/FFGoodProCond-BlackItalic.woff2') format('woff2'),
-        url('/fonts/FFGoodProCond-BlackItalic.woff') format('woff'),
-        url('/fonts/FFGoodProCond-BlackItalic.ttf') format('truetype');
-    font-weight: 900;
-    font-style: italic;
-    font-display: fallback;
-}
 
 @font-face {
     font-family: 'FF Good Pro Cond';

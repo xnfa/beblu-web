@@ -1,10 +1,12 @@
 <template>
-  <div class="text-normal">
+  <app-not-found v-if="p.notFound"></app-not-found>
+  <div v-else class="text-normal">
     <div class="mx-auto">
       <div
         class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
         :style="`background-image: url('${
-          'http://localhost:8055/assets/' + p('section_1_cover').filename_disk
+          'http://nathan.local.deansel.com:8055/assets/' +
+          p('section_1_cover').filename_disk
         }')`"
       ></div>
       <div
@@ -28,7 +30,8 @@
       <div
         class="relative bg-cover bg-center h-[31rem] lg:h-[40rem] mt-8"
         :style="`background-image: url('${
-          'http://localhost:8055/assets/' + p('section_2_cover').filename_disk
+          'http://nathan.local.deansel.com:8055/assets/' +
+          p('section_2_cover').filename_disk
         }')`"
       >
         <div
@@ -93,7 +96,8 @@
           <div
             class="bg-cover bg-center w-[8.625rem] h-[8.625rem] rounded-2xl mb-[0.875rem]"
             :style="`background-image: url('${
-              'http://localhost:8055/assets/' + card.item.cover.filename_disk
+              'http://nathan.local.deansel.com:8055/assets/' +
+              card.item.cover.filename_disk
             }');`"
           ></div>
           <h3
@@ -120,7 +124,8 @@
         <img
           class="block mr-[3.75rem] h-[27.75rem]"
           :src="
-            'http://localhost:8055/assets/' + p('section_4_cover').filename_disk
+            'http://nathan.local.deansel.com:8055/assets/' +
+            p('section_4_cover').filename_disk
           "
           alt=""
         />
@@ -149,7 +154,8 @@
           class="rounded-xl shadow-md w-[16rem] h-[6.25rem] bg-contain bg-center bg-no-repeat bg-origin-content p-6"
           v-for="card in p('section_6_cards')"
           :style="`background-image: url('${
-            'http://localhost:8055/assets/' + card.item.cover.filename_disk
+            'http://nathan.local.deansel.com:8055/assets/' +
+            card.item.cover.filename_disk
           }'); width: calc(25% - 1.25rem);`"
         ></div>
       </div>
@@ -157,7 +163,8 @@
     <section
       class="h-[25rem] bg-cover bg-center flex justify-center items-center"
       :style="`background-image: url('${
-        'http://localhost:8055/assets/' + p('section_7_bg').filename_disk
+        'http://nathan.local.deansel.com:8055/assets/' +
+        p('section_7_bg').filename_disk
       }');`"
     >
       <h2

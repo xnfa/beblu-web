@@ -5,7 +5,7 @@
     class="bg-white shadow-[0_1px_0_#E7E7E7] relative bg-whit z-10"
     v-slot="{ open, close }"
   >
-    <div class="relative container mx-auto px-6 lg:px-8 bg-white z-10">
+    <div class="relative container mx-auto bg-white z-10 px-8 md:px-6 lg:p-0">
       <div class="relative flex items-center justify-between bg-white h-16">
         <transition
           enter-active-class="transition ease-out duration-300"
@@ -63,18 +63,32 @@
           <div
             class="hidden items-center justify-center md:flex md:ml-6 flex-1"
           >
-            <div class="space-x-8 text-normal">
+            <div class="md:space-x-6 lg:space-x-8 text-normal">
               <app-link
-                to="lang-download"
+                to="lang-our-story"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
                 {{ l("our_story") }}
               </app-link>
               <Disclosure v-slot="{ open }">
                 <DisclosureButton
-                  class="inline-flex relative items-center hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md box-border"
+                  :class="[
+                    open ? 'bg-[#ECFCFE]' : '',
+                    'inline-flex relative items-center hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md box-border',
+                  ]"
                 >
-                  <span>{{ l("solution") }}</span>
+                  <router-link
+                    :to="{
+                      name: 'lang-solutions',
+                      params: { lang },
+                    }"
+                    custom
+                    v-slot="{ isActive }"
+                  >
+                    <span :class="isActive ? 'text-[#37C0BA]' : ''">{{
+                      l("solution")
+                    }}</span>
+                  </router-link>
                   <ChevronUpIcon
                     :class="open ? 'transform rotate-180' : ''"
                     class="ml-1 w-4 h-4 text-[#A5B3C1]"
@@ -83,28 +97,28 @@
                     class="origin-top-right absolute left-[-2rem] top-8 mt-2 w-36 rounded-md bg-white shadow-lg py-1 flex flex-col"
                   >
                     <app-link
-                      to="lang-download"
+                      to="lang-solutions-beblu-suite"
                       class="p-2 hover:text-[#37C0BA]"
                     >
-                      Product 1
+                      Beblu Suite
                     </app-link>
                     <app-link
-                      to="lang-download"
+                      to="lang-solutions-smart-sensors"
                       class="p-2 hover:text-[#37C0BA]"
                     >
-                      Product 1
+                      Smart Sensors
                     </app-link>
                   </DisclosurePanel>
                 </DisclosureButton>
               </Disclosure>
               <app-link
-                to="lang-download"
+                to="lang-portfolio"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
                 {{ l("portfolio") }}
               </app-link>
               <app-link
-                to="lang-download"
+                to="lang-community"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
               >
                 {{ l("community") }}
@@ -119,7 +133,7 @@
           </div>
         </div>
         <div class="relative items-center pr-2 hidden md:flex">
-          <app-link class="text-normal" to="lang-download">
+          <app-link class="text-normal md:mr-4 lg:mr-6" to="lang-download">
             {{ l("download") }}
           </app-link>
 
@@ -127,7 +141,7 @@
           <Menu as="div" class="ml-3 relative text-normal z-50">
             <div>
               <MenuButton
-                class="bg-[#E4E9ED] flex text-sm rounded-full items-center justify-center px-2 space-x-1"
+                class="bg-[#E4E9ED] flex text-sm rounded-full items-center justify-center px-2 py-1 space-x-1"
               >
                 <img src="/images/icons/global_small.svg" alt="" />
                 <span>{{ langName }}</span>
@@ -144,15 +158,15 @@
               <MenuItems
                 class="origin-top-right absolute -left-16 mt-2 w-36 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
               >
-                <MenuItem v-slot="{ active }" v-for="lang in languages">
+                <MenuItem v-for="l in languages">
                   <a
-                    :href="'/' + lang.code"
+                    :href="'/' + l.code"
                     :class="[
-                      active ? 'bg-gray-100' : '',
+                      lang === l.code ? 'text-[#37C0BA]' : '',
                       'block px-4 py-2 text-normal',
                     ]"
                   >
-                    {{ lang.name }}
+                    {{ l.name }}
                   </a>
                 </MenuItem>
               </MenuItems>
@@ -174,9 +188,9 @@
         class="absolute w-full bg-[#F4F6FA] z-0 h-[100vh]"
         v-slot="{ close }"
       >
-        <div class="px-2 pt-[5.375rem] pb-3 flex flex-col">
+        <div class="px-2 pt-8 pb-3 h-full overflow-y-scroll flex flex-col">
           <app-link
-            to="lang-download"
+            to="lang-our-story"
             class="text-[2rem] font-light text-center p-5 rounded-md leading-none"
             @click="
               close();
@@ -186,7 +200,7 @@
             {{ l("our_story") }}
           </app-link>
           <app-link
-            to="lang-download"
+            to="lang-solutions-beblu-suite"
             class="text-[2rem] font-light text-center p-5 rounded-md leading-none"
             @click="
               close();
@@ -196,7 +210,7 @@
             Beblu Suite
           </app-link>
           <app-link
-            to="lang-download"
+            to="lang-solutions-smart-sensors"
             class="text-[2rem] font-light text-center p-5 rounded-md leading-none"
             @click="
               close();
@@ -206,7 +220,7 @@
             Smart Sensors
           </app-link>
           <app-link
-            to="lang-download"
+            to="lang-portfolio"
             class="text-[2rem] font-light text-center p-5 rounded-md leading-none"
             @click="
               close();
@@ -216,7 +230,7 @@
             {{ l("portfolio") }}
           </app-link>
           <app-link
-            to="lang-download"
+            to="lang-community"
             class="text-[2rem] font-light text-center p-5 rounded-md leading-none"
             @click="
               close();
@@ -236,12 +250,46 @@
             {{ l("contact_us") }}
           </app-link>
           <div class="flex items-center justify-center mt-[4rem]">
-            <button
-              class="bg-[#E4E9ED] flex text-xl rounded-full items-center justify-center p-2 space-x-1 leading-none"
-            >
-              <img src="/images/icons/global_small.svg" alt="" />
-              <span>{{ langName }}</span>
-            </button>
+            <Disclosure v-slot="{ open }">
+              <DisclosureButton
+                class="bg-[#E4E9ED] flex text-xl rounded-full items-center justify-center px-4 py-3 space-x-1 leading-none"
+              >
+                <img src="/images/icons/global_small.svg" alt="" />
+                <span>{{ langName }}</span>
+              </DisclosureButton>
+              <transition
+                enter-active-class="transition duration-500 ease-out"
+                enter-from-class="transform -translate-y-full"
+                enter-to-class="transform translate-y-0"
+                leave-active-class="transition duration-500 ease-out"
+                leave-from-class="transform translate-y-0"
+                leave-to-class="transform -translate-y-full"
+              >
+                <DisclosurePanel
+                  class="absolute w-full bg-white z-0 h-[100vh] top-0"
+                >
+                  <div
+                    class="px-2 pt-8 pb-3 h-full overflow-y-scroll flex flex-col"
+                  >
+                    <h2
+                      class="text-[2rem] text-black font-bold text-center p-5 rounded-md leading-none"
+                    >
+                      Choose a language
+                    </h2>
+                    <a
+                      :href="'/' + l.code"
+                      :class="[
+                        lang === l.code ? 'text-[#37C0BA]' : '',
+                        'text-[2rem] font-light text-center p-5 rounded-md leading-none',
+                      ]"
+                      v-for="l in languages"
+                    >
+                      {{ l.name }}
+                    </a>
+                  </div>
+                </DisclosurePanel>
+              </transition>
+            </Disclosure>
           </div>
         </div>
       </DisclosurePanel>

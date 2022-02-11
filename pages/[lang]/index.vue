@@ -35,8 +35,7 @@
       >
         <button
           type="button"
-          class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[172px]"
-          style="box-shadow: 0px 2px 10px rgba(104, 252, 252, 0.25)"
+          class="rounded-full p-3 text-lg text-normal hover:text-white leading-none flex-1 bg-white hover:bg-[#28DAD2] shadow-[0_2px_10px_rgba(104,252,252,0.25)] hover:shadow-[0_2px_10px_#68FCFC] font-bold w-[172px]"
         >
           {{ l("download").toUpperCase() }}
         </button>
@@ -66,22 +65,22 @@
           ref="ball_2"
         />
       </div>
-      <div class="absolute">
+      <div class="relative text-normal">
         <h2
-          class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
           ref="section2Text1"
         >
           {{ p("section_2_text_1") }}
         </h2>
         <h2
-          class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
-          ref="section2Text1"
+          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          ref="section2Text2"
         >
           {{ p("section_2_text_2") }}
         </h2>
         <h2
-          class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
-          ref="section2Text1"
+          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          ref="section2Text3"
         >
           {{ p("section_2_text_3") }}
         </h2>
@@ -91,12 +90,12 @@
     <section class="overflow-hidden h-[100vh] bg-[#768797]" ref="section_3">
       <div class="flex flex-col md:flex-row container mx-auto w-full h-full">
         <div
-          class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full relative overflow-hidden order-6 md:order-1 mx-auto"
+          class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full flex justify-center align-bottom relative overflow-hidden order-6 md:order-1 mx-auto"
         >
-          <div ref="canvas_3" class="absolute bottom-0"></div>
+          <div ref="canvas_3" class="h-full aspect-[375/471] mx-auto"></div>
         </div>
         <div
-          class="w-full md:w-[50%] h-[300px] order-5 text-white flex flex-col md:justify-center p-[3rem]"
+          class="w-full md:w-[50%] h-[20rem] order-5 text-white flex flex-col md:justify-center p-[3rem]"
         >
           <div class="relative">
             <div class="absolute">
@@ -107,10 +106,10 @@
                 {{ p("section_3_title_1") }}
               </h2>
               <p
-                class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
+                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
                 ref="section3Text1"
               >
-                {{ p("section_3_title_1") }}
+                {{ p("section_3_content_1") }}
               </p>
             </div>
             <div class="absolute">
@@ -121,10 +120,10 @@
                 {{ p("section_3_title_2") }}
               </h2>
               <p
-                class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
+                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
                 ref="section3Text2"
               >
-                {{ p("section_3_title_2") }}
+                {{ p("section_3_content_2") }}
               </p>
             </div>
             <div class="absolute">
@@ -135,10 +134,10 @@
                 {{ p("section_3_title_3") }}
               </h2>
               <p
-                class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
+                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
                 ref="section3Text3"
               >
-                {{ p("section_3_title_3") }}
+                {{ p("section_3_content_3") }}
               </p>
             </div>
             <div class="absolute">
@@ -149,10 +148,10 @@
                 {{ p("section_3_title_4") }}
               </h2>
               <p
-                class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
+                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
                 ref="section3Text4"
               >
-                {{ p("section_3_title_4") }}
+                {{ p("section_3_content_4") }}
               </p>
             </div>
             <div class="absolute">
@@ -163,10 +162,10 @@
                 {{ p("section_3_title_5") }}
               </h2>
               <p
-                class="text-[1.375rem] font-light mt-[2.5rem] opacity-0"
+                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
                 ref="section3Text5"
               >
-                {{ p("section_3_title_5") }}
+                {{ p("section_3_content_5") }}
               </p>
             </div>
           </div>
@@ -201,18 +200,18 @@
             {{ p("section_4_content") }}
           </p>
           <div class="flex flex-col md:flex-row gap-6 md:gap-10 mt-6">
-            <button
-              type="button"
-              class="border-white border-2 rounded-full p-3 text-[1.375rem] leading-none flex-1"
+            <app-link
+              to="lang-community"
+              class="border-white hover:bg-white hover:text-black text-center border rounded-full p-3 text-[1.375rem] leading-none flex-1"
             >
               {{ p("section_4_btn_events") }}
-            </button>
-            <button
-              type="button"
-              class="border-white border-2 rounded-full p-3 text-[1.375rem] leading-none flex-1"
+            </app-link>
+            <app-link
+              to="lang-community"
+              class="border-white hover:bg-white hover:text-black text-center border rounded-full p-3 text-[1.375rem] leading-none flex-1"
             >
               {{ p("section_4_btn_blog") }}
-            </button>
+            </app-link>
           </div>
         </div>
       </div>
@@ -231,13 +230,14 @@
             {{ p("section_5_content") }}
           </p>
           <div class="mt-10">
-            <button
-              type="button"
-              class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[172px]"
-              style="box-shadow: 0px 2px 10px rgba(104, 252, 252, 0.25)"
-            >
-              {{ l("download").toUpperCase() }}
-            </button>
+            <app-link to="lang-download">
+              <button
+                type="button"
+                class="rounded-full p-3 text-lg text-normal hover:text-white leading-none flex-1 bg-white hover:bg-[#28DAD2] shadow-[0_2px_10px_rgba(104,252,252,0.25)] hover:shadow-[0_2px_10px_#68FCFC] font-bold w-[172px]"
+              >
+                {{ l("download").toUpperCase() }}
+              </button>
+            </app-link>
           </div>
         </div>
       </div>
@@ -378,14 +378,15 @@
           ball_2,
           canvas_2,
           section2Text1,
-          section3Text2,
+          section2Text2,
+          section2Text3,
         } = this.$refs;
         const handle = lottie.loadAnimation({
           container: canvas_2, // the dom element that will contain the animation
           renderer: "svg",
           loop: true,
           autoplay: false,
-          path: "lottie/home-section-2/data.json", // the path to the animation json
+          path: "/lottie/home-section-2/data.json", // the path to the animation json
         });
 
         const tl = gsap.timeline({
@@ -396,25 +397,72 @@
         tl.fromTo(
           section2Text1,
           {
-            y: 50,
+            rotateX: "90deg",
           },
           {
-            y: 0,
+            rotateX: "0deg",
             opacity: 1,
-            duration: 1,
+            duration: 1.5,
             ease: "power3",
           },
-          "<+=2"
-        ).to(
-          section2Text1,
-          {
-            y: -50,
-            opacity: 0,
-            duration: 1,
-            ease: "power3",
-          },
-          5
-        );
+          0
+        )
+          .to(
+            section2Text1,
+            {
+              rotateX: "-90deg",
+              opacity: 0,
+              duration: 1.5,
+              ease: "power3",
+            },
+            4
+          )
+          .fromTo(
+            section2Text2,
+            {
+              rotateX: "90deg",
+            },
+            {
+              rotateX: "0deg",
+              opacity: 1,
+              duration: 1.5,
+              ease: "power3",
+            },
+            "<+=1.5"
+          )
+          .to(
+            section2Text2,
+            {
+              rotateX: "-90deg",
+              opacity: 0,
+              duration: 1.5,
+              ease: "power3",
+            },
+            8
+          )
+          .fromTo(
+            section2Text3,
+            {
+              rotateX: "90deg",
+            },
+            {
+              rotateX: "0deg",
+              opacity: 1,
+              duration: 1.5,
+              ease: "power3",
+            },
+            "<+=1.5"
+          )
+          .to(
+            section2Text3,
+            {
+              rotateX: "-90deg",
+              opacity: 0,
+              duration: 1.5,
+              ease: "power3",
+            },
+            20.5
+          );
 
         ScrollTrigger.create({
           trigger: section_2,
@@ -424,7 +472,7 @@
               handle.play();
               tl.play();
             } else {
-              handle.stop();
+              handle.pause();
               tl.pause();
             }
           },
@@ -473,7 +521,7 @@
           renderer: "svg",
           loop: true,
           autoplay: false,
-          path: "lottie/home-section-3/data.json", // the path to the animation json
+          path: "/lottie/home-section-3/data.json", // the path to the animation json
         });
         const tl = gsap.timeline({
           repeat: -1,
@@ -491,7 +539,7 @@
             duration: 1,
             ease: "power3",
           },
-          "<+=2"
+          "<+=1"
         )
           .fromTo(
             section3Text1,
@@ -622,7 +670,7 @@
               duration: 1,
               ease: "power3",
             },
-            20.5
+            21.5
           )
           .fromTo(
             section3Header5,
@@ -723,13 +771,13 @@
         this.section5Animate();
       }, 1000);
     },
-    beforeUnmount() {
-      // this.trigger1.kill();
-      const triggers = ScrollTrigger.getAll();
-      for (let i = 0; i < triggers.length; i++) {
-        triggers[i].kill(true);
-      }
-    },
+    // beforeUnmount() {
+    //   // this.trigger1.kill();
+    //   const triggers = ScrollTrigger.getAll();
+    //   for (let i = 0; i < triggers.length; i++) {
+    //     triggers[i].kill(true);
+    //   }
+    // },
   };
 </script>
 

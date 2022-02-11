@@ -8,22 +8,24 @@
   import "./assets/css/tailwind.css";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { createClient, provideClient } from "@urql/vue";
   import { useRouter } from "vue-router";
 
   const router = useRouter();
 
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollToPlugin);
   gsap.ticker.lagSmoothing(0);
 
   const client = createClient({
-    url: "http://localhost:8055/graphql",
+    url: "http://nathan.local.deansel.com:8055/graphql",
   });
 
   provideClient(client);
 
   router.afterEach(() => {
-    window.scrollTo(0, 0);
+    gsap.to(window, { duration: 0.5, scrollTo: 0 });
   });
 </script>
 
@@ -33,6 +35,15 @@
     font-weight: 400;
     font-style: normal;
     /* scroll-snap-type: y proximity; */
+  }
+  button,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+  }
+  button:active,
+  a:active {
+    -webkit-transform: scale3d(0.9, 0.9, 1);
   }
   .article h1 {
     font-size: 3rem;
@@ -61,5 +72,14 @@
     line-height: 24px;
     color: #707070;
     margin-bottom: 2.5rem;
+  }
+  .router-link-active {
+    color: #37c0ba;
+  }
+  .cookie-privacy-text {
+    font-family: sans-serif;
+  }
+  .cookie-privacy-btn {
+    font-family: sans-serif;
   }
 </style>

@@ -2,12 +2,18 @@
   <div class="text-normal">
     <div class="mx-auto">
       <img
-        :src="'http://localhost:8055/assets/' + p('cover').filename_disk"
+        :src="
+          'http://nathan.local.deansel.com:8055/assets/' +
+          p('cover').filename_disk
+        "
         alt=""
         class="container mx-auto hidden md:block rounded-lg mt-8"
       />
       <img
-        :src="'http://localhost:8055/assets/' + p('cover_sm').filename_disk"
+        :src="
+          'http://nathan.local.deansel.com:8055/assets/' +
+          p('cover_sm').filename_disk
+        "
         alt=""
         class="block w-full md:hidden"
       />
