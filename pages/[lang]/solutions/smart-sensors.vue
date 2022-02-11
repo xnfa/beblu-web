@@ -14,7 +14,7 @@
         >
           {{ p("title") }}
         </h1>
-        <p class="text-xl md:text-base text-white">
+        <p class="text-xl md:text-base text-white text-center">
           {{ p("content") }}
         </p>
       </div>
