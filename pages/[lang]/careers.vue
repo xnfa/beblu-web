@@ -34,7 +34,9 @@
         <p
           class="text-center text-[1.25rem] md:text-[2rem] text-[#37C0BA] mb-[2.5rem] md:mb-[4rem]"
         >
-          30 openings
+          {{ filteredPositions.length }}
+          <span v-if="keyword || location || department">results</span
+          ><span v-else>openings</span>
         </p>
         <div class="flex flex-col md:flex-row px-[1.875rem]">
           <div class="md:w-[257px] md:mr-[91px] mb-[3.75rem] md:mb-0">
@@ -53,17 +55,19 @@
                   d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                 />
               </svg>
-              <button
+              <!-- <button
                 type="button"
                 class="absolute right-3 top-1/2 -mt-4 bg-[#37C0BA] text-white text-sm leading-8 font-medium px-4 rounded-lg"
               >
                 Search
-              </button>
+              </button> -->
               <input
-                class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 pl-10 ring-1 ring-slate-200 shadow-sm"
+                class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 pl-10 pr-4 ring-1 ring-slate-200 shadow-sm"
                 type="text"
                 aria-label="Job role"
                 placeholder="Job role"
+                :value="keyword"
+                @input="(event) => setKeyword(event)"
               />
             </form>
             <h2 class="text-[2rem] font-bold mb-4">Filter by</h2>
@@ -73,18 +77,28 @@
                 type="text"
                 aria-label="Location"
                 placeholder="Location"
+                :value="location"
+                @input="(event) => setLocation(event)"
               />
               <input
                 class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 px-4 ring-1 ring-slate-200 shadow-sm"
                 type="text"
                 aria-label="Department"
                 placeholder="Department"
+                :value="department"
+                @input="(event) => setDepartment(event)"
               />
             </form>
           </div>
           <div class="border-t-[#E9E9E9] border-t flex-1">
             <div
-              v-for="position in positions"
+              class="border-t-[#E9E9E9] border-b py-4 text-center text-light text-xl"
+              v-if="filteredPositions.length === 0"
+            >
+              no results
+            </div>
+            <div
+              v-for="position in filteredPositions"
               class="border-t-[#E9E9E9] border-b py-4"
             >
               <h3 class="font-bold text-[2rem]">
@@ -105,6 +119,7 @@
   import { useRoute, useRouter } from "vue-router";
   import { usePageLabels } from "~~/composables/usePageLabels";
   import { useQuery } from "@urql/vue";
+  import { ref, computed } from "vue";
   const p = await usePageLabels("careers", [
     `cover {
       filename_disk
@@ -120,6 +135,19 @@
 
   const route = useRoute();
   const lang = route.params.lang || "en";
+  let keyword = ref("");
+  let location = ref("");
+  let department = ref("");
+
+  function setKeyword(e) {
+    keyword.value = e.target.value;
+  }
+  function setLocation(e) {
+    location.value = e.target.value;
+  }
+  function setDepartment(e) {
+    department.value = e.target.value;
+  }
 
   const { data, error } = await useQuery({
     query: `
@@ -138,4 +166,15 @@
   const positions = data.value.position
     .filter((v) => v.translations.length > 0)
     .map((v) => v.translations[0]);
+
+  const filteredPositions = computed(() => {
+    return positions.filter((v) => {
+      return (
+        v.title.toLowerCase().indexOf(keyword.value.toLowerCase()) > -1 &&
+        v.department.toLowerCase().indexOf(department.value.toLowerCase()) >
+          -1 &&
+        v.location.toLowerCase().indexOf(location.value.toLowerCase()) > -1
+      );
+    });
+  });
 </script>

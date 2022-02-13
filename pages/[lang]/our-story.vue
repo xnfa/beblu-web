@@ -13,7 +13,7 @@
         class="pt-[3.75rem] pb-[2.5rem] md:pt-[5rem] md:pb-[3.75rem] px-[1.875rem]"
       >
         <div
-          class="xl:max-w-[64rem] container mx-auto flex flex-col md:flex-row md:items-center"
+          class="xl:max-w-[64rem] container mx-auto flex flex-col md:flex-row md:items-center relative"
         >
           <div class="md:w-72">
             <h1
@@ -23,6 +23,16 @@
             </h1>
           </div>
           <div class="flex-1 article" v-html="p('section_1_content')"></div>
+          <img
+            class="absolute top-[4.85rem] left-[6.8rem] w-[7.25rem] z-[-1]"
+            src="/images/sections/our-story-section-1/ball.png"
+            alt=""
+          />
+          <img
+            class="absolute bottom-0 right-24 w-[7.25rem] z-[-1]"
+            src="/images/sections/our-story-section-1/ball.png"
+            alt=""
+          />
         </div>
       </div>
     </div>
@@ -124,36 +134,164 @@
         </div>
       </div>
     </section>
-    <section class="py-10">
-      <div class="container mx-auto flex flex-col-reverse md:flex-row">
-        <img
-          class="block md:mr-[3.75rem] md:h-[27.75rem]"
-          :src="
-            'http://nathan.local.deansel.com:8055/assets/' +
-            p('section_4_cover').filename_disk
-          "
-          alt=""
-        />
-        <div class="flex-1 flex flex-col justify-center md:mb-0 mb-10">
+    <section class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
+      <div
+        class="flex flex-col md:flex-row-reverse gap-8 md:gap-16 md:max-w-[56.5rem] container mx-auto"
+      >
+        <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] font-bold leading-none mb-6 px-8 md:px-0 text-center md:text-left"
+            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_4_title") }}
           </h2>
-          <p class="text-[#707070] px-8 md:px-0">
+          <p class="text-xl md:text-base text-light">
             {{ p("section_4_content") }}
           </p>
         </div>
+        <div class="flex-1">
+          <img
+            class="rounded-2xl"
+            :src="
+              'http://nathan.local.deansel.com:8055/assets/' +
+              p('section_4_cover').filename_disk
+            "
+            alt=""
+          />
+        </div>
       </div>
     </section>
-    <section class="py-10 bg-[#F4F6FA]">
-      <div class="container mx-auto">
-        <h2
-          class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
+    <section
+      class="bg-[#F4F6FA] py-[3.75rem] md:py-20 px-[1.125rem] md:px-8"
+      v-if="p('section_5_cards').length > 0"
+    >
+      <h2
+        class="text-[3rem] md:text-[4rem] font-black leading-none text-center mb-8 md:mb-10 md:max-w-[34rem] mx-auto"
+      >
+        {{ p("section_5_title") }}
+      </h2>
+      <div class="flex-row gap-6 flex-wrap container mx-auto flex md:hidden">
+        <a
+          class="block bg-white rounded-2xl overflow-hidden w-[calc(50%-0.75rem)]"
+          :href="card.item.url"
+          v-for="card in p('section_5_cards').slice(0, 2)"
         >
-          {{ p("section_5_title") }}
-        </h2>
-        <div class="flex w-[55.25rem]"></div>
+          <div
+            class="h-[6.375rem] bg-cover bg-center"
+            :style="`background-image: url('${
+              'http://nathan.local.deansel.com:8055/assets/' +
+              card.item.cover.filename_disk
+            }');`"
+          ></div>
+          <div class="px-6 pt-4 pb-5">
+            <h3
+              class="font-bold text-[1.375rem] leading-none mb-2 overflow-hidden"
+              style="
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ card.item.title }}
+            </h3>
+            <p
+              class="text-light overflow-hidden mb-3"
+              style="
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ card.item.content }}
+            </p>
+            <p class="text-light text-xs">
+              {{ moment(card.item.date).format("MMM D, YYYY") }}
+            </p>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-row gap-6 md:gap-5 flex-wrap container mx-auto hidden md:flex xl:hidden max-w-[55.25rem]"
+      >
+        <a
+          class="bg-white rounded-2xl overflow-hidden w-full flex"
+          :href="card.item.url"
+          v-for="card in p('section_5_cards').slice(0, 1)"
+        >
+          <div
+            class="bg-cover bg-center flex-1"
+            :style="`background-image: url('${
+              'http://nathan.local.deansel.com:8055/assets/' +
+              card.item.cover.filename_disk
+            }');`"
+          ></div>
+          <div class="px-6 pt-4 pb-5 flex-1">
+            <h3
+              class="font-bold text-[2rem] leading-none mb-5 overflow-hidden"
+              style="
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ card.item.title }}
+            </h3>
+            <p
+              class="text-light text-xl md:text-base overflow-hidden mb-3"
+              style="
+                display: -webkit-box;
+                -webkit-line-clamp: 5;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ card.item.content }}
+            </p>
+            <p class="text-light text-xs">
+              {{ moment(card.item.date).format("MMM D, YYYY") }}
+            </p>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-row gap-6 md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 hidden xl:flex"
+      >
+        <a
+          class="block bg-white rounded-2xl overflow-hidden w-[calc(16.67%-1.045rem)]"
+          :href="card.item.url"
+          v-for="card in p('section_5_cards').slice(0, 6)"
+        >
+          <div
+            class="h-[6.375rem] bg-cover bg-center"
+            :style="`background-image: url('${
+              'http://nathan.local.deansel.com:8055/assets/' +
+              card.item.cover.filename_disk
+            }');`"
+          ></div>
+          <div class="px-6 pt-4 pb-5">
+            <h3
+              class="font-bold text-2xl leading-none mb-2 overflow-hidden"
+              style="
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ card.item.title }}
+            </h3>
+            <p
+              class="text-light text-xl md:text-base overflow-hidden mb-3"
+              style="
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+              "
+            >
+              {{ card.item.content }}
+            </p>
+            <p class="text-light text-xs">
+              {{ moment(card.item.date).format("MMM D, YYYY") }}
+            </p>
+          </div>
+        </a>
       </div>
     </section>
     <section class="py-10">
@@ -202,6 +340,7 @@
 <script setup lang="ts">
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
+  import moment from "moment";
   const l = await useLabels();
   const p = await usePageLabels("our_story", [
     "section_1_content",
@@ -242,13 +381,21 @@
       filename_disk
     }`,
     "section_4_title",
-    "section_5_content",
-    `section_5_cover {
-      filename_disk
-    }`,
-    "section_5_time",
     "section_5_title",
-    "section_5_title_2",
+    `section_5_cards {
+      item {
+        ... on press {
+          id
+          title
+          content
+          date
+          url
+          cover {
+            filename_disk
+          }
+        }
+      }
+    }`,
     `section_6_cards {
       item {
         ... on our_story_section_6_card {

@@ -43,7 +43,9 @@
   }
   button:active,
   a:active {
-    -webkit-transform: scale3d(0.9, 0.9, 1);
+    transform: scale3d(0.95, 0.95, 1);
+    transition-property: transform;
+    transition-duration: 0.2s;
   }
   .article h1 {
     font-size: 3rem;

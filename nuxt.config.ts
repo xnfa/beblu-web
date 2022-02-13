@@ -5,7 +5,11 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  css: ["@/assets/css/tailwind.css", "@/assets/fonts/stylesheet.css"],
+  css: [
+    "@/assets/css/tailwind.css",
+    "@/assets/fonts/stylesheet.css",
+    "@splidejs/splide/dist/css/splide.min.css",
+  ],
   build: {
     transpile: ["@heroicons/vue", "gsap", "moment", "@urql/vue"],
     postcss: {

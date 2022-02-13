@@ -22,7 +22,7 @@
 
     <section class="py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <div
-        class="flex flex-col-reverse md:flex-row-reverse gap-8 md:gap-16 md:max-w-[56.5rem] container mx-auto"
+        class="flex flex-col-reverse md:flex-row-reverse gap-8 md:gap-16 md:max-w-[56.5rem] container mx-auto last:mb-0 mb-20"
         v-for="product in products"
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
@@ -47,15 +47,27 @@
             </button>
           </div>
         </div>
-        <div class="flex-1">
-          <img
-            class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              product.images[0].directus_files_id.filename_disk
-            "
-            alt=""
-          />
+        <div class="flex-1 rounded-2xl overflow-hidden">
+          <Splide
+            :options="{
+              rewind: true,
+              type: 'slide',
+              arrows: false,
+              cover: true,
+              heightRatio: 1,
+            }"
+            ref="splide"
+          >
+            <SplideSlide v-for="image in product.images">
+              <img
+                :src="
+                  'http://nathan.local.deansel.com:8055/assets/' +
+                  image.directus_files_id.filename_disk
+                "
+                alt="smart sensors"
+              />
+            </SplideSlide>
+          </Splide>
         </div>
       </div>
     </section>
@@ -100,6 +112,21 @@
     .map((v) => v.translations[0]);
 </script>
 
+<script lang="ts">
+  import { Splide, SplideSlide } from "@splidejs/vue-splide";
+  export default {
+    components: { Splide, SplideSlide },
+    mounted() {
+      for (let i = 0; i < this.$refs.splide?.length; i++) {
+        const h = this.$refs.splide[i];
+        setTimeout(() => {
+          h.splide.emit("resize");
+        }, 800);
+      }
+    },
+  };
+</script>
+
 <style>
   .product h2 {
     font-size: 1.25rem;
@@ -131,5 +158,16 @@
       margin-left: 1rem;
       color: #707070;
     }
+  }
+  .splide__pagination__page {
+    background: #c4c4c4;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+  }
+  .splide__pagination__page.is-active {
+    background: #37c0ba;
+    width: 12px;
+    transform: scale(1);
   }
 </style>

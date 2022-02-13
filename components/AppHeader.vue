@@ -122,24 +122,33 @@
                   </router-link>
                   <ChevronUpIcon
                     :class="open ? 'transform rotate-180' : ''"
-                    class="ml-1 w-4 h-4 text-[#A5B3C1]"
+                    class="ml-1 w-4 h-4 text-[#A5B3C1] transition-all"
                   />
-                  <DisclosurePanel
-                    class="origin-top-right absolute left-[-2rem] top-8 mt-2 w-36 rounded-md bg-white shadow-lg py-1 flex flex-col"
+                  <transition
+                    enter-active-class="transition ease-out duration-300"
+                    enter-from-class="transform opacity-0 scale-0"
+                    enter-to-class="transform opacity-100 scale-100"
+                    leave-active-class="transition ease-in duration-300"
+                    leave-from-class="transform opacity-100 scale-100"
+                    leave-to-class="transform opacity-0 scale-0"
                   >
-                    <app-link
-                      to="lang-solutions-beblu-suite"
-                      class="p-2 hover:text-[#37C0BA]"
+                    <DisclosurePanel
+                      class="absolute left-[-2rem] top-8 mt-2 w-36 rounded-md bg-white shadow-lg py-1 flex flex-col"
                     >
-                      Beblu Suite
-                    </app-link>
-                    <app-link
-                      to="lang-solutions-smart-sensors"
-                      class="p-2 hover:text-[#37C0BA]"
-                    >
-                      Smart Sensors
-                    </app-link>
-                  </DisclosurePanel>
+                      <app-link
+                        to="lang-solutions-beblu-suite"
+                        class="p-2 hover:text-[#37C0BA]"
+                      >
+                        Beblu Suite
+                      </app-link>
+                      <app-link
+                        to="lang-solutions-smart-sensors"
+                        class="p-2 hover:text-[#37C0BA]"
+                      >
+                        Smart Sensors
+                      </app-link>
+                    </DisclosurePanel>
+                  </transition>
                 </DisclosureButton>
               </Disclosure>
               <app-link
@@ -337,7 +346,7 @@
   const { data, error } = await useQuery({
     query: `
     {
-      languages {
+      languages(sort: "order") {
         name
         code
       }
