@@ -9,7 +9,7 @@
       leave-to-class="transform opacity-0"
     >
       <div
-        class="px-4 md:px-2 py-3 text-xl md:text-base absolute top-24 left-1/2 -translate-x-1/2 rounded text-white"
+        class="px-4 md:px-2 py-3 text-xl md:text-base fixed top-24 left-1/2 -translate-x-1/2 rounded text-white"
         style="background-color: rgba(0, 0, 0, 0.8)"
         v-if="toastShow"
       >
