@@ -12,9 +12,9 @@
         class="pt-[3.75rem] pb-[2.5rem] md:pt-[5rem] md:pb-[3.75rem] px-[1.875rem]"
       >
         <div
-          class="xl:max-w-[64rem] container mx-auto flex flex-col md:flex-row md:items-center relative"
+          class="xl:max-w-[64rem] container mx-auto flex flex-col md:flex-row md:items-center md:gap-24 relative"
         >
-          <div class="md:w-72">
+          <div>
             <h1
               class="text-[3rem] text-center md:text-left md:text-[4rem] font-black leading-none mb-12"
             >
@@ -103,7 +103,7 @@
         class="container flex flex-row gap-4 md:gap-5 flex-wrap md:justify-center px-8 md:px-0 mx-auto"
       >
         <div
-          class="rounded-xl shadow-md bg-white p-2 pb-4 text-center w-[calc(50%-0.5rem)] md:w-auto"
+          class="rounded-xl shadow-md bg-white p-2 pb-4 text-center w-[calc(50%-0.5rem)] md:w-[9.625rem]"
           v-for="card in p('section_3_cards')"
         >
           <div
@@ -122,12 +122,14 @@
           >
             {{ card.item.title }}
           </h3>
-          <button
-            type="button"
-            class="rounded-full p-1 leading-none font-bold w-[6.5rem] border border-black hover:bg-black hover:text-white"
-          >
-            {{ p("section_3_btn_label") }}
-          </button>
+          <a :href="card.item.url" target="_blank">
+            <button
+              type="button"
+              class="rounded-full p-1 leading-none font-bold w-[6.5rem] border border-black hover:bg-black hover:text-white"
+            >
+              {{ p("section_3_btn_label") }}
+            </button>
+          </a>
         </div>
       </div>
     </section>
@@ -203,7 +205,7 @@
         </a>
       </div>
       <div
-        class="flex-row gap-6 md:gap-5 flex-wrap container mx-auto hidden md:flex xl:hidden max-w-[55.25rem]"
+        class="flex-row gap-6 md:gap-5 justify-center flex-wrap container mx-auto hidden md:flex xl:hidden max-w-[55.25rem]"
       >
         <a
           class="bg-white rounded-2xl overflow-hidden w-full flex"
@@ -244,7 +246,7 @@
         </a>
       </div>
       <div
-        class="flex-row gap-6 md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 hidden xl:flex"
+        class="flex-row gap-6 justify-center md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 hidden xl:flex"
       >
         <a
           class="block bg-white rounded-2xl overflow-hidden w-[calc(16.67%-1.045rem)]"
@@ -285,14 +287,14 @@
         </a>
       </div>
     </section>
-    <section class="py-10">
+    <section class="py-[3.75rem] md:py-20 px-3 md:px-8">
       <h2
         class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
       >
         {{ p("section_6_title") }}
       </h2>
       <div
-        class="container mx-auto px-3 md:px-0 flex gap-2 md:gap-5 flex-wrap justify-center"
+        class="container max-w-[80rem] mx-auto flex gap-2 md:gap-5 flex-wrap justify-center"
       >
         <div
           class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 lg:p-6 w-[calc(25%-0.375rem)] md:w-[calc(25%-0.938rem)] aspect-[78/30]"
@@ -360,6 +362,7 @@
           cover {
             filename_disk
           }
+          url
         }
       }
     }`,

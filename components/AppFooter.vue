@@ -10,10 +10,7 @@
           <app-link to="lang" class="block h-14 w-auto mr-16 mb-6">
             <img src="/images/logo.svg" alt="Workflow" />
           </app-link>
-          <p class="">
-            7 Harvey Road, #10-01, Lebond Singapore 369613<br />Email:
-            hello@beblu.com<br />Contact: +65 69803921
-          </p>
+          <p v-html="l('address')"></p>
         </div>
         <div
           class="flex-grow flex flex-wrap md:pl-20 md:mt-0 mt-10 text-left md:justify-end"
@@ -90,7 +87,7 @@
         </div>
         <div class="md:order-1 my-6 md:w-1/3">
           <p class="text-center md:text-left font-normal md:font-medium">
-            Copyright © 2021 Beblu. All rights reserved
+            {{ l("copy_right") }}
           </p>
         </div>
       </div>
