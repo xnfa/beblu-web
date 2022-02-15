@@ -41,7 +41,7 @@
         </button>
       </app-link>
     </section>
-    <section class="relative overflow-hidden h-[600vh]" ref="section_2">
+    <section class="relative overflow-hidden h-[100vh]" ref="section_2">
       <div class="fixed -z-10 top-0 left-0 h-[100vh] w-[100vw]">
         <img
           class="absolute top-[75px] left-[-45px] w-[178px]"
@@ -92,7 +92,7 @@
         ></div>
       </div>
     </section>
-    <section class="overflow-hidden h-[700vh] bg-[#768797]" ref="section_3">
+    <section class="overflow-hidden h-[100vh] bg-[#768797]" ref="section_3">
       <div class="flex flex-col md:flex-row container mx-auto w-full h-[100vh]">
         <div
           class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-end relative overflow-hidden order-6 md:order-1 mx-auto"
@@ -412,8 +412,8 @@
             scrub: 1,
             pin: true,
             start: "top top",
-            end: "bottom bottom",
-            pinSpacing: false,
+            end: "+=6000",
+            // pinSpacing: false,
             anticipatePin: 1,
             snap: {
               snapTo: "labelsDirectional", // snap to the closest label in the timeline
@@ -543,8 +543,8 @@
             trigger: section_3,
             pin: true,
             start: "top top",
-            end: "bottom bottom",
-            pinSpacing: false,
+            end: "+=8000",
+            // pinSpacing: false,
             scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
             snap: {
               snapTo: "labelsDirectional", // snap to the closest label in the timeline
