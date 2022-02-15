@@ -63,9 +63,9 @@
         />
       </div>
       <div
-        class="relative text-normal h-[100vh] flex flex-col justify-center items-center pt-[7.25rem] md:pt-[4rem]"
+        class="relative text-normal h-[100vh] flex flex-col pt-[7.25rem] md:pt-[4rem]"
       >
-        <div class="relative h-[3rem] md:h-[20%] w-full text-center">
+        <div class="relative flex-1 md:h-[20%] w-full text-center">
           <h2
             class="absolute bottom-0 w-full whitespace-nowrap text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
             ref="section2Text1"
@@ -86,7 +86,10 @@
           </h2>
         </div>
 
-        <div ref="canvas_2" class="flex-1 overflow-hidden"></div>
+        <div
+          ref="canvas_2"
+          class="w-full h-auto max-w-[30rem] aspect-[640/858] mx-auto"
+        ></div>
       </div>
     </section>
     <section class="overflow-hidden h-[700vh] bg-[#768797]" ref="section_3">
