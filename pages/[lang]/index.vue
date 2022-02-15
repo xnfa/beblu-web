@@ -1,7 +1,7 @@
 <template>
   <div ref="container">
     <section
-      class="relative overflow-hidden h-[100vh] hero flex flex-col items-center"
+      class="relative overflow-hidden h-[calc(100vh-4rem)] hero flex flex-col items-center"
       ref="section_1"
     >
       <div
@@ -22,7 +22,7 @@
         alt=""
       />
       <div
-        class="text-5xl md:text-[4.875rem] md:mt-[112px] mt-[56px] font-bold text-normal text-center leading-none"
+        class="text-5xl md:text-[4.75rem] md:mt-[112px] mt-[56px] font-bold text-normal text-center leading-none"
       >
         {{ p("section_1_title") }}
       </div>
@@ -67,19 +67,19 @@
       </div>
       <div class="relative text-normal">
         <h2
-          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
           ref="section2Text1"
         >
           {{ p("section_2_text_1") }}
         </h2>
         <h2
-          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
           ref="section2Text2"
         >
           {{ p("section_2_text_2") }}
         </h2>
         <h2
-          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
           ref="section2Text3"
         >
           {{ p("section_2_text_3") }}
@@ -100,7 +100,7 @@
           <div class="relative">
             <div class="absolute">
               <h2
-                class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+                class="text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
                 ref="section3Header1"
               >
                 {{ p("section_3_title_1") }}
@@ -114,7 +114,7 @@
             </div>
             <div class="absolute">
               <h2
-                class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+                class="text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
                 ref="section3Header2"
               >
                 {{ p("section_3_title_2") }}
@@ -128,7 +128,7 @@
             </div>
             <div class="absolute">
               <h2
-                class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+                class="text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
                 ref="section3Header3"
               >
                 {{ p("section_3_title_3") }}
@@ -142,7 +142,7 @@
             </div>
             <div class="absolute">
               <h2
-                class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+                class="text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
                 ref="section3Header4"
               >
                 {{ p("section_3_title_4") }}
@@ -156,7 +156,7 @@
             </div>
             <div class="absolute">
               <h2
-                class="text-[3rem] md:text-[4.875rem] font-black leading-none opacity-0"
+                class="text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
                 ref="section3Header5"
               >
                 {{ p("section_3_title_5") }}
@@ -176,7 +176,7 @@
       class="overflow-hidden relative h-[100vh] bg-[#000000]"
       ref="section_4"
     >
-      <div class="h-full">
+      <div class="md:h-full md:absolute w-full opacity-0" ref="section4Cover">
         <img
           class="hidden md:block w-full"
           src="/images/sections/home-section-4/img_events.png"
@@ -186,13 +186,15 @@
           src="/images/sections/home-section-4/img_events-sm.png"
         />
       </div>
-      <div class="absolute bottom-0 w-full text-white">
+      <div
+        class="absolute md:absolute bottom-[8%] md:bottom-[5rem] xl:bottom-[7.5rem] w-full text-white flex items-center justify-center"
+      >
         <div
           class="mx-auto md:w-[37rem] px-[1.875rem] md:px-0 opacity-0"
           ref="section4Text"
         >
           <h2
-            class="text-[3rem] md:text-[4.875rem] font-black leading-none text-center md:text-left"
+            class="text-[3rem] md:text-[4.75rem] font-black leading-none text-center md:text-left"
           >
             {{ p("section_4_title") }}
           </h2>
@@ -221,9 +223,12 @@
       ref="section_5"
       style="background-image: url('/images/sections/download/bg.jpg')"
     >
-      <div class="absolute bottom-0 w-full text-black text-center">
-        <div class="mx-auto md:w-[37rem] opacity-0" ref="section5Text">
-          <h2 class="text-[3rem] md:text-[4.875rem] font-black leading-none">
+      <div class="text-black text-center">
+        <div
+          class="mx-auto px-6 md:px-0 md:w-[37rem] w-full opacity-0 absolute top-1/2 left-1/2"
+          ref="section5Text"
+        >
+          <h2 class="text-[3rem] md:text-[4.75rem] font-black leading-none">
             {{ p("section_5_title") }}
           </h2>
           <p class="text-[1.375rem] mt-5">
@@ -233,7 +238,7 @@
             <app-link to="lang-download">
               <button
                 type="button"
-                class="rounded-full p-3 text-lg text-normal hover:text-white leading-none flex-1 bg-white hover:bg-[#28DAD2] shadow-[0_2px_10px_rgba(104,252,252,0.25)] hover:shadow-[0_2px_10px_#68FCFC] font-bold w-[172px]"
+                class="rounded-full p-3 text-lg text-normal hover:text-white leading-none flex-1 bg-white hover:bg-[#28DAD2] shadow-[0_2px_10px_rgba(104,252,252,0.25)] hover:shadow-[0_2px_10px_#68FCFC] font-bold w-[10.75rem]"
               >
                 {{ l("download").toUpperCase() }}
               </button>
@@ -243,7 +248,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center"
+      class="overflow-hidden relative min-h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center"
       ref="section_6"
     >
       <app-contact-us></app-contact-us>
@@ -322,6 +327,9 @@
       },
     },
   ];
+  definePageMeta({
+    layout: "default",
+  });
 </script>
 
 <script lang="ts">
@@ -384,13 +392,12 @@
         const handle = lottie.loadAnimation({
           container: canvas_2, // the dom element that will contain the animation
           renderer: "svg",
-          loop: true,
+          loop: false,
           autoplay: false,
           path: "/lottie/home-section-2/data.json", // the path to the animation json
         });
 
         const tl = gsap.timeline({
-          repeat: -1,
           paused: true,
         });
 
@@ -464,19 +471,36 @@
             20.5
           );
 
-        ScrollTrigger.create({
-          trigger: section_2,
-          start: "top bottom",
-          onToggle: (self) => {
-            if (self.isActive) {
-              handle.play();
-              tl.play();
-            } else {
-              handle.pause();
-              tl.pause();
-            }
+        const progress = { frame: 0 };
+        gsap.to(progress, {
+          frame: 2200,
+          snap: "frame",
+          scrollTrigger: {
+            trigger: section_2,
+            scrub: true,
+            pin: true,
+            start: "top top",
+            end: "+=300%",
+          },
+          onUpdate: () => {
+            tl.seek(progress.frame / 100);
+            handle.goToAndStop((progress.frame / 100) * 1000, false);
           },
         });
+        // ScrollTrigger.create({
+        //   trigger: section_2,
+        //   start: "top bottom",
+
+        //   onToggle: (self) => {
+        //     if (self.isActive) {
+        //       handle.play();
+        //       tl.play();
+        //     } else {
+        //       handle.pause();
+        //       tl.pause();
+        //     }
+        //   },
+        // });
 
         // ball move
         gsap.to(ball_0, {
@@ -519,12 +543,11 @@
         const handle = lottie.loadAnimation({
           container: canvas_3, // the dom element that will contain the animation
           renderer: "svg",
-          loop: true,
+          loop: false,
           autoplay: false,
           path: "/lottie/home-section-3/data.json", // the path to the animation json
         });
         const tl = gsap.timeline({
-          repeat: -1,
           paused: true,
         });
 
@@ -709,48 +732,86 @@
             28
           );
 
-        ScrollTrigger.create({
-          trigger: section_3,
-          start: "top bottom",
-          onToggle: (self) => {
-            if (self.isActive) {
-              handle.play();
-              tl.play();
-            } else {
-              handle.pause();
-              tl.pause();
-            }
+        const progress = { frame: 0 };
+        gsap.to(progress, {
+          frame: 2200,
+          snap: "frame",
+          scrollTrigger: {
+            trigger: section_3,
+            scrub: true,
+            pin: true,
+            start: "top top",
+            end: "+=500%",
+          },
+          onUpdate: () => {
+            tl.seek(progress.frame / 100);
+            handle.goToAndStop((progress.frame / 100) * 1000, false);
           },
         });
+
+        // ScrollTrigger.create({
+        //   trigger: section_3,
+        //   start: "top bottom",
+        //   onToggle: (self) => {
+        //     if (self.isActive) {
+        //       handle.play();
+        //       tl.play();
+        //     } else {
+        //       handle.pause();
+        //       tl.pause();
+        //     }
+        //   },
+        // });
       },
       section4Animate() {
-        const { section_4, section4Text } = this.$refs;
-        gsap.to(section4Text, {
+        const { section_4, section4Text, section4Cover } = this.$refs;
+        gsap.to(section4Cover, {
           opacity: 1,
-          duration: 2,
-          y: -100,
-          repeatRefresh: true,
+          duration: 0.3,
           scrollTrigger: {
             trigger: section_4,
             start: "center bottom",
             end: "center top",
           },
         });
+        gsap.fromTo(
+          section4Text,
+          {
+            y: "100px",
+          },
+          {
+            opacity: 1,
+            duration: 1,
+            y: "0",
+            repeatRefresh: true,
+            scrollTrigger: {
+              trigger: section_4,
+              start: "center bottom",
+              end: "center top",
+            },
+          }
+        );
       },
       section5Animate() {
         const { section_5, section5Text } = this.$refs;
-        gsap.to(section5Text, {
-          opacity: 1,
-          duration: 2,
-          ease: "power3",
-          y: "-50vh",
-          repeatRefresh: true,
-          scrollTrigger: {
-            trigger: section_5,
-            start: "center bottom",
-            end: "center top",
+        gsap.fromTo(
+          section5Text,
+          {
+            x: "-50%",
           },
-        });
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "power3",
+            y: "-50%",
+            repeatRefresh: true,
+            scrollTrigger: {
+              trigger: section_5,
+              start: "center bottom",
+              end: "center top",
+            },
+          }
+        );
         ScrollTrigger.create({
           trigger: section_5,
           start: "top top",
@@ -763,13 +824,11 @@
       this.section1PopRefs = [];
     },
     async mounted() {
-      setTimeout(() => {
-        this.section1Animate();
-        this.section2Animate();
-        this.section3Animate();
-        this.section4Animate();
-        this.section5Animate();
-      }, 1000);
+      this.section1Animate();
+      this.section2Animate();
+      this.section3Animate();
+      this.section4Animate();
+      this.section5Animate();
     },
     // beforeUnmount() {
     //   // this.trigger1.kill();

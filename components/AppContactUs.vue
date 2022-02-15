@@ -1,5 +1,5 @@
 <template>
-  <div id="form" class="px-8">
+  <div id="form" class="px-8 py-[3.75rem] md:py-[5rem]">
     <transition
       enter-active-class="transition ease-out duration-300"
       enter-from-class="transform opacity-0"
@@ -108,6 +108,7 @@
 <script lang="ts" setup>
   import { useLabels } from "~~/composables/useLabels";
   const l = await useLabels();
+  const config = useRuntimeConfig();
 </script>
 
 <script lang="ts">
@@ -126,7 +127,7 @@
     },
     methods: {
       async submit() {
-        await axios.post("http://nathan.local.deansel.com:8055/items/message", {
+        await axios.post(`${this.config.API_BASE}/items/message`, {
           name: this.name,
           company: this.company,
           email: this.email,

@@ -1,6 +1,9 @@
 <template>
   <div>
-    <NuxtPage />
+    <Title>Beblu</Title>
+    <nuxt-layout>
+      <nuxt-page />
+    </nuxt-layout>
   </div>
 </template>
 
@@ -13,13 +16,14 @@
   import { useRouter } from "vue-router";
 
   const router = useRouter();
+  const config = useRuntimeConfig();
 
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(ScrollToPlugin);
   gsap.ticker.lagSmoothing(0);
 
   const client = createClient({
-    url: "http://nathan.local.deansel.com:8055/graphql",
+    url: `${config.API_BASE}/graphql`,
   });
 
   provideClient(client);
@@ -31,10 +35,9 @@
 
 <style>
   html {
-    font-family: "FF Good Pro Cond";
+    font-family: "FF Good Pro Cond", sans-serif;
     font-weight: 400;
     font-style: normal;
-    /* scroll-snap-type: y proximity; */
   }
   button,
   a {

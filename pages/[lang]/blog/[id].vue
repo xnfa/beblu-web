@@ -3,8 +3,7 @@
     <div
       class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
       :style="`background-image: url('${
-        'http://nathan.local.deansel.com:8055/assets/' +
-        blog.cover.filename_disk
+        config.CDN_BASE + blog.cover.filename_disk
       }')`"
     ></div>
     <div class="article container py-20 px-8 mx-auto">
@@ -19,6 +18,7 @@
   import { useQuery } from "@urql/vue";
 
   const route = useRoute();
+  const config = useRuntimeConfig();
   const lang = route.params.lang || "en";
   const id = route.params.id;
 

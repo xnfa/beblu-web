@@ -50,4 +50,5 @@
 <script setup lang="ts">
   import { usePageLabels } from "~~/composables/usePageLabels";
   const p = await usePageLabels("download", ["title", "content"]);
+  const config = useRuntimeConfig();
 </script>

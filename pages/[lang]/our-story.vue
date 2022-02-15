@@ -5,8 +5,7 @@
       <div
         class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
         :style="`background-image: url('${
-          'http://nathan.local.deansel.com:8055/assets/' +
-          p('section_1_cover').filename_disk
+          config.CDN_BASE + p('section_1_cover').filename_disk
         }')`"
       ></div>
       <div
@@ -40,8 +39,7 @@
       <div
         class="relative bg-cover bg-center h-[31rem] lg:h-[40rem] mt-8"
         :style="`background-image: url('${
-          'http://nathan.local.deansel.com:8055/assets/' +
-          p('section_2_cover').filename_disk
+          config.CDN_BASE + p('section_2_cover').filename_disk
         }')`"
       >
         <div
@@ -111,8 +109,7 @@
           <div
             class="bg-cover bg-center aspect-square md:w-[8.625rem] rounded-2xl mb-[0.875rem]"
             :style="`background-image: url('${
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover.filename_disk
             }');`"
           ></div>
           <h3
@@ -127,7 +124,7 @@
           </h3>
           <button
             type="button"
-            class="rounded-full p-1 leading-none font-bold w-[6.5rem] border border-[#353535]"
+            class="rounded-full p-1 leading-none font-bold w-[6.5rem] border border-black hover:bg-black hover:text-white"
           >
             {{ p("section_3_btn_label") }}
           </button>
@@ -151,10 +148,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_4_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_4_cover').filename_disk"
             alt=""
           />
         </div>
@@ -178,8 +172,7 @@
           <div
             class="h-[6.375rem] bg-cover bg-center"
             :style="`background-image: url('${
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover.filename_disk
             }');`"
           ></div>
           <div class="px-6 pt-4 pb-5">
@@ -220,8 +213,7 @@
           <div
             class="bg-cover bg-center flex-1"
             :style="`background-image: url('${
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover.filename_disk
             }');`"
           ></div>
           <div class="px-6 pt-4 pb-5 flex-1">
@@ -262,8 +254,7 @@
           <div
             class="h-[6.375rem] bg-cover bg-center"
             :style="`background-image: url('${
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover.filename_disk
             }');`"
           ></div>
           <div class="px-6 pt-4 pb-5">
@@ -301,14 +292,13 @@
         {{ p("section_6_title") }}
       </h2>
       <div
-        class="container mx-auto px-8 md:px-0 flex gap-5 flex-wrap justify-center"
+        class="container mx-auto px-3 md:px-0 flex gap-2 md:gap-5 flex-wrap justify-center"
       >
         <div
-          class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 md:p-6 w-[calc(25%-1.25rem)] aspect-[78/30]"
+          class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 md:p-6 w-[calc(25%-0.375rem)] aspect-[78/30]"
           v-for="card in p('section_6_cards')"
           :style="`background-image: url('${
-            'http://nathan.local.deansel.com:8055/assets/' +
-            card.item.cover.filename_disk
+            config.CDN_BASE + card.item.cover.filename_disk
           }');`"
         ></div>
       </div>
@@ -316,8 +306,7 @@
     <section
       class="h-[25rem] px-8 md:px-8 bg-cover bg-center flex flex-col md:flex-row justify-center items-center"
       :style="`background-image: url('${
-        'http://nathan.local.deansel.com:8055/assets/' +
-        p('section_7_bg').filename_disk
+        config.CDN_BASE + p('section_7_bg').filename_disk
       }');`"
     >
       <h2
@@ -413,4 +402,5 @@
     "section_7_btn_label",
     "section_7_title",
   ]);
+  const config = useRuntimeConfig();
 </script>

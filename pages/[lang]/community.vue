@@ -5,8 +5,7 @@
       <div
         class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg flex items-center justify-center"
         :style="`background-image: url('${
-          'http://nathan.local.deansel.com:8055/assets/' +
-          p('cover').filename_disk
+          config.CDN_BASE + p('cover').filename_disk
         }'); background-color: rgba(0, 0, 0, 0.1);`"
       >
         <h1
@@ -30,8 +29,7 @@
           <div
             class="bg-cover bg-center h-[9.625rem] md:h-[16rem]"
             :style="`background-image: url('${
-              'http://nathan.local.deansel.com:8055/assets/' +
-              blog.cover.filename_disk
+              config.CDN_BASE + blog.cover.filename_disk
             }');`"
           ></div>
           <div class="pt-4 px-6 pb-5">
@@ -114,8 +112,7 @@
           <div
             class="bg-cover bg-center h-[6.375rem] md:h-[16rem]"
             :style="`background-image: url('${
-              'http://nathan.local.deansel.com:8055/assets/' +
-              event.cover.filename_disk
+              config.CDN_BASE + event.cover.filename_disk
             }');`"
           ></div>
           <div class="p-[0.875rem] md:pt-4 md:pb-6 md:px-6">
@@ -278,6 +275,7 @@
   function loadMoreEvents() {
     eventsPage.value++;
   }
+  const config = useRuntimeConfig();
 </script>
 
 <script lang="ts">

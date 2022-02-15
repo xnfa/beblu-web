@@ -5,8 +5,7 @@
       <div
         class="flex items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
         :style="`background-image: url('${
-          'http://nathan.local.deansel.com:8055/assets/' +
-          p('section_1_cover').filename_disk
+          config.CDN_BASE + p('section_1_cover').filename_disk
         }')`"
       >
         <h1
@@ -33,10 +32,7 @@
         <div class="flex-1 relative">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_2_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_2_cover').filename_disk"
             alt=""
           />
           <div
@@ -88,10 +84,7 @@
         >
           <img
             class="block w-12 h-12 overflow-hidden"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
-            "
+            :src="config.CDN_BASE + card.item.cover.filename_disk"
             alt=""
           />
           <h3 class="text-black font-bold text-[2rem] text-center leading-none">
@@ -249,10 +242,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_4_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_4_cover').filename_disk"
             alt=""
           />
         </div>
@@ -273,10 +263,7 @@
         >
           <img
             class="block w-full overflow-hidden"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
-            "
+            :src="config.CDN_BASE + card.item.cover.filename_disk"
             alt=""
           />
           <div class="px-6 pt-4 pb-5">
@@ -307,10 +294,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_6_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_6_cover').filename_disk"
             alt=""
           />
         </div>
@@ -336,10 +320,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_7_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_7_cover').filename_disk"
             alt=""
           />
         </div>
@@ -362,10 +343,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_8_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_8_cover').filename_disk"
             alt=""
           />
         </div>
@@ -388,10 +366,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_9_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_9_cover').filename_disk"
             alt=""
           />
         </div>
@@ -406,6 +381,7 @@
 <script setup lang="ts">
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
+  const config = useRuntimeConfig();
   const l = await useLabels();
   const p = await usePageLabels("suite", [
     "section_1_title",

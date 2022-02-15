@@ -5,8 +5,7 @@
       <div
         class="flex items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
         :style="`background-image: url('${
-          'http://nathan.local.deansel.com:8055/assets/' +
-          p('section_1_cover').filename_disk
+          config.CDN_BASE + p('section_1_cover').filename_disk
         }')`"
       >
         <a
@@ -95,10 +94,7 @@
         >
           <img
             class="block w-12 h-12 overflow-hidden mb-2"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              card.item.cover.filename_disk
-            "
+            :src="config.CDN_BASE + card.item.cover.filename_disk"
             alt=""
           />
           <h3 class="text-light">
@@ -125,10 +121,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_3_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_3_cover').filename_disk"
             alt=""
           />
         </div>
@@ -151,10 +144,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_4_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_4_cover').filename_disk"
             alt=""
           />
         </div>
@@ -177,10 +167,7 @@
         <div class="flex-1">
           <img
             class="rounded-2xl"
-            :src="
-              'http://nathan.local.deansel.com:8055/assets/' +
-              p('section_5_cover').filename_disk
-            "
+            :src="config.CDN_BASE + p('section_5_cover').filename_disk"
             alt=""
           />
         </div>
@@ -189,8 +176,7 @@
     <section
       class="bg-cover bg-center h-[37.5rem] bg-black flex flex-col gap-4 md:gap-0 py-[3.75rem] px-[1.875rem] items-center justify-center"
       :style="`background-image: url('${
-        'http://nathan.local.deansel.com:8055/assets/' +
-        p('section_6_cover').filename_disk
+        config.CDN_BASE + p('section_6_cover').filename_disk
       }')`"
     >
       <h3 class="text-lg text-white font-bold text-center md:mb-3">
@@ -260,4 +246,5 @@
     "section_6_subtitle",
     "section_6_title",
   ]);
+  const config = useRuntimeConfig();
 </script>

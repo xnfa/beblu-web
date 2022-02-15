@@ -1,5 +1,5 @@
 <template>
-  <div class="article container mx-auto py-20 px-8">
+  <div class="article container max-w-[80rem] mx-auto py-20 px-8 xl:px-0">
     <h1>Cookie Policy</h1>
     <h2>What are cookies</h2>
     <p>

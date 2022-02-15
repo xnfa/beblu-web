@@ -3,8 +3,7 @@
     <div
       class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
       :style="`background-image: url('${
-        'http://nathan.local.deansel.com:8055/assets/' +
-        event.cover.filename_disk
+        config.CDN_BASE + event.cover.filename_disk
       }')`"
     >
       <div
@@ -250,4 +249,5 @@
     `,
   });
   const event = data.value.event_by_id.translations[0];
+  const config = useRuntimeConfig();
 </script>

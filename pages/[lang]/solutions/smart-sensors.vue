@@ -5,8 +5,7 @@
       <div
         class="flex flex-col items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
         :style="`background-image: url('${
-          'http://nathan.local.deansel.com:8055/assets/' +
-          p('cover').filename_disk
+          config.CDN_BASE + p('cover').filename_disk
         }')`"
       >
         <h1
@@ -60,10 +59,7 @@
           >
             <SplideSlide v-for="image in product.images">
               <img
-                :src="
-                  'http://nathan.local.deansel.com:8055/assets/' +
-                  image.directus_files_id.filename_disk
-                "
+                :src="config.CDN_BASE + image.directus_files_id.filename_disk"
                 alt="smart sensors"
               />
             </SplideSlide>
@@ -78,6 +74,7 @@
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
   import { useQuery } from "@urql/vue";
+  const config = useRuntimeConfig();
   const l = await useLabels();
   const p = await usePageLabels("smart_sensor", [
     "title",
