@@ -31,19 +31,20 @@
             {{ product.title }}
           </h2>
           <div class="product" v-html="product.description"></div>
-          <div class="flex flex-col gap-6 px-8">
-            <button
-              type="button"
-              class="border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none flex-1 font-bold w-[full]"
+          <div class="flex flex-col gap-6 px-8 md:px-0 md:max-w-[14.75rem]">
+            <a
+              :href="product.spec_url"
+              class="block text-center border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none flex-1 font-bold w-[full]"
+              target="_blank"
             >
-              Spec Sheet
-            </button>
-            <button
-              type="button"
-              class="border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none flex-1 font-bold w-[full]"
+              {{ l("spec_sheet") }}
+            </a>
+            <app-link
+              to="lang-contact-us"
+              class="block text-center border-black border hover:bg-black hover:text-white rounded-full p-3 text-lg leading-none flex-1 font-bold w-[full]"
             >
-              Contact Us
-            </button>
+              {{ l("contact_us") }}
+            </app-link>
           </div>
         </div>
         <div class="flex-1 rounded-2xl overflow-hidden">

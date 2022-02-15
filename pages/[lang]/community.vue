@@ -67,13 +67,13 @@
           @click="loadMoreBlogs"
           :disabled="!blogsHasMore"
         >
-          {{ blogsHasMore ? "Read More" : "No More" }}
+          {{ blogsHasMore ? l("read_more") : l("no_more") }}
         </button>
       </div>
     </section>
     <section class="bg-[#F4F6FA] text-normal py-[5rem] px-[1.875rem] md:px-0">
       <h2 class="text-center text-[3rem] md:text-[4rem] font-black mb-10">
-        Upcoming Events
+        {{ l("upcoming_events") }}
       </h2>
       <form class="group relative md:w-[33.375rem] mx-auto md:mb-16 mb-8">
         <svg
@@ -93,13 +93,13 @@
           type="button"
           class="absolute right-3 top-1/2 -mt-4 bg-[#37C0BA] active:bg-[#00938C] text-white leading-8 font-medium px-4 rounded-lg"
         >
-          Search
+          {{ l("search") }}
         </button>
         <input
           class="focus:ring-2 focus:ring-[37C0BA] focus:outline-none appearance-none w-full text-lg leading-6 text-slate-900 placeholder-slate-400 rounded-md py-3 pl-10 ring-1 ring-slate-200 shadow-sm pr-[5.5rem]"
           type="text"
-          aria-label="Search events"
-          placeholder="Search events"
+          :aria-label="l('search_events')"
+          :placeholder="l('search_events')"
         />
       </form>
 
@@ -133,7 +133,7 @@
                 :params="{ id: event.id }"
                 class="rounded-full p-1 leading-none font-bold w-full md:w-[6.25rem] border-black border hover:bg-black hover:text-white text-center"
               >
-                Sign up
+                {{ l("sign_up") }}
               </app-link>
             </div>
           </div>
@@ -146,7 +146,7 @@
           @click="loadMoreEvents"
           :disabled="!eventsHasMore"
         >
-          {{ eventsHasMore ? "View More" : "No More" }}
+          {{ eventsHasMore ? l("view_more") : l("no_more") }}
         </button>
       </div>
     </section>

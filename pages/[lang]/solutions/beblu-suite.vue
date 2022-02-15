@@ -3,7 +3,7 @@
   <div v-else class="text-normal">
     <div class="mx-auto">
       <div
-        class="flex items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
+        class="flex items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg px-[1.875rem] md:px-0"
         :style="`background-image: url('${
           config.CDN_BASE + p('section_1_cover').filename_disk
         }')`"
@@ -39,7 +39,8 @@
             class="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/10"
           >
             <a
-              href="#"
+              :href="p('section_2_video_url')"
+              target="_blank"
               class="block relative group border-white hover:bg-white text-white hover:text-black text-center border rounded-full p-3 text-lg leading-none w-[10.75rem]"
             >
               <svg
@@ -63,7 +64,7 @@
                   </clipPath>
                 </defs>
               </svg>
-              Watch Video
+              {{ l("watch_video") }}
             </a>
           </div>
         </div>

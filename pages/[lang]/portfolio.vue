@@ -9,8 +9,9 @@
         }')`"
       >
         <a
-          href="#"
+          :href="p('section_1_video_link')"
           class="block relative group border-white hover:bg-white text-white hover:text-black text-center border rounded-full p-3 text-lg leading-none w-[10.75rem]"
+          target="_blank"
         >
           <svg
             class="absolute top-1/2 -translate-y-1/2 group-hover:text-black"
@@ -33,7 +34,7 @@
               </clipPath>
             </defs>
           </svg>
-          Watch Video
+          {{ l("watch_video") }}
         </a>
       </div>
       <div
@@ -194,7 +195,7 @@
         to="lang-contact-us"
         class="block relative group border-white hover:bg-white text-white hover:text-black text-center border rounded-full p-3 text-lg leading-none w-full md:w-[10.75rem]"
       >
-        Contact Us
+        {{ l("contact_us") }}
       </app-link>
     </section>
   </div>
