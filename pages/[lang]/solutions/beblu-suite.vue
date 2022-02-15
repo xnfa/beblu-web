@@ -372,7 +372,7 @@
         </div>
       </div>
     </section>
-    <section class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
+    <section class="bg-white py-[3.75rem] md:py-20 md:px-0">
       <app-contact-us></app-contact-us>
     </section>
   </div>

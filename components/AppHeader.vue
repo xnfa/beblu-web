@@ -225,7 +225,7 @@
       leave-to-class="transform -translate-y-full"
     >
       <DisclosurePanel
-        class="absolute w-full bg-[#F4F6FA] z-0 h-[100vh]"
+        class="absolute w-full bg-[#F4F6FA] z-0 h-[calc(100vh-4rem)]"
         v-slot="{ close }"
       >
         <div class="px-2 pt-8 pb-3 h-full overflow-y-scroll flex flex-col">
@@ -306,7 +306,7 @@
                 leave-to-class="transform -translate-y-full"
               >
                 <DisclosurePanel
-                  class="absolute w-full bg-white z-0 h-[100vh] top-0"
+                  class="absolute w-full bg-white z-0 h-[calc(100vh-4rem)] top-0"
                 >
                   <div
                     class="px-2 pt-8 pb-3 h-full overflow-y-scroll flex flex-col"

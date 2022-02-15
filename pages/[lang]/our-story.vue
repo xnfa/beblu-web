@@ -295,7 +295,7 @@
         class="container mx-auto px-3 md:px-0 flex gap-2 md:gap-5 flex-wrap justify-center"
       >
         <div
-          class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 md:p-6 w-[calc(25%-0.375rem)] aspect-[78/30]"
+          class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 lg:p-6 w-[calc(25%-0.375rem)] md:w-[calc(25%-0.938rem)] aspect-[78/30]"
           v-for="card in p('section_6_cards')"
           :style="`background-image: url('${
             config.CDN_BASE + card.item.cover.filename_disk

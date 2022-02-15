@@ -1,11 +1,13 @@
 <template>
   <div
-    class="bg-fixed bg-cover bg-center h-[45rem] md:h-[67.5rem]"
+    class="bg-fixed bg-cover bg-center h-[calc(100vh-4rem)]"
     style="background-image: url('/images/sections/download/bg.jpg')"
   >
-    <div class="h-full bg-black/[0.3]">
+    <div
+      class="h-full bg-black/[0.3] flex flex-col justify-center items-center"
+    >
       <h1
-        class="text-5xl md:text-[4.875rem] text-white pt-[6.25rem] md:pt-[22.25rem] font-bold text-center leading-none"
+        class="text-5xl md:text-[4.875rem] text-white font-bold text-center leading-none"
       >
         {{ p("title") }}
       </h1>

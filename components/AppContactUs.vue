@@ -18,9 +18,8 @@
     </transition>
     <h2
       class="text-[3rem] md:text-[4rem] font-black leading-none text-normal text-center mb-8"
-    >
-      {{ l("contact_us_title") }}
-    </h2>
+      v-html="l('contact_us_title')"
+    ></h2>
     <form class="max-w-[33.75rem] mx-auto" @submit.prevent="submit">
       <input
         required
@@ -61,8 +60,9 @@
         ]"
       />
       <input
-        type="text"
+        type="tel"
         name="phone"
+        pattern="[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*"
         v-model.trim="phone"
         :placeholder="l('contact_us_phone')"
         :class="[

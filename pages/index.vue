@@ -22,7 +22,7 @@
         alt=""
       />
       <div
-        class="text-5xl md:text-[4.75rem] md:mt-[112px] mt-[56px] font-bold text-normal text-center leading-none"
+        class="text-5xl md:text-[4.75rem] md:mt-[112px] mt-[56px] font-bold text-normal text-center leading-none px-[1.875rem] md:px-0"
       >
         {{ p("section_1_title") }}
       </div>
@@ -41,10 +41,7 @@
         </button>
       </app-link>
     </section>
-    <section
-      class="relative flex justify-center overflow-hidden h-[100vh]"
-      ref="section_2"
-    >
+    <section class="relative overflow-hidden h-[600vh]" ref="section_2">
       <div class="fixed -z-10 top-0 left-0 h-[100vh] w-[100vw]">
         <img
           class="absolute top-[75px] left-[-45px] w-[178px]"
@@ -65,34 +62,42 @@
           ref="ball_2"
         />
       </div>
-      <div class="relative text-normal">
-        <h2
-          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
-          ref="section2Text1"
-        >
-          {{ p("section_2_text_1") }}
-        </h2>
-        <h2
-          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
-          ref="section2Text2"
-        >
-          {{ p("section_2_text_2") }}
-        </h2>
-        <h2
-          class="absolute top-[15%] md:top-1/3 whitespace-nowrap -translate-x-1/2 text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
-          ref="section2Text3"
-        >
-          {{ p("section_2_text_3") }}
-        </h2>
+      <div
+        class="relative text-normal h-[100vh] flex flex-col justify-center items-center pt-[7.25rem] md:pt-[4rem]"
+      >
+        <div class="relative h-[3rem] md:h-[20%] w-full text-center">
+          <h2
+            class="absolute bottom-0 w-full whitespace-nowrap text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
+            ref="section2Text1"
+          >
+            {{ p("section_2_text_1") }}
+          </h2>
+          <h2
+            class="absolute bottom-0 w-full whitespace-nowrap text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
+            ref="section2Text2"
+          >
+            {{ p("section_2_text_2") }}
+          </h2>
+          <h2
+            class="absolute bottom-0 w-full whitespace-nowrap text-[3rem] md:text-[4.75rem] font-black leading-none opacity-0"
+            ref="section2Text3"
+          >
+            {{ p("section_2_text_3") }}
+          </h2>
+        </div>
+
+        <div ref="canvas_2" class="flex-1 overflow-hidden"></div>
       </div>
-      <div ref="canvas_2" class="absolute bottom-0 w-[1080px]"></div>
     </section>
-    <section class="overflow-hidden h-[100vh] bg-[#768797]" ref="section_3">
-      <div class="flex flex-col md:flex-row container mx-auto w-full h-full">
+    <section class="overflow-hidden h-[400vh] bg-[#768797]" ref="section_3">
+      <div class="flex flex-col md:flex-row container mx-auto w-full h-[100vh]">
         <div
-          class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full flex justify-center align-bottom relative overflow-hidden order-6 md:order-1 mx-auto"
+          class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-end relative overflow-hidden order-6 md:order-1 mx-auto"
         >
-          <div ref="canvas_3" class="h-full aspect-[375/471] mx-auto"></div>
+          <div
+            ref="canvas_3"
+            class="h-full md:h-auto md:w-full aspect-[375/471] mx-auto"
+          ></div>
         </div>
         <div
           class="w-full md:w-[50%] h-[20rem] order-5 text-white flex flex-col md:justify-center p-[3rem]"
@@ -399,6 +404,24 @@
 
         const tl = gsap.timeline({
           paused: true,
+          scrollTrigger: {
+            trigger: section_2,
+            scrub: 1,
+            pin: true,
+            start: "top top",
+            end: "bottom bottom",
+            pinSpacing: false,
+            anticipatePin: 1,
+            snap: {
+              snapTo: "labelsDirectional", // snap to the closest label in the timeline
+              duration: { min: 0.2, max: 2 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+              delay: 0.1, // wait 0.2 seconds from the last scroll event before doing the snapping
+              ease: "none", // the ease of the snap animation ("power3" by default)
+            },
+            onUpdate: (e) => {
+              handle.goToAndStop(e.progress * 655, true);
+            },
+          },
         });
 
         tl.fromTo(
@@ -409,20 +432,21 @@
           {
             rotateX: "0deg",
             opacity: 1,
-            duration: 1.5,
+            duration: 1,
             ease: "power3",
           },
           0
         )
+          .addLabel("1", 2)
           .to(
             section2Text1,
             {
               rotateX: "-90deg",
               opacity: 0,
-              duration: 1.5,
+              duration: 1,
               ease: "power3",
             },
-            4
+            2
           )
           .fromTo(
             section2Text2,
@@ -432,20 +456,21 @@
             {
               rotateX: "0deg",
               opacity: 1,
-              duration: 1.5,
+              duration: 1,
               ease: "power3",
             },
-            "<+=1.5"
+            3
           )
+          .addLabel("2", 6)
           .to(
             section2Text2,
             {
               rotateX: "-90deg",
               opacity: 0,
-              duration: 1.5,
+              duration: 1,
               ease: "power3",
             },
-            8
+            6
           )
           .fromTo(
             section2Text3,
@@ -455,52 +480,13 @@
             {
               rotateX: "0deg",
               opacity: 1,
-              duration: 1.5,
+              duration: 1,
               ease: "power3",
             },
-            "<+=1.5"
+            7
           )
-          .to(
-            section2Text3,
-            {
-              rotateX: "-90deg",
-              opacity: 0,
-              duration: 1.5,
-              ease: "power3",
-            },
-            20.5
-          );
-
-        const progress = { frame: 0 };
-        gsap.to(progress, {
-          frame: 2200,
-          snap: "frame",
-          scrollTrigger: {
-            trigger: section_2,
-            scrub: true,
-            pin: true,
-            start: "top top",
-            end: "+=300%",
-          },
-          onUpdate: () => {
-            tl.seek(progress.frame / 100);
-            handle.goToAndStop((progress.frame / 100) * 1000, false);
-          },
-        });
-        // ScrollTrigger.create({
-        //   trigger: section_2,
-        //   start: "top bottom",
-
-        //   onToggle: (self) => {
-        //     if (self.isActive) {
-        //       handle.play();
-        //       tl.play();
-        //     } else {
-        //       handle.pause();
-        //       tl.pause();
-        //     }
-        //   },
-        // });
+          .to(section2Text3, { duration: 0 }, 21.8)
+          .addLabel("3");
 
         // ball move
         gsap.to(ball_0, {
@@ -549,8 +535,27 @@
         });
         const tl = gsap.timeline({
           paused: true,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section_3,
+            pin: true,
+            start: "top top",
+            end: "bottom bottom",
+            pinSpacing: false,
+            scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+            snap: {
+              snapTo: "labelsDirectional", // snap to the closest label in the timeline
+              duration: { min: 0.2, max: 0.4 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+              delay: 0.1, // wait 0.2 seconds from the last scroll event before doing the snapping
+              ease: "none", // the ease of the snap animation ("power3" by default)
+            },
+            onUpdate: (e) => {
+              handle.goToAndStop(e.progress * 100, true);
+            },
+          },
         });
 
+        // part 1
         tl.fromTo(
           section3Header1,
           {
@@ -559,10 +564,10 @@
           {
             y: 0,
             opacity: 1,
-            duration: 1,
+            duration: 0.3,
             ease: "power3",
           },
-          "<+=1"
+          0
         )
           .fromTo(
             section3Text1,
@@ -572,21 +577,23 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=0.3"
+            0.1
           )
+          .addLabel("1")
           .to(
             [section3Header1, section3Text1],
             {
               y: -50,
               opacity: 0,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            5
+            0.5
           )
+          // part 2
           .fromTo(
             section3Header2,
             {
@@ -595,10 +602,10 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=2"
+            0.8
           )
           .fromTo(
             section3Text2,
@@ -608,21 +615,23 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=0.3"
+            0.9
           )
+          .addLabel("2")
           .to(
             [section3Header2, section3Text2],
             {
               y: -50,
               opacity: 0,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            10
+            1.3
           )
+          // part 3
           .fromTo(
             section3Header3,
             {
@@ -631,10 +640,10 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=2"
+            1.6
           )
           .fromTo(
             section3Text3,
@@ -644,21 +653,23 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=0.3"
+            1.7
           )
+          .addLabel("3")
           .to(
             [section3Header3, section3Text3],
             {
               y: -50,
               opacity: 0,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            16
+            2.1
           )
+          // part 4
           .fromTo(
             section3Header4,
             {
@@ -667,10 +678,10 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=2"
+            2.4
           )
           .fromTo(
             section3Text4,
@@ -680,21 +691,23 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=0.3"
+            2.5
           )
+          .addLabel("4")
           .to(
             [section3Header4, section3Text4],
             {
               y: -50,
               opacity: 0,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            21.5
+            2.9
           )
+          // part 5
           .fromTo(
             section3Header5,
             {
@@ -703,10 +716,10 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=2"
+            3.2
           )
           .fromTo(
             section3Text5,
@@ -716,38 +729,30 @@
             {
               y: 0,
               opacity: 1,
-              duration: 1,
+              duration: 0.3,
               ease: "power3",
             },
-            "<+=0.3"
+            3.3
           )
-          .to(
-            [section3Header5, section3Text5],
-            {
-              y: -50,
-              opacity: 0,
-              duration: 0,
-              ease: "power3",
-            },
-            28
-          );
+          .addLabel("5");
 
-        const progress = { frame: 0 };
-        gsap.to(progress, {
-          frame: 2200,
-          snap: "frame",
-          scrollTrigger: {
-            trigger: section_3,
-            scrub: true,
-            pin: true,
-            start: "top top",
-            end: "+=500%",
-          },
-          onUpdate: () => {
-            tl.seek(progress.frame / 100);
-            handle.goToAndStop((progress.frame / 100) * 1000, false);
-          },
-        });
+        // const progress = { frame: 0 };
+        // gsap.to(tl, {
+        //   frame: 1000,
+        //   snap: "frame",
+        //   scrollTrigger: {
+        //     trigger: section_3,
+        //     scrub: true,
+        //     pin: true,
+        //     start: "top top",
+        //     end: "+=800%",
+        //     snap: [0.45 / 4, 1.25 / 4],
+        //   },
+        //   onUpdate: () => {
+        //     tl.seek(progress.frame / 250);
+        //     handle.goToAndStop(progress.frame / 10, true);
+        //   },
+        // });
 
         // ScrollTrigger.create({
         //   trigger: section_3,
@@ -824,11 +829,13 @@
       this.section1PopRefs = [];
     },
     async mounted() {
-      this.section1Animate();
-      this.section2Animate();
-      this.section3Animate();
-      this.section4Animate();
-      this.section5Animate();
+      setTimeout(() => {
+        this.section1Animate();
+        this.section2Animate();
+        this.section3Animate();
+        this.section4Animate();
+        this.section5Animate();
+      }, 600);
     },
     // beforeUnmount() {
     //   // this.trigger1.kill();
