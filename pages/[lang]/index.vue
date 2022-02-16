@@ -424,9 +424,10 @@
             anticipatePin: 1,
             snap: {
               snapTo: "labelsDirectional", // snap to the closest label in the timeline
-              duration: { min: 0.2, max: 2 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-              delay: 0.1, // wait 0.2 seconds from the last scroll event before doing the snapping
+              duration: { min: 0.1, max: 21.83 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+              delay: 0.5, // wait 0.2 seconds from the last scroll event before doing the snapping
               ease: "none", // the ease of the snap animation ("power3" by default)
+              inertia: false,
             },
             onUpdate: (e) => {
               handle.goToAndStop(e.progress * 655, true);
@@ -442,18 +443,18 @@
           {
             rotateX: "0deg",
             opacity: 1,
-            duration: 1,
+            duration: 0.2,
             ease: "power3",
           },
           0
         )
-          .addLabel("1", 2)
+          // .addLabel("1", 2)
           .to(
             section2Text1,
             {
               rotateX: "-90deg",
               opacity: 0,
-              duration: 1,
+              duration: 0.2,
               ease: "power3",
             },
             2
@@ -466,18 +467,18 @@
             {
               rotateX: "0deg",
               opacity: 1,
-              duration: 1,
+              duration: 0.2,
               ease: "power3",
             },
-            3
+            2.2
           )
-          .addLabel("2", 6)
+          // .addLabel("2", 6)
           .to(
             section2Text2,
             {
               rotateX: "-90deg",
               opacity: 0,
-              duration: 1,
+              duration: 0.2,
               ease: "power3",
             },
             6
@@ -490,10 +491,10 @@
             {
               rotateX: "0deg",
               opacity: 1,
-              duration: 1,
+              duration: 0.2,
               ease: "power3",
             },
-            7
+            6.2
           )
           .to(section2Text3, { duration: 0 }, 21.8)
           .addLabel("3");
@@ -559,6 +560,7 @@
               duration: { min: 0.2, max: 0.4 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
               delay: 0.1, // wait 0.2 seconds from the last scroll event before doing the snapping
               ease: "none", // the ease of the snap animation ("power3" by default)
+              inertia: false,
             },
             onUpdate: (e) => {
               handle.goToAndStop(e.progress * 100, true);
