@@ -410,7 +410,7 @@
     mounted() {
       const showAnim = gsap
         .from(".navbar", {
-          yPercent: -100,
+          yPercent: -105,
           paused: true,
           duration: 0.2,
         })
