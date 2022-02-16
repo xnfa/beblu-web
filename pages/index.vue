@@ -416,7 +416,7 @@
           scrollTrigger: {
             id: "home_section_2",
             trigger: section_2,
-            scrub: 1,
+            scrub: true,
             pin: true,
             start: "top top",
             end: "+=6000",
@@ -425,7 +425,7 @@
             snap: {
               snapTo: "labelsDirectional", // snap to the closest label in the timeline
               duration: { min: 0.1, max: 21.83 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-              delay: 0.5, // wait 0.2 seconds from the last scroll event before doing the snapping
+              delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
               ease: "none", // the ease of the snap animation ("power3" by default)
               inertia: false,
             },
@@ -558,7 +558,7 @@
             snap: {
               snapTo: "labelsDirectional", // snap to the closest label in the timeline
               duration: { min: 0.2, max: 0.4 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-              delay: 0.1, // wait 0.2 seconds from the last scroll event before doing the snapping
+              delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
               ease: "none", // the ease of the snap animation ("power3" by default)
               inertia: false,
             },
