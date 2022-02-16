@@ -382,7 +382,14 @@
 <script setup lang="ts">
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
+  import { useTitle } from "~~/composables/useTitle";
+
+  useMeta({
+    title: `Beblu suite | ${useTitle("solution")} | Beblu`,
+  });
+
   const config = useRuntimeConfig();
+
   const l = await useLabels();
   const p = await usePageLabels("suite", [
     "section_1_title",

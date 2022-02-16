@@ -207,6 +207,10 @@
   import { computed } from "vue";
   import moment from "moment";
   import { useRuntimeConfig } from "#app";
+  import { useTitle } from "~~/composables/useTitle";
+  useMeta({
+    title: `${useTitle("community")} | Beblu`,
+  });
 
   const l = await useLabels();
   const p = await usePageLabels("community", [

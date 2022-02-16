@@ -75,7 +75,14 @@
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
   import { useQuery } from "@urql/vue";
+  import { useTitle } from "~~/composables/useTitle";
+
+  useMeta({
+    title: `Smart sensor | ${useTitle("solution")} | Beblu`,
+  });
+
   const config = useRuntimeConfig();
+
   const l = await useLabels();
   const p = await usePageLabels("smart_sensor", [
     "title",

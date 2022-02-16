@@ -267,6 +267,11 @@
 <script lang="ts" setup>
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
+
+  useMeta({
+    title: `Beblu`,
+  });
+
   const l = await useLabels();
   const p = await usePageLabels("home", [
     "section_1_content",
@@ -291,6 +296,7 @@
     "section_5_content",
     "section_5_title",
   ]);
+
   const section1Pops = [
     {
       url: "/images/sections/home-section-1/01.svg",

@@ -332,6 +332,11 @@
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
   import moment from "moment";
+  import { useTitle } from "~~/composables/useTitle";
+  useMeta({
+    title: `${useTitle("our_story")} | Beblu`,
+  });
+  const config = useRuntimeConfig();
   const l = await useLabels();
   const p = await usePageLabels("our_story", [
     "section_1_content",
@@ -405,5 +410,4 @@
     "section_7_btn_label",
     "section_7_title",
   ]);
-  const config = useRuntimeConfig();
 </script>

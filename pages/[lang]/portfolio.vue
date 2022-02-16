@@ -204,6 +204,11 @@
 <script setup lang="ts">
   import { useLabels } from "~~/composables/useLabels";
   import { usePageLabels } from "~~/composables/usePageLabels";
+  import { useTitle } from "~~/composables/useTitle";
+  useMeta({
+    title: `${useTitle("portfolio")} | Beblu`,
+  });
+  const config = useRuntimeConfig();
   const l = await useLabels();
   const p = await usePageLabels("portfolio", [
     "section_1_content",
@@ -247,5 +252,5 @@
     "section_6_subtitle",
     "section_6_title",
   ]);
-  const config = useRuntimeConfig();
+  const title = useTitle("portfolio");
 </script>

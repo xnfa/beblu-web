@@ -51,6 +51,10 @@
 </template>
 <script setup lang="ts">
   import { usePageLabels } from "~~/composables/usePageLabels";
-  const p = await usePageLabels("download", ["title", "content"]);
+  import { useTitle } from "~~/composables/useTitle";
+  useMeta({
+    title: `${useTitle("download")} | Beblu`,
+  });
   const config = useRuntimeConfig();
+  const p = await usePageLabels("download", ["title", "content"]);
 </script>

@@ -7,7 +7,7 @@
         config.CDN_BASE + blog.cover.filename_disk
       }')`"
     ></div>
-    <div class="article container py-20 px-8 mx-auto">
+    <div class="article container py-20 px-8 xl:px-0 lg:w-[64rem] mx-auto">
       <h1>{{ blog.title }}</h1>
       <div v-html="blog.content"></div>
     </div>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
   import { useRoute, useRouter } from "vue-router";
   import { useQuery } from "@urql/vue";
+  import { useTitle } from "~~/composables/useTitle";
 
   const route = useRoute();
   const config = useRuntimeConfig();
@@ -39,4 +40,7 @@
     `,
   });
   const blog = data.value.blog_translations_by_id;
+  useMeta({
+    title: `${blog?.title || "Page not found"} | ${useTitle("blog")} | Beblu`,
+  });
 </script>

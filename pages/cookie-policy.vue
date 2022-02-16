@@ -95,3 +95,8 @@
     </p>
   </div>
 </template>
+<script setup lang="ts">
+  useMeta({
+    title: `Cookie Policy | Beblu`,
+  });
+</script>

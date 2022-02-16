@@ -29,12 +29,16 @@
           class="text-center text-[1.25rem] md:text-[2rem] text-[#37C0BA] mb-[2.5rem] md:mb-[4rem]"
         >
           {{ filteredPositions.length }}
-          <span v-if="keyword || location || department">results</span
-          ><span v-else>openings</span>
+          <span v-if="keyword.trim() || location.trim() || department.trim()">{{
+            p("search_unit")
+          }}</span
+          ><span v-else>{{ p("unit") }}</span>
         </p>
         <div class="flex flex-col md:flex-row px-[1.875rem]">
           <div class="md:w-[257px] md:mr-[91px] mb-[3.75rem] md:mb-0">
-            <h2 class="text-[2rem] font-bold mb-4 hidden md:block">Search</h2>
+            <h2 class="text-[2rem] font-bold mb-4 hidden md:block">
+              {{ l("search") }}
+            </h2>
             <form class="group relative mb-4">
               <svg
                 width="20"
@@ -64,7 +68,7 @@
                 @input="(event) => setKeyword(event)"
               />
             </form>
-            <h2 class="text-[2rem] font-bold mb-4">Filter by</h2>
+            <h2 class="text-[2rem] font-bold mb-4">{{ l("filter_by") }}</h2>
             <form>
               <input
                 class="focus:ring-2 focus:ring-[#37C0BA] focus:outline-none appearance-none w-full leading-6 text-normal placeholder-slate-400 rounded-md py-3 px-4 ring-1 ring-slate-200 shadow-sm mb-4"
@@ -84,16 +88,91 @@
               />
             </form>
           </div>
-          <div class="border-t-[#E9E9E9] border-t flex-1">
+          <div class="flex-1">
             <div
-              class="border-t-[#E9E9E9] border-b py-4 text-center text-light text-xl"
               v-if="filteredPositions.length === 0"
+              class="text-center flex flex-col gap-8 items-center justify-center container mx-auto"
             >
-              no results
+              <svg
+                width="100"
+                height="100"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_493_2599)">
+                  <rect
+                    x="26"
+                    y="14"
+                    width="67"
+                    height="84"
+                    rx="12"
+                    fill="#D7DEE5"
+                  />
+                  <rect
+                    x="3.29822"
+                    y="17.48"
+                    width="67.9872"
+                    height="84.984"
+                    rx="12"
+                    transform="rotate(-15 3.29822 17.48)"
+                    fill="#D7DEE5"
+                    fill-opacity="0.5"
+                  />
+                  <rect
+                    x="36"
+                    y="30"
+                    width="47"
+                    height="7"
+                    rx="3.5"
+                    fill="white"
+                  />
+                  <rect
+                    x="36"
+                    y="45"
+                    width="47"
+                    height="7"
+                    rx="3.5"
+                    fill="white"
+                  />
+                  <rect
+                    x="36"
+                    y="60"
+                    width="47"
+                    height="7"
+                    rx="3.5"
+                    fill="white"
+                  />
+                  <rect
+                    x="36"
+                    y="75"
+                    width="37"
+                    height="7"
+                    rx="3.5"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_493_2599">
+                    <rect width="100" height="100" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="text-[2rem]">
+                {{
+                  l("no_search_content", {
+                    keyword:
+                      keyword.trim() || location.trim() || department.trim(),
+                  })
+                }}
+              </p>
             </div>
             <div
-              v-for="position in filteredPositions"
-              class="border-t-[#E9E9E9] border-b py-4"
+              v-for="(position, index) in filteredPositions"
+              :class="[
+                index === 0 ? 'border-t' : '',
+                'border-[#E9E9E9] border-b py-4',
+              ]"
             >
               <h3 class="font-bold text-[2rem]">
                 {{ position.title }}
@@ -114,7 +193,13 @@
   import { usePageLabels } from "~~/composables/usePageLabels";
   import { useQuery } from "@urql/vue";
   import { ref, computed } from "vue";
+  import { useTitle } from "~~/composables/useTitle";
+  useMeta({
+    title: `${useTitle("careers")} | Beblu`,
+  });
+
   const config = useRuntimeConfig();
+  const l = await useLabels();
   const p = await usePageLabels("careers", [
     `cover {
       filename_disk
@@ -165,10 +250,13 @@
   const filteredPositions = computed(() => {
     return positions.filter((v) => {
       return (
-        v.title.toLowerCase().indexOf(keyword.value.toLowerCase()) > -1 &&
-        v.department.toLowerCase().indexOf(department.value.toLowerCase()) >
+        v.title.toLowerCase().indexOf(keyword.value.trim().toLowerCase()) >
           -1 &&
-        v.location.toLowerCase().indexOf(location.value.toLowerCase()) > -1
+        v.department
+          .toLowerCase()
+          .indexOf(department.value.trim().toLowerCase()) > -1 &&
+        v.location.toLowerCase().indexOf(location.value.trim().toLowerCase()) >
+          -1
       );
     });
   });

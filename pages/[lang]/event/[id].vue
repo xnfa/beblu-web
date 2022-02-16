@@ -223,6 +223,7 @@
   import { useRoute, useRouter } from "vue-router";
   import { useQuery } from "@urql/vue";
   import moment from "moment";
+  import { useTitle } from "~~/composables/useTitle";
 
   const route = useRoute();
   const lang = route.params.lang || "en";
@@ -252,4 +253,7 @@
     `,
   });
   const event = data.value.event_translations_by_id;
+  useMeta({
+    title: `${event?.title || "Page not found"} | ${useTitle("event")} | Beblu`,
+  });
 </script>

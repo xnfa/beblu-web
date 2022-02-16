@@ -13,4 +13,7 @@
   import { usePageLabels } from "~~/composables/usePageLabels";
   const p = await usePageLabels("terms", ["title", "content"]);
   const config = useRuntimeConfig();
+  useMeta({
+    title: `${p("title")} | Beblu`,
+  });
 </script>

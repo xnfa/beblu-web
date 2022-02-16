@@ -64,7 +64,9 @@
           <app-link class="block" to="lang-terms">
             {{ l("terms") }}
           </app-link>
-          <a class="block" href="#">{{ l("sitemap") }}</a>
+          <app-link class="block" to="lang-sitemap">
+            {{ l("sitemap") }}
+          </app-link>
         </div>
         <div
           class="md:order-3 py-4 flex justify-between md:justify-end items-center md:w-1/3 md:gap-4"
@@ -92,26 +94,37 @@
         </div>
       </div>
     </div>
-    <div
-      class="flex px-[1.25rem] py-4 flex-col md:flex-row md:items-center justify-center fixed bottom-0 w-full"
-      style="background: rgba(0, 0, 0, 0.9)"
-      v-if="!cookiesPrivacyAgreed"
+    <transition
+      appear
+      enter-active-class="transition ease-out duration-300"
+      enter-from-class="transform opacity-0"
+      enter-to-class="transform opacity-100"
+      leave-active-class="transition ease-in duration-300"
+      leave-from-class="transform opacity-100"
+      leave-to-class="transform opacity-0"
     >
       <div
-        class="text-white text-xs cookie-privacy-text mb-[0.875rem] md:mb-0 md:mr-8"
+        class="flex px-[1.25rem] py-4 flex-col md:flex-row md:items-center justify-center fixed bottom-0 w-full"
+        style="background: rgba(0, 0, 0, 0.9)"
+        v-if="!cookiesPrivacyAgreed"
       >
-        This site uses cookies to ensure that you get the best experience
-        possible.
-        <NuxtLink to="/cookie-policy" class="underline">Learn more</NuxtLink>
+        <div
+          class="text-white text-xs cookie-privacy-text mb-[0.875rem] md:mb-0 md:mr-8"
+        >
+          {{ l("cookies_privacy") }}
+          <NuxtLink to="/cookie-policy" class="underline">{{
+            l("learn_more")
+          }}</NuxtLink>
+        </div>
+        <button
+          type="button"
+          class="border-white hover:bg-white hover:text-black text-center border rounded-full text-white p-2 text-xs leading-none w-[7.125rem] cookie-privacy-btn"
+          @click="agreeCookiesPrivacy"
+        >
+          {{ l("accept") }}
+        </button>
       </div>
-      <button
-        type="button"
-        class="border-white text-white border rounded-full p-2 text-xs leading-none w-[7.125rem] cookie-privacy-btn"
-        @click="agreeCookiesPrivacy"
-      >
-        Accept
-      </button>
-    </div>
+    </transition>
   </footer>
 </template>
 

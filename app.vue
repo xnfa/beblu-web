@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Title>Beblu</Title>
     <div style="height: 4rem"></div>
     <nuxt-layout>
       <nuxt-page />
