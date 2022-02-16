@@ -86,7 +86,7 @@
           >
             <img
               class="block h-7 w-auto"
-              src="/images/logo.svg"
+              :src="config.CDN_BASE + s.settings.logo.filename_disk"
               alt="Workflow"
               @click=""
             />
@@ -343,12 +343,29 @@
   import { useLabels } from "~~/composables/useLabels";
   const route = useRoute();
   const lang = route.params.lang || "en";
+  const config = useRuntimeConfig();
   const { data, error } = await useQuery({
     query: `
     {
       languages(sort: "order") {
         name
         code
+      }
+    }
+  `,
+  });
+  const { data: s } = await useQuery({
+    query: `
+    {
+      settings {
+        facebook
+        instagram
+        linkedin
+        logo {
+          filename_disk
+        }
+        medium
+        youtube
       }
     }
   `,
@@ -403,6 +420,9 @@
         start: "+=100px top",
         end: 99999,
         onUpdate: (self) => {
+          if (!self.isActive) {
+            showAnim.play();
+          }
           if (self.direction === -1) {
             if (self.getVelocity() < -1000) {
               showAnim.play();

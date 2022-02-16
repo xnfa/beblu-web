@@ -8,7 +8,10 @@
       >
         <div class="flex items-start flex-col md:flex-row md:mx-0">
           <app-link to="lang" class="block h-14 w-auto mr-16 mb-6">
-            <img src="/images/logo.svg" alt="Workflow" />
+            <img
+              :src="config.CDN_BASE + s.settings.logo.filename_disk"
+              alt="Workflow"
+            />
           </app-link>
           <p v-html="l('address')"></p>
         </div>
@@ -71,19 +74,44 @@
         <div
           class="md:order-3 py-4 flex justify-between md:justify-end items-center md:w-1/3 md:gap-4"
         >
-          <a class="block md:w-5" href="#">
+          <a
+            v-if="s.settings.facebook"
+            class="block md:w-5"
+            :href="s.settings.facebook"
+            target="_blank"
+          >
             <img src="/images/icons/facebook.svg" alt="" />
           </a>
-          <a class="block md:w-5" href="#">
+          <a
+            v-if="s.settings.instagram"
+            class="block md:w-5"
+            :href="s.settings.instagram"
+            target="_blank"
+          >
             <img src="/images/icons/instagram.svg" alt="" />
           </a>
-          <a class="block md:w-5" href="#">
+          <a
+            v-if="s.settings.linkedin"
+            class="block md:w-5"
+            :href="s.settings.linkedin"
+            target="_blank"
+          >
             <img src="/images/icons/linkedin.svg" alt="" />
           </a>
-          <a class="block md:w-5" href="#">
+          <a
+            v-if="s.settings.youtube"
+            class="block md:w-5"
+            :href="s.settings.youtube"
+            target="_blank"
+          >
             <img src="/images/icons/youtube.svg" alt="" />
           </a>
-          <a class="block md:w-5" href="#">
+          <a
+            v-if="s.settings.medium"
+            class="block md:w-5"
+            :href="s.settings.medium"
+            target="_blank"
+          >
             <img src="/images/icons/medium.svg" alt="" />
           </a>
         </div>
@@ -130,7 +158,26 @@
 
 <script setup lang="ts">
   import { useLabels } from "~~/composables/useLabels";
+  import { useQuery } from "@urql/vue";
+
+  const config = useRuntimeConfig();
   const l = await useLabels();
+  const { data: s } = await useQuery({
+    query: `
+    {
+      settings {
+        facebook
+        instagram
+        linkedin
+        logo {
+          filename_disk
+        }
+        medium
+        youtube
+      }
+    }
+  `,
+  });
 
   const cookiesPrivacyAgreed = ref(true);
 

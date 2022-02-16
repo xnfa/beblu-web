@@ -78,7 +78,7 @@
   import { useTitle } from "~~/composables/useTitle";
 
   useMeta({
-    title: `Smart sensor | ${useTitle("solution")} | Beblu`,
+    title: `Smart Sensor | ${useTitle("solution")} | Beblu`,
   });
 
   const config = useRuntimeConfig();

@@ -385,7 +385,7 @@
   import { useTitle } from "~~/composables/useTitle";
 
   useMeta({
-    title: `Beblu suite | ${useTitle("solution")} | Beblu`,
+    title: `Beblu Suite | ${useTitle("solution")} | Beblu`,
   });
 
   const config = useRuntimeConfig();
