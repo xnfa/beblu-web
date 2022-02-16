@@ -391,7 +391,6 @@
       },
     },
     mounted() {
-      console.log(this.$refs.navbar);
       const showAnim = gsap
         .from(".navbar", {
           yPercent: -100,
@@ -404,7 +403,6 @@
         start: "+=100px top",
         end: 99999,
         onUpdate: (self) => {
-          console.log(self.getVelocity());
           if (self.direction === -1) {
             if (self.getVelocity() < -1000) {
               showAnim.play();
