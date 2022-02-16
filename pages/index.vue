@@ -840,13 +840,13 @@
         this.section5Animate();
       }, 600);
     },
-    // beforeUnmount() {
-    //   // this.trigger1.kill();
-    //   const triggers = ScrollTrigger.getAll();
-    //   for (let i = 0; i < triggers.length; i++) {
-    //     triggers[i].kill(true);
-    //   }
-    // },
+    beforeUnmount() {
+      // this.trigger1.kill();
+      const triggers = ScrollTrigger.getAll();
+      for (let i = 0; i < triggers.length; i++) {
+        triggers[i].kill(true);
+      }
+    },
   };
 </script>
 

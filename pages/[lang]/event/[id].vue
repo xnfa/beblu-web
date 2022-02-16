@@ -224,6 +224,7 @@
   const route = useRoute();
   const lang = route.params.lang || "en";
   const id = route.params.id;
+  const config = useRuntimeConfig();
 
   const { data, error } = await useQuery({
     query: `
@@ -249,5 +250,4 @@
     `,
   });
   const event = data.value.event_by_id.translations[0];
-  const config = useRuntimeConfig();
 </script>
