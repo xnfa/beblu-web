@@ -21,23 +21,22 @@
   const route = useRoute();
   const config = useRuntimeConfig();
   const lang = route.params.lang || "en";
+  const l = await useLabels();
   const id = route.params.id;
 
   const { data, error } = await useQuery({
     query: `
       {
-        blog_by_id(id: "${id}") {
-          translations(filter: {languages_code: {code: {_eq: "${lang}"}}}) {
-            id
-            content
-            title
-            cover {
-              filename_disk
-            }
+        blog_translations_by_id(id: "${id}") {
+          id
+          content
+          title
+          cover {
+            filename_disk
           }
         }
       }
     `,
   });
-  const blog = data.value.blog_by_id.translations[0];
+  const blog = data.value.blog_translations_by_id;
 </script>

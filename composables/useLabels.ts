@@ -1,5 +1,6 @@
 import { useRoute, useRouter } from "vue-router";
 import { useQuery } from "@urql/vue";
+import _ from "lodash";
 
 export const useLabels = async () => {
   const route = useRoute();
@@ -17,6 +18,7 @@ export const useLabels = async () => {
         }
       }
     `,
+    requestPolicy: "cache-first",
   });
   const labels = data.value.label
     .filter((v) => v.translations.length > 0)
@@ -25,8 +27,9 @@ export const useLabels = async () => {
       content: v.translations[0].content,
     }));
 
-  return (key: string) => {
+  return (key: string, params: Record<string, any> = {}) => {
     const filtered = labels.filter((v) => v.key === key);
-    return filtered[0]?.content || "";
+    const tmpl = filtered[0]?.content || "";
+    return _.template(tmpl)(params);
   };
 };

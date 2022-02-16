@@ -65,9 +65,9 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border hover:bg-black hover:text-white border-black disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
-          :disabled="!blogsHasMore"
+          :disabled="!blogsHasMore || blogsFetching"
         >
-          {{ blogsHasMore ? l("read_more") : l("no_more") }}
+          {{ blogsHasMore || blogsFetching ? l("read_more") : l("no_more") }}
         </button>
       </div>
     </section>
@@ -75,7 +75,10 @@
       <h2 class="text-center text-[3rem] md:text-[4rem] font-black mb-10">
         {{ l("upcoming_events") }}
       </h2>
-      <form class="group relative md:w-[33.375rem] mx-auto md:mb-16 mb-8">
+      <form
+        class="group relative md:w-[33.375rem] mx-auto md:mb-16 mb-8"
+        @submit.prevent="searchEvents"
+      >
         <svg
           width="20"
           height="20"
@@ -92,6 +95,7 @@
         <button
           type="button"
           class="absolute right-3 top-1/2 -mt-4 bg-[#37C0BA] active:bg-[#00938C] text-white leading-8 font-medium px-4 rounded-lg"
+          @click="searchEvents"
         >
           {{ l("search") }}
         </button>
@@ -100,13 +104,56 @@
           type="text"
           :aria-label="l('search_events')"
           :placeholder="l('search_events')"
+          :value="eventsKeyword"
+          @input="setEventsKeyword"
         />
       </form>
-
+      <div
+        v-if="
+          events.length === 0 &&
+          !eventsFetching &&
+          eventsKeyword.trim().length > 0
+        "
+        class="text-center flex flex-col gap-8 items-center justify-center container mx-auto"
+      >
+        <svg
+          width="100"
+          height="100"
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_493_2599)">
+            <rect x="26" y="14" width="67" height="84" rx="12" fill="#D7DEE5" />
+            <rect
+              x="3.29822"
+              y="17.48"
+              width="67.9872"
+              height="84.984"
+              rx="12"
+              transform="rotate(-15 3.29822 17.48)"
+              fill="#D7DEE5"
+              fill-opacity="0.5"
+            />
+            <rect x="36" y="30" width="47" height="7" rx="3.5" fill="white" />
+            <rect x="36" y="45" width="47" height="7" rx="3.5" fill="white" />
+            <rect x="36" y="60" width="47" height="7" rx="3.5" fill="white" />
+            <rect x="36" y="75" width="37" height="7" rx="3.5" fill="white" />
+          </g>
+          <defs>
+            <clipPath id="clip0_493_2599">
+              <rect width="100" height="100" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <p class="text-[2rem]">
+          {{ l("no_search_content", { keyword: eventsKeyword }) }}
+        </p>
+      </div>
       <div class="flex gap-[1.25rem] container mx-auto mb-16 flex-wrap">
         <div
           v-for="event in events"
-          :key="event.id"
+          :key="event.event_id.id"
           class="rounded-2xl shadow-md bg-white overflow-hidden w-[calc(50%-0.625rem)] md:w-[calc(33.33%-1.25rem)]"
         >
           <div
@@ -139,14 +186,14 @@
           </div>
         </div>
       </div>
-      <div class="text-center">
+      <div v-if="events.length > 0" class="text-center">
         <button
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-black hover:bg-black hover:text-white disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreEvents"
-          :disabled="!eventsHasMore"
+          :disabled="!eventsHasMore || eventsFetching"
         >
-          {{ eventsHasMore ? l("view_more") : l("no_more") }}
+          {{ eventsHasMore || eventsFetching ? l("view_more") : l("no_more") }}
         </button>
       </div>
     </section>
@@ -157,7 +204,9 @@
   import { usePageLabels } from "~~/composables/usePageLabels";
   import { useRoute, useRouter } from "vue-router";
   import { useQuery } from "@urql/vue";
+  import { computed } from "vue";
   import moment from "moment";
+  import { useRuntimeConfig } from "#app";
 
   const l = await useLabels();
   const p = await usePageLabels("community", [
@@ -168,114 +217,83 @@
   ]);
   const route = useRoute();
   const lang = route.params.lang || "en";
+  const config = useRuntimeConfig();
 
-  const blogs = ref([]);
-  const blogsLimit = ref(4);
-  const blogsPage = ref(1);
-  const blogsHasMore = ref(true);
-  const { data: blogsResponse, error: blogsError } = await useQuery({
+  const BLOGS_PAGE_SIZE = 4;
+  const blogsLimit = ref(BLOGS_PAGE_SIZE);
+  const { data: blogsResponse, fetching: blogsFetching } = await useQuery({
     query: `
-      query ($page: Int!, $limit: Int!) {
-        blog(limit: $limit, page: $page, filter: {translations: {languages_code: {code: {_eq: "${lang}"}}}}) {
+      query ($limit: Int!) {
+        blog_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}}, sort: "-id", limit: $limit) {
+          content
+          cover {
+            filename_disk
+          }
+          title
           id
-          translations(filter: {languages_code: {code: {_eq: "${lang}"}}}) {
-            content
-            cover {
-              filename_disk
-            }
+          blog_id {
             id
-            title
           }
         }
       }
     `,
-    variables: { page: blogsPage, limit: blogsLimit },
+    variables: { limit: blogsLimit },
   });
 
-  if (blogsResponse.value.blog.length < blogsLimit.value) {
-    blogsHasMore.value = false;
-  }
-  blogs.value = blogsResponse.value.blog.map((v) => ({
-    ...v.translations[0],
-    id: v.id,
-  }));
-  watch(
-    () => blogsResponse.value,
-    (result) => {
-      if (result.blog.length < blogsLimit.value) {
-        blogsHasMore.value = false;
-      }
-      blogs.value = [
-        ...blogs.value,
-        ...result.blog.map((v) => ({
-          ...v.translations[0],
-          id: v.id,
-        })),
-      ];
-    }
-  );
+  const blogs = computed(() => blogsResponse.value?.blog_translations || []);
+  const blogsHasMore = computed(() => blogs.value.length >= blogsLimit.value);
 
   function loadMoreBlogs() {
-    blogsPage.value++;
+    blogsLimit.value = blogsLimit.value + BLOGS_PAGE_SIZE;
   }
 
-  const events = ref([]);
-  const eventsLimit = ref(6);
-  const eventsPage = ref(1);
-  const eventsHasMore = ref(true);
+  const EVENTS_PAGE_SIZE = 3;
+  const eventsLimit = ref(EVENTS_PAGE_SIZE);
+  const eventsKeyword = ref("");
 
-  const { data: eventsResponse, error: eventsError } = await useQuery({
+  const { data: eventsResponse, fetching: eventsFetching } = useQuery({
     query: `
-      query ($page: Int!, $limit: Int!) {
-        event(limit: $limit, page: $page, filter: {translations: {languages_code: {code: {_eq: "${lang}"}}}}) {
+      query ($limit: Int!, $keyword: String!) {
+        event_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}}, sort: "-id", search: $keyword, limit: $limit) {
+          cover {
+            filename_disk
+          }
+          date
+          description
+          end
+          endDate
+          location
+          organizer
+          price
+          start
+          title
           id
-          translations(filter: {languages_code: {code: {_eq: "${lang}"}}}) {
-            cover {
-              filename_disk
-            }
-            start
-            title
-            price
-            organizer
-            location
+          event_id {
             id
-            end
-            description
-            date
-            endDate
           }
         }
       }
     `,
-    variables: { page: eventsPage, limit: eventsLimit },
+    variables: { limit: eventsLimit, keyword: eventsKeyword },
   });
-  events.value = eventsResponse.value.event.map((v) => ({
-    ...v.translations[0],
-    id: v.id,
-  }));
-  if (eventsResponse.value.event.length < eventsLimit.value) {
-    eventsHasMore.value = false;
-  }
-  watch(
-    () => eventsResponse.value,
-    (result) => {
-      if (result.event.length < eventsLimit.value) {
-        eventsHasMore.value = false;
-      }
-      events.value = [
-        ...events.value,
-        ...result.event.map((v) => ({
-          ...v.translations[0],
-          id: v.id,
-        })),
-      ];
-    }
+  const events = computed(() => eventsResponse.value?.event_translations || []);
+  const eventsHasMore = computed(
+    () => events.value.length >= eventsLimit.value
   );
 
   function loadMoreEvents() {
-    eventsPage.value++;
+    eventsLimit.value = eventsLimit.value + EVENTS_PAGE_SIZE;
   }
-  const config = useRuntimeConfig();
+
+  let eventsTempKeyword = "";
+  function setEventsKeyword(e: any) {
+    eventsTempKeyword = e.target.value;
+  }
+
+  function searchEvents() {
+    eventsKeyword.value = eventsTempKeyword;
+    eventsLimit.value = EVENTS_PAGE_SIZE;
+  }
 </script>
 
 <script lang="ts">

@@ -2,7 +2,7 @@
 <template>
   <Disclosure
     as="nav"
-    class="bg-white shadow-[0_1px_0_#E7E7E7] relative bg-whit z-10"
+    class="navbar fixed top-0 w-full bg-white shadow-[0_1px_0_#E7E7E7] z-10"
     v-slot="{ open, close }"
   >
     <div class="relative container mx-auto bg-white z-10 px-8 md:px-6 lg:p-0">
@@ -368,6 +368,8 @@
     MenuItems,
   } from "@headlessui/vue/dist/index.esm";
   import { ChevronUpIcon } from "@heroicons/vue/outline";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   export default {
     components: {
@@ -387,6 +389,31 @@
       closeMenu() {
         document.body.style.overflowY = "scroll";
       },
+    },
+    mounted() {
+      console.log(this.$refs.navbar);
+      const showAnim = gsap
+        .from(".navbar", {
+          yPercent: -100,
+          paused: true,
+          duration: 0.2,
+        })
+        .progress(1);
+
+      ScrollTrigger.create({
+        start: "+=100px top",
+        end: 99999,
+        onUpdate: (self) => {
+          console.log(self.getVelocity());
+          if (self.direction === -1) {
+            if (self.getVelocity() < -1000) {
+              showAnim.play();
+            }
+          } else {
+            showAnim.reverse();
+          }
+        },
+      });
     },
   };
 </script>

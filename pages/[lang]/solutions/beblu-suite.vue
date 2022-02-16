@@ -256,7 +256,7 @@
         {{ p("section_5_title") }}
       </h2>
       <div
-        class="flex flex-row gap-6 md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 md:max-w-[47.25rem]"
+        class="flex flex-row gap-6 md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 md:max-w-[68rem]"
       >
         <div
           class="w-full bg-white rounded-2xl overflow-hidden md:w-[calc(25%-0.938rem)]"

@@ -1,6 +1,7 @@
 <template>
   <div>
     <Title>Beblu</Title>
+    <div style="height: 4rem"></div>
     <nuxt-layout>
       <nuxt-page />
     </nuxt-layout>
@@ -13,7 +14,26 @@
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { createClient, provideClient } from "@urql/vue";
-  import { useRouter } from "vue-router";
+  import { useRouter, useRoute } from "vue-router";
+  import moment from "moment";
+  import "moment/dist/locale/zh-cn.js";
+  import "moment/dist/locale/zh-tw.js";
+  import "moment/dist/locale/zh-hk.js";
+  import "moment/dist/locale/ms.js";
+  import "moment/dist/locale/id.js";
+
+  const route = useRoute();
+  const lang = typeof route.params.lang === "string" ? route.params.lang : "en";
+  console.log(moment.locales());
+  if (lang === "cn") {
+    moment.locale("zh-cn");
+  } else if (lang === "tw") {
+    moment.locale("zh-tw");
+  } else if (lang === "hk") {
+    moment.locale("zh-hk");
+  } else {
+    moment.locale(lang);
+  }
 
   const router = useRouter();
   const config = useRuntimeConfig();
