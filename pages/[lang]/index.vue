@@ -408,6 +408,7 @@
         const tl = gsap.timeline({
           paused: true,
           scrollTrigger: {
+            id: "home_section_2",
             trigger: section_2,
             scrub: 1,
             pin: true,
@@ -540,6 +541,7 @@
           paused: true,
           ease: "none",
           scrollTrigger: {
+            id: "home_section_3",
             trigger: section_3,
             pin: true,
             start: "top top",
@@ -738,38 +740,6 @@
             3.3
           )
           .addLabel("5");
-
-        // const progress = { frame: 0 };
-        // gsap.to(tl, {
-        //   frame: 1000,
-        //   snap: "frame",
-        //   scrollTrigger: {
-        //     trigger: section_3,
-        //     scrub: true,
-        //     pin: true,
-        //     start: "top top",
-        //     end: "+=800%",
-        //     snap: [0.45 / 4, 1.25 / 4],
-        //   },
-        //   onUpdate: () => {
-        //     tl.seek(progress.frame / 250);
-        //     handle.goToAndStop(progress.frame / 10, true);
-        //   },
-        // });
-
-        // ScrollTrigger.create({
-        //   trigger: section_3,
-        //   start: "top bottom",
-        //   onToggle: (self) => {
-        //     if (self.isActive) {
-        //       handle.play();
-        //       tl.play();
-        //     } else {
-        //       handle.pause();
-        //       tl.pause();
-        //     }
-        //   },
-        // });
       },
       section4Animate() {
         const { section_4, section4Text, section4Cover } = this.$refs;
@@ -777,6 +747,7 @@
           opacity: 1,
           duration: 0.3,
           scrollTrigger: {
+            id: "home_section_4_1",
             trigger: section_4,
             start: "center bottom",
             end: "center top",
@@ -793,6 +764,7 @@
             y: "0",
             repeatRefresh: true,
             scrollTrigger: {
+              id: "home_section_4_2",
               trigger: section_4,
               start: "center bottom",
               end: "center top",
@@ -814,6 +786,7 @@
             y: "-50%",
             repeatRefresh: true,
             scrollTrigger: {
+              id: "home_section_5_1",
               trigger: section_5,
               start: "center bottom",
               end: "center top",
@@ -821,6 +794,7 @@
           }
         );
         ScrollTrigger.create({
+          id: "home_section_5_2",
           trigger: section_5,
           start: "top top",
           pin: true,
@@ -841,11 +815,12 @@
       }, 600);
     },
     beforeUnmount() {
-      // this.trigger1.kill();
-      const triggers = ScrollTrigger.getAll();
-      for (let i = 0; i < triggers.length; i++) {
-        triggers[i].kill(true);
-      }
+      ScrollTrigger.getById("home_section_2").kill(true);
+      ScrollTrigger.getById("home_section_3").kill(true);
+      ScrollTrigger.getById("home_section_4_1").kill(true);
+      ScrollTrigger.getById("home_section_4_2").kill(true);
+      ScrollTrigger.getById("home_section_5_1").kill(true);
+      ScrollTrigger.getById("home_section_5_2").kill(true);
     },
   };
 </script>

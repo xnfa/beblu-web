@@ -24,7 +24,6 @@
 
   const route = useRoute();
   const lang = typeof route.params.lang === "string" ? route.params.lang : "en";
-  console.log(moment.locales());
   if (lang === "cn") {
     moment.locale("zh-cn");
   } else if (lang === "tw") {
