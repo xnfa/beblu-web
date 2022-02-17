@@ -420,12 +420,12 @@
           scrollTrigger: {
             id: "home_section_2",
             trigger: section_2,
-            scrub: 1,
+            scrub: 0.2,
             pin: true,
             start: "top top",
             end: "+=6000",
             // pinSpacing: false,
-            anticipatePin: 0.2,
+            anticipatePin: 1,
             // snap: {
             //   snapTo: "labelsDirectional", // snap to the closest label in the timeline
             //   duration: { min: 0.1, max: 13.28 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
@@ -813,6 +813,7 @@
           start: "top top",
           end: "+=200",
           pin: true,
+          anticipatePin: 1,
           // pinSpacing: false,
         });
       },
@@ -843,6 +844,7 @@
           start: "top top",
           end: "+=200",
           pin: true,
+          anticipatePin: 1,
           // pinSpacing: false,
         });
       },
@@ -854,6 +856,7 @@
           start: "top top",
           end: "+=200",
           pin: true,
+          anticipatePin: 1,
           // pinSpacing: false,
         });
       },
