@@ -164,9 +164,17 @@
           ></div>
           <div class="p-[0.875rem] md:pt-4 md:pb-6 md:px-6">
             <div class="text-[#707070] mb-1">
-              {{ moment(event.date).format("DD MMM YYYY")
+              {{
+                moment(event.date).format(
+                  lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                )
               }}<span v-if="event.endDate">
-                - {{ moment(event.endDate).format("DD MMM YYYY") }}</span
+                -
+                {{
+                  moment(event.endDate).format(
+                    lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                  )
+                }}</span
               >
             </div>
             <div class="flex flex-col md:flex-row md:items-center">
@@ -312,10 +320,7 @@
         eventsLimit: 5,
       };
     },
-    async mounted() {
-      // await this.loadMoreBlogs();
-      // await this.loadMoreEvents();
-    },
+    async mounted() {},
     methods: {
       async fetch() {},
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#F4F6FA] py-[7.5rem]">
+  <div class="bg-[#F4F6FA]">
     <app-contact-us></app-contact-us>
   </div>
 </template>

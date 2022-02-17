@@ -53,9 +53,17 @@
             </svg>
             <div class="text-[#707070] flex-1">{{ l("date") }}</div>
             <div>
-              {{ moment(event.date).format("DD MMM YYYY")
+              {{
+                moment(event.date).format(
+                  lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                )
               }}<span v-if="event.endDate">
-                - {{ moment(event.endDate).format("DD MMM YYYY") }}</span
+                -
+                {{
+                  moment(event.endDate).format(
+                    lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                  )
+                }}</span
               >
             </div>
           </div>

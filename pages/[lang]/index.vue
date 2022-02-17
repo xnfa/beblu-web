@@ -92,7 +92,11 @@
         ></div>
       </div>
     </section>
-    <section class="overflow-hidden h-[100vh] bg-[#768797]" ref="section_3">
+    <section
+      id="section_3"
+      class="overflow-hidden h-[100vh] bg-[#768797]"
+      ref="section_3"
+    >
       <div class="flex flex-col md:flex-row container mx-auto w-full h-[100vh]">
         <div
           class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-end relative overflow-hidden order-6 md:order-1 mx-auto"
@@ -231,7 +235,7 @@
       ref="section_5"
       style="background-image: url('/images/sections/download/bg.jpg')"
     >
-      <div class="text-black text-center">
+      <div class="text-black text-center" ref="section_5_container">
         <div
           class="mx-auto px-6 md:px-0 md:w-[37rem] w-full opacity-0 absolute top-1/2 left-1/2"
           ref="section5Text"
@@ -416,21 +420,45 @@
           scrollTrigger: {
             id: "home_section_2",
             trigger: section_2,
-            scrub: true,
+            scrub: 1,
             pin: true,
             start: "top top",
             end: "+=6000",
             // pinSpacing: false,
-            anticipatePin: 1,
-            snap: {
-              snapTo: "labelsDirectional", // snap to the closest label in the timeline
-              duration: { min: 0.1, max: 21.83 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-              delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
-              ease: "none", // the ease of the snap animation ("power3" by default)
-              inertia: false,
-            },
+            anticipatePin: 0.2,
+            // snap: {
+            //   snapTo: "labelsDirectional", // snap to the closest label in the timeline
+            //   duration: { min: 0.1, max: 13.28 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+            //   delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
+            //   ease: "none", // the ease of the snap animation ("power3" by default)
+            //   inertia: false,
+            // },
             onUpdate: (e) => {
-              handle.goToAndStop(e.progress * 655, true);
+              handle.goToAndStop(e.progress * 325, true);
+            },
+            onToggle: (e) => {
+              if (e.isActive) {
+                gsap.to(window, {
+                  duration: Math.max(13.28 * (1 - e.progress), 0.4),
+                  scrollTo: {
+                    y: "#section_3",
+                    offsetY: window.innerHeight,
+                    autoKill: true,
+                  },
+                });
+              }
+            },
+            onScrubComplete: (e) => {
+              if (e.direction === 1 && e.progress !== 0 && e.progress !== 1) {
+                gsap.to(window, {
+                  duration: Math.max(13.28 * (1 - e.progress), 0.4),
+                  scrollTo: {
+                    y: "#section_3",
+                    offsetY: window.innerHeight,
+                    autoKill: true,
+                  },
+                });
+              }
             },
           },
         });
@@ -443,7 +471,7 @@
           {
             rotateX: "0deg",
             opacity: 1,
-            duration: 0.2,
+            duration: 0.4,
             ease: "power3",
           },
           0
@@ -454,10 +482,10 @@
             {
               rotateX: "-90deg",
               opacity: 0,
-              duration: 0.2,
+              duration: 0.4,
               ease: "power3",
             },
-            2
+            2.8
           )
           .fromTo(
             section2Text2,
@@ -467,10 +495,10 @@
             {
               rotateX: "0deg",
               opacity: 1,
-              duration: 0.2,
+              duration: 0.4,
               ease: "power3",
             },
-            2.2
+            3.2
           )
           // .addLabel("2", 6)
           .to(
@@ -478,10 +506,10 @@
             {
               rotateX: "-90deg",
               opacity: 0,
-              duration: 0.2,
+              duration: 0.4,
               ease: "power3",
             },
-            6
+            7.6
           )
           .fromTo(
             section2Text3,
@@ -491,12 +519,12 @@
             {
               rotateX: "0deg",
               opacity: 1,
-              duration: 0.2,
+              duration: 0.4,
               ease: "power3",
             },
-            6.2
+            8
           )
-          .to(section2Text3, { duration: 0 }, 21.8)
+          .to(section2Text3, { duration: 0 }, 13.28)
           .addLabel("3");
 
         // ball move
@@ -779,6 +807,14 @@
             },
           }
         );
+        ScrollTrigger.create({
+          id: "home_section_4_3",
+          trigger: section_4,
+          start: "top top",
+          end: "+=200",
+          pin: true,
+          // pinSpacing: false,
+        });
       },
       section5Animate() {
         const { section_5, section5Text } = this.$refs;
@@ -805,8 +841,20 @@
           id: "home_section_5_2",
           trigger: section_5,
           start: "top top",
+          end: "+=200",
           pin: true,
-          pinSpacing: false,
+          // pinSpacing: false,
+        });
+      },
+      section6Animate() {
+        const { section_6 } = this.$refs;
+        ScrollTrigger.create({
+          id: "home_section_6",
+          trigger: section_6,
+          start: "top top",
+          end: "+=200",
+          pin: true,
+          // pinSpacing: false,
         });
       },
     },
@@ -820,6 +868,7 @@
         this.section3Animate();
         this.section4Animate();
         this.section5Animate();
+        this.section6Animate();
       }, 600);
     },
     beforeUnmount() {
@@ -827,8 +876,10 @@
       ScrollTrigger.getById("home_section_3").kill(true);
       ScrollTrigger.getById("home_section_4_1").kill(true);
       ScrollTrigger.getById("home_section_4_2").kill(true);
+      ScrollTrigger.getById("home_section_4_3").kill(true);
       ScrollTrigger.getById("home_section_5_1").kill(true);
       ScrollTrigger.getById("home_section_5_2").kill(true);
+      ScrollTrigger.getById("home_section_6").kill(true);
     },
   };
 </script>
