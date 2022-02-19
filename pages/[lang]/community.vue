@@ -65,7 +65,7 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border hover:bg-black hover:text-white border-black disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
-          v-if="events.length >= EVENTS_PAGE_SIZE"
+          v-if="blogs.length >= BLOGS_PAGE_SIZE"
           :disabled="!blogsHasMore || blogsFetching"
         >
           {{ blogsHasMore || blogsFetching ? l("read_more") : l("no_more") }}
@@ -155,10 +155,12 @@
         </p>
       </div>
       <div class="flex gap-[1.25rem] container mx-auto mb-16 flex-wrap">
-        <div
+        <app-link
+          to="lang-event-id"
+          :params="{ id: event.id }"
           v-for="event in events"
           :key="event.event_id.id"
-          class="rounded-2xl shadow-md bg-white overflow-hidden w-[calc(50%-0.625rem)] md:w-[calc(33.33%-1.25rem)]"
+          class="block rounded-2xl shadow-md bg-white overflow-hidden w-[calc(50%-0.625rem)] md:w-[calc(33.33%-1.25rem)]"
         >
           <div
             class="bg-cover bg-center h-[6.375rem] md:h-[16rem]"
@@ -196,7 +198,7 @@
               </app-link>
             </div>
           </div>
-        </div>
+        </app-link>
       </div>
       <div v-if="events.length > 0" class="text-center">
         <button

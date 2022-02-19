@@ -167,12 +167,14 @@
                 }}
               </p>
             </div>
-            <div
+            <a
               v-for="(position, index) in filteredPositions"
               :class="[
                 index === 0 ? 'border-t' : '',
-                'border-[#E9E9E9] border-b py-4',
+                'block border-[#E9E9E9] border-b py-4',
               ]"
+              :href="position.url"
+              target="_blank"
             >
               <h3 class="font-bold text-[2rem]">
                 {{ position.title }}
@@ -180,7 +182,7 @@
               <p class="text-light">
                 {{ position.department }}, {{ position.location }}
               </p>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -238,6 +240,7 @@
             department
             location
             title
+            url
           }
         }
       }
