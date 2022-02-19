@@ -21,7 +21,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_2_title") }}
           </h2>
@@ -72,7 +72,7 @@
     </section>
     <section class="bg-[#F4F6FA] py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <h2
-        class="text-[3rem] md:text-[4rem] font-black leading-none text-center mb-8 md:mb-10 md:max-w-[34rem] mx-auto"
+        class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center mb-8 md:mb-10 md:max-w-[34rem] mx-auto"
       >
         {{ p("section_3_title") }}
       </h2>
@@ -88,7 +88,9 @@
             :src="config.CDN_BASE + card.item.cover.filename_disk"
             alt=""
           />
-          <h3 class="text-black font-bold text-[2rem] text-center leading-none">
+          <h3
+            class="text-black font-bold text-[2rem] text-center leading-[1.15]"
+          >
             {{ card.item.title }}
           </h3>
           <div
@@ -104,7 +106,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-[2.125rem] md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-[2.125rem] md:mb-8"
           >
             {{ p("section_4_title") }}
           </h2>
@@ -251,7 +253,7 @@
     </section>
     <section class="bg-[#F4F6FA] py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <h2
-        class="text-[3rem] md:text-[4rem] font-black leading-none text-center mb-8 md:mb-10 md:max-w-[34rem] mx-auto"
+        class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center mb-8 md:mb-10 md:max-w-[34rem] mx-auto"
       >
         {{ p("section_5_title") }}
       </h2>
@@ -268,7 +270,7 @@
             alt=""
           />
           <div class="px-6 pt-4 pb-5">
-            <h3 class="font-bold text-2xl leading-none mb-2">
+            <h3 class="font-bold text-2xl leading-[1.15] mb-2">
               {{ card.item.title }}
             </h3>
             <p class="text-light text-xl md:text-base">
@@ -284,7 +286,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_6_title") }}
           </h2>
@@ -303,7 +305,7 @@
     </section>
     <section class="bg-[#F4F6FA] py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <h2
-        class="text-[3rem] md:text-[4rem] font-black leading-none text-center mb-6 md:mb-12"
+        class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center mb-6 md:mb-12"
       >
         {{ p("section_7_title") }}
       </h2>
@@ -311,7 +313,7 @@
         class="flex flex-col-reverse md:flex-row gap-8 md:gap-16 md:max-w-[56.5rem] container mx-auto"
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
-          <h2 class="text-4xl font-bold leading-none text-left mb-4 md:mb-8">
+          <h2 class="text-4xl font-bold leading-[1.15] text-left mb-4 md:mb-8">
             {{ p("section_7_subtitle") }}
           </h2>
           <p class="text-xl md:text-base text-light">
@@ -333,7 +335,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_8_title") }}
           </h2>
@@ -356,7 +358,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_9_title") }}
           </h2>

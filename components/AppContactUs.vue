@@ -17,7 +17,7 @@
       </div>
     </transition>
     <h2
-      class="text-[2.75rem] md:text-[4rem] font-black leading-none text-normal text-center mb-8"
+      class="text-[2.5rem] md:text-[3rem] font-black leading-[1.15] text-normal text-center mb-8"
       v-html="l('contact_us_title')"
     ></h2>
     <form class="max-w-[33.75rem] mx-auto" @submit.prevent="submit">

@@ -41,7 +41,7 @@
         class="py-[3.75rem] md:pt-12 md:pb-20 px-[1.875rem] md:px-0 md:max-w-[33.375rem] container mx-auto"
       >
         <div class="flex items-center justify-center gap-5 mb-6 md:mb-8">
-          <h2 class="text-[3rem] md:text-[4rem] font-black leading-none">
+          <h2 class="text-[3rem] md:text-[4rem] font-black leading-[1.15]">
             {{ p("section_1_title_1") }}
           </h2>
           <svg
@@ -71,7 +71,7 @@
               </clipPath>
             </defs>
           </svg>
-          <h2 class="text-[3rem] md:text-[4rem] font-black leading-none">
+          <h2 class="text-[3rem] md:text-[4rem] font-black leading-[1.15]">
             {{ p("section_1_title_2") }}
           </h2>
         </div>
@@ -82,7 +82,7 @@
     </div>
     <section class="bg-[#F4F6FA] py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <h2
-        class="text-[3rem] md:text-[4rem] font-black leading-none text-center mb-5 md:mb-10"
+        class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center mb-5 md:mb-10"
       >
         {{ p("section_2_title") }}
       </h2>
@@ -111,7 +111,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_3_title") }}
           </h2>
@@ -134,7 +134,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_4_title") }}
           </h2>
@@ -157,7 +157,7 @@
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
-            class="text-[3rem] md:text-[4rem] font-black leading-none text-center md:text-left mb-6 md:mb-8"
+            class="text-[3rem] md:text-[4rem] font-black leading-[1.15] text-center md:text-left mb-6 md:mb-8"
           >
             {{ p("section_5_title") }}
           </h2>
