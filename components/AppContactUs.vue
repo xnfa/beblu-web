@@ -1,5 +1,5 @@
 <template>
-  <div id="form" class="px-8 py-[3.75rem] md:py-[5rem]">
+  <div id="form" class="px-[1.875rem] py-[3.75rem] md:py-[5rem] lg:py-[7.5rem]">
     <transition
       enter-active-class="transition ease-out duration-300"
       enter-from-class="transform opacity-0"
@@ -20,7 +20,10 @@
       class="text-[2.5rem] md:text-[3rem] font-black leading-[1.15] text-normal text-center mb-8"
       v-html="l('contact_us_title')"
     ></h2>
-    <form class="max-w-[33.75rem] mx-auto" @submit.prevent="submit">
+    <form
+      class="w-full md:w-[22.5rem] lg:w-[33.75rem] mx-auto"
+      @submit.prevent="submit"
+    >
       <input
         required
         type="text"

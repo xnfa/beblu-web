@@ -22,18 +22,6 @@
 
     <section class="bg-[#F4F6FA]">
       <div class="container mx-auto py-[3.75rem] md:py-[5rem]">
-        <h1 class="text-center text-[3rem] md:text-[4rem] font-black">
-          {{ p("title") }}
-        </h1>
-        <p
-          class="text-center text-[1.25rem] md:text-[2rem] text-[#37C0BA] mb-[2.5rem] md:mb-[4rem]"
-        >
-          {{ filteredPositions.length }}
-          <span v-if="keyword.trim() || location.trim() || department.trim()">{{
-            p("search_unit")
-          }}</span
-          ><span v-else>{{ p("unit") }}</span>
-        </p>
         <div class="flex flex-col md:flex-row px-[1.875rem]">
           <div class="md:w-[257px] md:mr-[91px] mb-[3.75rem] md:mb-0">
             <h2 class="text-[2rem] font-bold mb-4 hidden md:block">
@@ -89,6 +77,18 @@
             </form>
           </div>
           <div class="flex-1">
+            <h1 class="text-center text-[3rem] md:text-[2rem] font-black">
+              {{ p("title") }}
+            </h1>
+            <p
+              class="text-center text-[1.25rem] md:text-xl text-[#37C0BA] mb-[2.5rem] md:mb-[4rem]"
+            >
+              {{ filteredPositions.length }}
+              <span
+                v-if="keyword.trim() || location.trim() || department.trim()"
+                >{{ p("search_unit") }}</span
+              ><span v-else>{{ p("unit") }}</span>
+            </p>
             <div
               v-if="filteredPositions.length === 0"
               class="text-center flex flex-col gap-8 items-center justify-center container mx-auto"
@@ -158,7 +158,7 @@
                   </clipPath>
                 </defs>
               </svg>
-              <p class="text-[2rem]">
+              <p class="text-2xl">
                 {{
                   l("no_search_content", {
                     keyword:

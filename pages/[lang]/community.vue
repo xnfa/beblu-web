@@ -65,13 +65,17 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border hover:bg-black hover:text-white border-black disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
+          v-if="events.length >= EVENTS_PAGE_SIZE"
           :disabled="!blogsHasMore || blogsFetching"
         >
           {{ blogsHasMore || blogsFetching ? l("read_more") : l("no_more") }}
         </button>
       </div>
     </section>
-    <section class="bg-[#F4F6FA] text-normal py-[5rem] px-[1.875rem] md:px-0">
+    <section
+      class="bg-[#F4F6FA] text-normal py-[5rem] px-[1.875rem] md:px-0"
+      id="events"
+    >
       <h2 class="text-center text-[3rem] md:text-[4rem] font-black mb-10">
         {{ l("upcoming_events") }}
       </h2>
@@ -166,13 +170,13 @@
             <div class="text-[#707070] mb-1">
               {{
                 moment(event.date).format(
-                  lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                  lang === "cn" ? "YYYY 年 MM 月 DD 日" : "DD MMM YYYY"
                 )
               }}<span v-if="event.endDate">
                 -
                 {{
                   moment(event.endDate).format(
-                    lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                    lang === "cn" ? "YYYY 年 MM 月 DD 日" : "DD MMM YYYY"
                   )
                 }}</span
               >
@@ -199,6 +203,7 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-black hover:bg-black hover:text-white disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreEvents"
+          v-if="events.length >= EVENTS_PAGE_SIZE"
           :disabled="!eventsHasMore || eventsFetching"
         >
           {{ eventsHasMore || eventsFetching ? l("view_more") : l("no_more") }}
@@ -263,7 +268,7 @@
   const eventsLimit = ref(EVENTS_PAGE_SIZE);
   const eventsKeyword = ref("");
 
-  const { data: eventsResponse, fetching: eventsFetching } = useQuery({
+  const { data: eventsResponse, fetching: eventsFetching } = await useQuery({
     query: `
       query ($limit: Int!, $keyword: String!) {
         event_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}}, sort: "-id", search: $keyword, limit: $limit) {
@@ -309,6 +314,7 @@
 </script>
 
 <script lang="ts">
+  import { gsap } from "gsap";
   export default {
     data() {
       return {
@@ -320,7 +326,9 @@
         eventsLimit: 5,
       };
     },
-    async mounted() {},
+    async mounted() {
+      gsap.to(window, { duration: 0.3, scrollTo: this.$route.hash });
+    },
     methods: {
       async fetch() {},
     },

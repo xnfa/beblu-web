@@ -16,22 +16,20 @@
           alt=""
         />
       </div>
-      <img
-        class="absolute w-[310px] bottom-0"
-        src="/images/sections/home-section-1/screenshot.png"
-        alt=""
-      />
       <div
         class="text-5xl md:text-[4.75rem] md:mt-[112px] mt-[56px] font-bold text-normal text-center leading-[1.15] px-[1.875rem] md:px-0"
       >
         {{ p("section_1_title") }}
       </div>
-      <div class="pt-6 md:pt-10 mb-6 leading-none text-light text-[1.375rem]">
+      <div
+        class="pt-6 md:pt-10 mb-6 md:mb-[3.25rem] leading-none text-light text-[1.375rem]"
+      >
         {{ p("section_1_content") }}
       </div>
+
       <app-link
         to="lang-download"
-        class="block md:absolute md:right-[5%] md:bottom-[61px]"
+        class="block mb-10 md:mb-0 md:absolute md:right-[5%] md:bottom-[61px]"
       >
         <button
           type="button"
@@ -40,6 +38,10 @@
           {{ l("download").toUpperCase() }}
         </button>
       </app-link>
+      <div class="flex-1"></div>
+      <div class="w-[19.375rem] max-h-[30rem]">
+        <img src="/images/sections/home-section-1/screenshot.png" alt="" />
+      </div>
     </section>
     <section class="relative overflow-hidden h-[100vh]" ref="section_2">
       <div class="fixed -z-10 top-0 left-0 h-[100vh] w-[100vw]">
@@ -190,16 +192,20 @@
       class="overflow-hidden relative h-[100vh] bg-[#000000]"
       ref="section_4"
     >
-      <div class="md:h-full md:absolute w-full opacity-0" ref="section4Cover">
-        <img
-          class="hidden md:block w-full"
-          src="/images/sections/home-section-4/img_events.png"
-        />
-        <img
-          class="block md:hidden w-full"
-          src="/images/sections/home-section-4/img_events-sm.png"
-        />
-      </div>
+      <div
+        class="md:h-full hidden md:block md:absolute w-full opacity-0 bg-center bg-cover"
+        style="
+          background-image: url('/images/sections/home-section-4/img_events.png');
+        "
+        ref="section4Cover1"
+      ></div>
+      <div
+        class="h-[14.25rem] block md:hidden md:absolute w-full opacity-0 bg-center bg-cover"
+        style="
+          background-image: url('/images/sections/home-section-4/img_events-sm.png');
+        "
+        ref="section4Cover2"
+      ></div>
       <div
         class="absolute md:absolute bottom-[8%] md:bottom-[5rem] xl:bottom-[7.5rem] w-full text-white flex items-center justify-center"
       >
@@ -218,6 +224,7 @@
           <div class="flex flex-col md:flex-row gap-6 md:gap-10 mt-6">
             <app-link
               to="lang-community"
+              hash="#events"
               class="border-white hover:bg-white hover:text-black text-center border rounded-full p-3 text-[1.375rem] leading-none flex-1"
             >
               {{ p("section_4_btn_events") }}
@@ -262,7 +269,7 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative min-h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center justify-center"
+      class="overflow-hidden relative min-h-[100vh] bg-cover bg-center bg-[#F4F6FA]"
       ref="section_6"
     >
       <app-contact-us></app-contact-us>
@@ -588,7 +595,7 @@
             snap: {
               snapTo: "labelsDirectional", // snap to the closest label in the timeline
               duration: 0.4, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-              // delay: 0.2, // wait 0.2 seconds from the last scroll event before doing the snapping
+              delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
               ease: "none", // the ease of the snap animation ("power3" by default)
               inertia: false,
             },
@@ -780,8 +787,9 @@
           .addLabel("5");
       },
       section4Animate() {
-        const { section_4, section4Text, section4Cover } = this.$refs;
-        gsap.to(section4Cover, {
+        const { section_4, section4Text, section4Cover1, section4Cover2 } =
+          this.$refs;
+        gsap.to([section4Cover1, section4Cover2], {
           opacity: 1,
           duration: 0.3,
           scrollTrigger: {

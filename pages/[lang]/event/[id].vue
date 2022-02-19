@@ -55,13 +55,13 @@
             <div>
               {{
                 moment(event.date).format(
-                  lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                  lang === "cn" ? "YYYY.MM.DD" : "DD MMM YYYY"
                 )
               }}<span v-if="event.endDate">
                 -
                 {{
                   moment(event.endDate).format(
-                    lang === "cn" ? "YYYY MMM DD" : "DD MMM YYYY"
+                    lang === "cn" ? "YYYY.MM.DD" : "DD MMM YYYY"
                   )
                 }}</span
               >

@@ -287,9 +287,9 @@
         </a>
       </div>
     </section>
-    <section class="py-[3.75rem] md:py-20 px-3 md:px-8">
+    <section class="py-[3.75rem] md:py-20 px-5 md:px-8">
       <h2
-        class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
+        class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-8"
       >
         {{ p("section_6_title") }}
       </h2>
@@ -297,7 +297,7 @@
         class="container max-w-[80rem] mx-auto flex gap-2 md:gap-5 flex-wrap justify-center"
       >
         <div
-          class="rounded-xl shadow-sm md:shadow-md bg-contain bg-center bg-no-repeat bg-origin-content p-2 lg:p-6 w-[calc(25%-0.375rem)] md:w-[calc(25%-0.938rem)] aspect-[78/30]"
+          class="rounded-xl shadow-[0_0_2.4px_rgb(0,0,0,0.15)] md:shadow-[0_0_8px_rgba(0,0,0,0.15)] bg-contain bg-center bg-no-repeat bg-origin-content p-2 lg:p-6 w-[calc(50%-0.375rem)] md:w-[calc(25%-0.938rem)] aspect-[78/30]"
           v-for="card in p('section_6_cards')"
           :style="`background-image: url('${
             config.CDN_BASE + card.item.cover.filename_disk

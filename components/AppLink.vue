@@ -3,6 +3,7 @@
     :class="$attrs.class"
     :to="{
       name: to,
+      hash: hash,
       params: { lang: $route.params.lang || 'en', ...params },
     }"
   >
@@ -11,6 +12,6 @@
 </template>
 <script>
   export default {
-    props: ["to", "params"],
+    props: ["to", "hash", "params"],
   };
 </script>
