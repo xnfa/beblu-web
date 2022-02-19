@@ -45,18 +45,6 @@
   });
 
   provideClient(client);
-
-  router.afterEach(() => {
-    gsap.to(window, { duration: 0, scrollTo: 0 });
-  });
-</script>
-
-<script lang="ts">
-  export default {
-    mounted() {
-      gsap.to(window, { duration: 0, scrollTo: 0 });
-    },
-  };
 </script>
 
 <style>

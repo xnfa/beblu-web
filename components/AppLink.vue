@@ -1,14 +1,16 @@
 <template>
-  <NuxtLink
+  <a
     :class="$attrs.class"
-    :to="{
-      name: to,
-      hash: hash,
-      params: { lang: $route.params.lang || 'en', ...params },
-    }"
+    :href="
+      $router.resolve({
+        name: to,
+        hash: hash,
+        params: { lang: $route.params.lang || 'en', ...params },
+      }).fullPath
+    "
   >
     <slot />
-  </NuxtLink>
+  </a>
 </template>
 <script>
   export default {

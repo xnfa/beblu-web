@@ -189,13 +189,11 @@
               >
                 {{ event.title }}
               </h2>
-              <app-link
-                to="lang-event-id"
-                :params="{ id: event.id }"
+              <button
                 class="rounded-full p-1 leading-none font-bold w-full md:w-[6.25rem] border-black border hover:bg-black hover:text-white text-center"
               >
                 {{ l("sign_up") }}
-              </app-link>
+              </button>
             </div>
           </div>
         </app-link>

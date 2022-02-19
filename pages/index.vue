@@ -875,14 +875,12 @@
       this.section1PopRefs = [];
     },
     async mounted() {
-      setTimeout(() => {
-        this.section1Animate();
-        this.section2Animate();
-        this.section3Animate();
-        this.section4Animate();
-        this.section5Animate();
-        this.section6Animate();
-      }, 600);
+      this.section1Animate();
+      this.section2Animate();
+      this.section3Animate();
+      this.section4Animate();
+      this.section5Animate();
+      this.section6Animate();
     },
     beforeUnmount() {
       ScrollTrigger.getById("home_section_2").kill(true);

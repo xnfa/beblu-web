@@ -3,39 +3,12 @@
   <div v-else class="text-normal">
     <div class="mx-auto">
       <div
-        class="flex items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
-        :style="`background-image: url('${
-          config.CDN_BASE + p('section_1_cover').filename_disk
-        }')`"
+        class="h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
       >
-        <a
-          :href="p('section_1_video_link')"
-          class="block relative group border-white hover:bg-white text-white hover:text-black text-center border rounded-full p-3 text-lg leading-none w-[10.75rem]"
-          target="_blank"
-        >
-          <svg
-            class="absolute top-1/2 -translate-y-1/2 group-hover:text-black"
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g clip-path="url(#clip0_173_2246)">
-              <path
-                d="M2.65355 2.8265C2.65355 1.82901 3.76448 1.23334 4.5953 1.78536L10.8767 5.95886C11.6211 6.4534 11.6211 7.5466 10.8767 8.04114L4.5953 12.2146C3.76448 12.7667 2.65355 12.171 2.65355 11.1735L2.65355 2.8265Z"
-                stroke="currentColor"
-                stroke-width="1.5"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_173_2246">
-                <rect width="14" height="14" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          {{ l("watch_video") }}
-        </a>
+        <app-player
+          :video-url="config.CDN_BASE + p('section_1_video').filename_disk"
+          :cover-url="config.CDN_BASE + p('section_1_cover').filename_disk"
+        ></app-player>
       </div>
       <div
         class="py-[3.75rem] md:pt-12 md:pb-20 px-[1.875rem] md:px-0 md:max-w-[33.375rem] container mx-auto"
@@ -217,7 +190,9 @@
     `section_1_cover {
       filename_disk
     }`,
-    "section_1_video_link",
+    `section_1_video {
+      filename_disk
+    }`,
     `section_2_cards {
       item {
         ... on portfolio_section_2_card {
@@ -252,5 +227,4 @@
     "section_6_subtitle",
     "section_6_title",
   ]);
-  const title = useTitle("portfolio");
 </script>
