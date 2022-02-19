@@ -47,7 +47,6 @@
   provideClient(client);
 
   router.afterEach(() => {
-    console.log(0);
     gsap.to(window, { duration: 0, scrollTo: 0 });
   });
 </script>
