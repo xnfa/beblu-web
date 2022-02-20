@@ -342,7 +342,7 @@
         </div>
       </div>
     </section>
-    <section class="bg-white py-[3.75rem] md:py-20 md:px-0">
+    <section class="overflow-hidden relative min-h-[100vh] bg-cover bg-center">
       <app-contact-us></app-contact-us>
     </section>
   </div>
