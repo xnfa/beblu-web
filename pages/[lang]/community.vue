@@ -65,7 +65,7 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border hover:bg-black hover:text-white border-black disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
-          v-if="blogsHasMore || blogsFetching"
+          v-if="blogsHasMore"
           :disabled="blogsFetching"
         >
           {{ blogsHasMore || blogsFetching ? l("read_more") : l("no_more") }}
@@ -203,7 +203,7 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-black hover:bg-black hover:text-white disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreEvents"
-          v-if="eventsHasMore || eventsFetching"
+          v-if="eventsHasMore"
           :disabled="eventsFetching"
         >
           {{ l("view_more") }}
