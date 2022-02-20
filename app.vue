@@ -24,8 +24,8 @@
   useMeta({
     link: [
       {
-        rel: "shortcut icon",
-        type: "image/jpg",
+        rel: "icon",
+        type: "image/x-icon",
         href: "/favicon.ico",
       },
     ],
