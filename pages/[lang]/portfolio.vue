@@ -76,7 +76,9 @@
           </h3>
         </div>
       </div>
-      <div class="text-center text-[#37C0BA] text-xl">And many more...</div>
+      <div class="text-center text-[#37C0BA] text-xl">
+        {{ l("and_many_more") }}
+      </div>
     </section>
     <section class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <div
