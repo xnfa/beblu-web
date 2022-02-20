@@ -54,7 +54,7 @@
               {{ blog.content.replace(/<[^>]+>/g, "") }}
             </p>
             <div class="text-sm text-[#37C0BA]">
-              By Beblu Communications Team
+              {{ blog.author }}
             </div>
           </div>
         </app-link>
@@ -242,6 +242,7 @@
     query: `
       query ($limit: Int!) {
         blog_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}}, sort: "-id", limit: $limit) {
+          author
           content
           cover {
             filename_disk
