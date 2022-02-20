@@ -212,6 +212,7 @@
           class="bg-white rounded-2xl overflow-hidden w-full flex"
           :href="card.item.url"
           v-for="card in p('section_5_cards').slice(0, 1)"
+          target="_blank"
         >
           <div
             class="bg-cover bg-center flex-1"
@@ -253,6 +254,7 @@
           class="block bg-white rounded-2xl overflow-hidden w-[calc(16.67%-1.045rem)]"
           :href="card.item.url"
           v-for="card in p('section_5_cards').slice(0, 6)"
+          target="_blank"
         >
           <div
             class="h-[6.375rem] bg-cover bg-center"
