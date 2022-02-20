@@ -172,13 +172,13 @@
             <div class="text-[#707070] mb-1">
               {{
                 moment(event.date).format(
-                  lang === "cn" ? "YYYY 年 MM 月 DD 日" : "DD MMM YYYY"
+                  lang === "cn" ? "YYYY年MM月DD日" : "DD MMM YYYY"
                 )
               }}<span v-if="event.endDate">
                 -
                 {{
                   moment(event.endDate).format(
-                    lang === "cn" ? "YYYY 年 MM 月 DD 日" : "DD MMM YYYY"
+                    lang === "cn" ? "YYYY年MM月DD日" : "DD MMM YYYY"
                   )
                 }}</span
               >
@@ -264,7 +264,7 @@
     blogsLimit.value = blogsLimit.value + BLOGS_PAGE_SIZE;
   }
 
-  const EVENTS_PAGE_SIZE = 3;
+  const EVENTS_PAGE_SIZE = 6;
   const eventsLimit = ref(EVENTS_PAGE_SIZE);
   const eventsKeyword = ref("");
 
