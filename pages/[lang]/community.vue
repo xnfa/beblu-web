@@ -65,8 +65,8 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 bg-white font-bold w-[10.75rem] border hover:bg-black hover:text-white border-black disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreBlogs"
-          v-if="blogs.length >= BLOGS_PAGE_SIZE"
-          :disabled="!blogsHasMore || blogsFetching"
+          v-if="blogsHasMore || blogsFetching"
+          :disabled="blogsFetching"
         >
           {{ blogsHasMore || blogsFetching ? l("read_more") : l("no_more") }}
         </button>
@@ -203,10 +203,10 @@
           type="button"
           class="rounded-full p-3 text-[1.375rem] leading-none flex-1 font-bold w-[172px] border border-black hover:bg-black hover:text-white disabled:bg-transparent disabled:border-[#BFBFBF] disabled:text-[#BFBFBF]"
           @click="loadMoreEvents"
-          v-if="events.length >= EVENTS_PAGE_SIZE"
-          :disabled="!eventsHasMore || eventsFetching"
+          v-if="eventsHasMore || eventsFetching"
+          :disabled="eventsFetching"
         >
-          {{ eventsHasMore || eventsFetching ? l("view_more") : l("no_more") }}
+          {{ l("view_more") }}
         </button>
       </div>
     </section>
