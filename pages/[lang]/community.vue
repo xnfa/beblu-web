@@ -327,9 +327,9 @@
       };
     },
     async mounted() {
-      setTimeout(() => {
+      if (this.$route.hash) {
         gsap.to(window, { duration: 0.3, scrollTo: this.$route.hash });
-      }, 600);
+      }
     },
     methods: {
       async fetch() {},
