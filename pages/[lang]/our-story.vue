@@ -147,7 +147,7 @@
             {{ p("section_4_content") }}
           </p>
         </div>
-        <div class="flex-1">
+        <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
             :src="config.CDN_BASE + p('section_4_cover').filename_disk"

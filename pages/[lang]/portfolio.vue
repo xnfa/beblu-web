@@ -92,7 +92,7 @@
             {{ p("section_3_content") }}
           </p>
         </div>
-        <div class="flex-1">
+        <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
             :src="config.CDN_BASE + p('section_3_cover').filename_disk"
@@ -115,7 +115,7 @@
             {{ p("section_4_content") }}
           </p>
         </div>
-        <div class="flex-1">
+        <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
             :src="config.CDN_BASE + p('section_4_cover').filename_disk"
@@ -138,7 +138,7 @@
             {{ p("section_5_content") }}
           </p>
         </div>
-        <div class="flex-1">
+        <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
             :src="config.CDN_BASE + p('section_5_cover').filename_disk"
