@@ -29,7 +29,7 @@
             {{ p("section_2_content") }}
           </p>
         </div>
-        <div class="flex-1 relative">
+        <div class="flex-1 aspect-video">
           <app-player
             :video-url="config.CDN_BASE + p('section_2_video').filename_disk"
             :cover-url="config.CDN_BASE + p('section_2_cover').filename_disk"

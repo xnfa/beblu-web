@@ -2,9 +2,7 @@
   <app-not-found v-if="p.notFound"></app-not-found>
   <div v-else class="text-normal">
     <div class="mx-auto">
-      <div
-        class="h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
-      >
+      <div class="md:container md:mx-auto md:mt-8 md:rounded-lg aspect-video">
         <app-player
           :video-url="config.CDN_BASE + p('section_1_video').filename_disk"
           :cover-url="config.CDN_BASE + p('section_1_cover').filename_disk"
