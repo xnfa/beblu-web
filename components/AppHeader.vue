@@ -116,9 +116,10 @@
                     custom
                     v-slot="{ isActive }"
                   >
-                    <span :class="isActive ? 'text-[#37C0BA]' : ''">{{
-                      l("solution")
-                    }}</span>
+                    <span
+                      :class="isActive ? 'text-[#37C0BA] font-semibold' : ''"
+                      >{{ l("solution") }}</span
+                    >
                   </router-link>
                   <ChevronUpIcon
                     :class="open ? 'transform rotate-180' : ''"
@@ -214,7 +215,7 @@
                   <a
                     :href="'/' + l.code"
                     :class="[
-                      lang === l.code ? 'text-[#37C0BA]' : '',
+                      lang === l.code ? 'text-[#37C0BA] font-semibold' : '',
                       'block px-4 py-2 text-normal',
                     ]"
                   >

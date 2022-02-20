@@ -170,6 +170,7 @@
           class="block bg-white rounded-2xl overflow-hidden w-[calc(50%-0.75rem)]"
           :href="card.item.url"
           v-for="card in p('section_5_cards').slice(0, 2)"
+          target="_blank"
         >
           <div
             class="h-[6.375rem] bg-cover bg-center"

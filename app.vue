@@ -21,6 +21,16 @@
   import "moment/dist/locale/ms.js";
   import "moment/dist/locale/id.js";
 
+  useMeta({
+    link: [
+      {
+        rel: "shortcut icon",
+        type: "image/jpg",
+        href: "/favicon.ico",
+      },
+    ],
+  });
+
   const route = useRoute();
   const lang = typeof route.params.lang === "string" ? route.params.lang : "en";
   if (lang === "cn") {
