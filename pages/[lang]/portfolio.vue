@@ -1,11 +1,17 @@
 <template>
   <app-not-found v-if="p.notFound"></app-not-found>
   <div v-else class="text-normal">
-    <div class="mx-auto">
+    <div class="mx-auto" v-if="p('section_1_video')">
       <div class="md:container md:mx-auto md:mt-8 md:rounded-lg aspect-video">
         <app-player
-          :video-url="config.CDN_BASE + p('section_1_video').filename_disk"
-          :cover-url="config.CDN_BASE + p('section_1_cover').filename_disk"
+          :video-url="
+            p('section_1_video') &&
+            config.CDN_BASE + p('section_1_video').filename_disk
+          "
+          :cover-url="
+            p('section_1_cover') &&
+            config.CDN_BASE + p('section_1_cover').filename_disk
+          "
         ></app-player>
       </div>
       <div

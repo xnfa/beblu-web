@@ -241,7 +241,7 @@
   const { data: blogsResponse, fetching: blogsFetching } = await useQuery({
     query: `
       query ($limit: Int!) {
-        blog_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}}, sort: "-id", limit: $limit) {
+        blog_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}, blog_id: {id: {_null: false}}}, sort: "-id", limit: $limit) {
           author
           content
           cover {
@@ -272,7 +272,7 @@
   const { data: eventsResponse, fetching: eventsFetching } = await useQuery({
     query: `
       query ($limit: Int!, $keyword: String!) {
-        event_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}}, sort: "-id", search: $keyword, limit: $limit) {
+        event_translations(filter: {status: {_eq: "published"}, languages_code: {code: {_eq: "${lang}"}}, event_id: {id: {_null: false}}}, sort: "-id", search: $keyword, limit: $limit) {
           cover {
             filename_disk
           }

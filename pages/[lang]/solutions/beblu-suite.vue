@@ -15,7 +15,10 @@
         </h1>
       </div>
     </div>
-    <section class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
+    <section
+      class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0"
+      v-if="p('section_2_video')"
+    >
       <div
         class="flex flex-col md:flex-row-reverse gap-8 md:gap-16 md:max-w-[56.5rem] container mx-auto"
       >
@@ -31,8 +34,14 @@
         </div>
         <div class="flex-1 aspect-video">
           <app-player
-            :video-url="config.CDN_BASE + p('section_2_video').filename_disk"
-            :cover-url="config.CDN_BASE + p('section_2_cover').filename_disk"
+            :video-url="
+              p('section_2_video') &&
+              config.CDN_BASE + p('section_2_video').filename_disk
+            "
+            :cover-url="
+              p('section_2_cover') &&
+              config.CDN_BASE + p('section_2_cover').filename_disk
+            "
           ></app-player>
         </div>
       </div>
