@@ -1,17 +1,22 @@
 <template>
   <app-not-found v-if="p.notFound"></app-not-found>
   <div v-else class="text-normal">
-    <div class="mx-auto" v-if="p('section_1_video')">
-      <div class="md:container md:mx-auto md:mt-8 md:rounded-lg aspect-video">
+    <div class="mx-auto">
+      <div
+        class="md:container md:mx-auto md:mt-8 md:rounded-lg aspect-video bg-cover bg-center rounded-2xl overflow-hidden"
+        v-if="p('section_1_cover')"
+        :style="
+          !p('section_1_video')
+            ? `background-image: url('${
+                config.CDN_BASE + p('section_1_cover')?.filename_disk
+              }')`
+            : ''
+        "
+      >
         <app-player
-          :video-url="
-            p('section_1_video') &&
-            config.CDN_BASE + p('section_1_video').filename_disk
-          "
-          :cover-url="
-            p('section_1_cover') &&
-            config.CDN_BASE + p('section_1_cover').filename_disk
-          "
+          v-if="p('section_1_video')"
+          :video-url="config.CDN_BASE + p('section_1_video')?.filename_disk"
+          :cover-url="config.CDN_BASE + p('section_1_cover')?.filename_disk"
         ></app-player>
       </div>
       <div
@@ -72,7 +77,7 @@
         >
           <img
             class="block w-12 h-12 overflow-hidden mb-2"
-            :src="config.CDN_BASE + card.item.cover.filename_disk"
+            :src="config.CDN_BASE + card.item.cover?.filename_disk"
             alt=""
           />
           <h3 class="text-light">
@@ -101,7 +106,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_3_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_3_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -124,7 +129,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_4_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_4_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -147,7 +152,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_5_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_5_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -156,7 +161,7 @@
     <section
       class="bg-cover bg-center h-[37.5rem] bg-black flex flex-col gap-4 md:gap-0 py-[3.75rem] px-[1.875rem] items-center justify-center"
       :style="`background-image: url('${
-        config.CDN_BASE + p('section_6_cover').filename_disk
+        config.CDN_BASE + p('section_6_cover')?.filename_disk
       }')`"
     >
       <h3 class="text-lg text-white font-bold text-center md:mb-3">

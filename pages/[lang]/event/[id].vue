@@ -4,7 +4,7 @@
     <div
       class="bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
       :style="`background-image: url('${
-        config.CDN_BASE + event.cover.filename_disk
+        config.CDN_BASE + event.cover?.filename_disk
       }')`"
     >
       <div

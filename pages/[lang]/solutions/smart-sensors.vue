@@ -5,7 +5,7 @@
       <div
         class="flex flex-col items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg py-[3.75rem] md:py-20 px-[1.875rem] md:px-0"
         :style="`background-image: url('${
-          config.CDN_BASE + p('cover').filename_disk
+          config.CDN_BASE + p('cover')?.filename_disk
         }')`"
       >
         <h1
@@ -60,7 +60,7 @@
           >
             <SplideSlide v-for="image in product.images">
               <img
-                :src="config.CDN_BASE + image.directus_files_id.filename_disk"
+                :src="config.CDN_BASE + image.directus_files_id?.filename_disk"
                 alt="smart sensors"
               />
             </SplideSlide>

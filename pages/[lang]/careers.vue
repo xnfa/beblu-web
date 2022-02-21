@@ -2,12 +2,12 @@
   <div class="text-normal">
     <div class="mx-auto">
       <img
-        :src="config.CDN_BASE + p('cover').filename_disk"
+        :src="config.CDN_BASE + p('cover')?.filename_disk"
         alt=""
         class="container mx-auto hidden md:block rounded-lg mt-8"
       />
       <img
-        :src="config.CDN_BASE + p('cover_sm').filename_disk"
+        :src="config.CDN_BASE + p('cover_sm')?.filename_disk"
         alt=""
         class="block w-full md:hidden"
       />

@@ -5,7 +5,7 @@
       <div
         class="relative bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg"
         :style="`background-image: url('${
-          config.CDN_BASE + p('section_1_cover').filename_disk
+          config.CDN_BASE + p('section_1_cover')?.filename_disk
         }')`"
       ></div>
       <div
@@ -39,7 +39,7 @@
       <div
         class="relative bg-cover bg-center h-[31rem] lg:h-[40rem] mt-8"
         :style="`background-image: url('${
-          config.CDN_BASE + p('section_2_cover').filename_disk
+          config.CDN_BASE + p('section_2_cover')?.filename_disk
         }')`"
       >
         <div
@@ -109,7 +109,7 @@
           <div
             class="bg-cover bg-center aspect-square md:w-[8.625rem] rounded-2xl mb-[0.875rem]"
             :style="`background-image: url('${
-              config.CDN_BASE + card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover?.filename_disk
             }');`"
           ></div>
           <h3
@@ -150,7 +150,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_4_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_4_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -175,7 +175,7 @@
           <div
             class="h-[6.375rem] bg-cover bg-center"
             :style="`background-image: url('${
-              config.CDN_BASE + card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover?.filename_disk
             }');`"
           ></div>
           <div class="px-6 pt-4 pb-5">
@@ -217,7 +217,7 @@
           <div
             class="bg-cover bg-center flex-1"
             :style="`background-image: url('${
-              config.CDN_BASE + card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover?.filename_disk
             }');`"
           ></div>
           <div class="px-6 pt-4 pb-5 flex-1">
@@ -259,7 +259,7 @@
           <div
             class="h-[6.375rem] bg-cover bg-center"
             :style="`background-image: url('${
-              config.CDN_BASE + card.item.cover.filename_disk
+              config.CDN_BASE + card.item.cover?.filename_disk
             }');`"
           ></div>
           <div class="px-6 pt-4 pb-5">
@@ -303,7 +303,7 @@
           class="rounded-xl shadow-[0_0_2.4px_rgb(0,0,0,0.15)] md:shadow-[0_0_8px_rgba(0,0,0,0.15)] bg-contain bg-center bg-no-repeat bg-origin-content p-2 lg:p-6 w-[calc(50%-0.375rem)] md:w-[calc(25%-0.938rem)] aspect-[78/30]"
           v-for="card in p('section_6_cards')"
           :style="`background-image: url('${
-            config.CDN_BASE + card.item.cover.filename_disk
+            config.CDN_BASE + card.item.cover?.filename_disk
           }');`"
         ></div>
       </div>
@@ -311,7 +311,7 @@
     <section
       class="h-[25rem] px-8 md:px-8 bg-cover bg-center flex flex-col md:flex-row justify-center items-center"
       :style="`background-image: url('${
-        config.CDN_BASE + p('section_7_bg').filename_disk
+        config.CDN_BASE + p('section_7_bg')?.filename_disk
       }');`"
     >
       <h2

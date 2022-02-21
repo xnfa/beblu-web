@@ -86,7 +86,7 @@
           >
             <img
               class="block h-7 w-auto"
-              :src="config.CDN_BASE + s.settings.logo.filename_disk"
+              :src="config.CDN_BASE + s.settings.logo?.filename_disk"
               alt="Workflow"
               @click=""
             />

@@ -5,7 +5,7 @@
       <div
         class="flex items-center justify-center bg-cover bg-center h-[40rem] md:h-[25rem] lg:h-[37.5rem] md:container md:mx-auto md:mt-8 md:rounded-lg px-[1.875rem] md:px-0"
         :style="`background-image: url('${
-          config.CDN_BASE + p('section_1_cover').filename_disk
+          config.CDN_BASE + p('section_1_cover')?.filename_disk
         }')`"
       >
         <h1
@@ -15,12 +15,10 @@
         </h1>
       </div>
     </div>
-    <section
-      class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0"
-      v-if="p('section_2_video')"
-    >
+    <section class="bg-white py-[3.75rem] md:py-20 px-[1.875rem] md:px-0">
       <div
         class="flex flex-col md:flex-row-reverse gap-8 md:gap-16 md:max-w-[56.5rem] container mx-auto"
+        v-if="p('section_2_cover')"
       >
         <div class="md:w-[21.25rem] flex flex-col md:justify-center">
           <h2
@@ -32,16 +30,20 @@
             {{ p("section_2_content") }}
           </p>
         </div>
-        <div class="flex-1 aspect-video">
+        <div
+          class="flex-1 aspect-video bg-cover bg-center rounded-2xl overflow-hidden"
+          :style="
+            !p('section_2_video')
+              ? `background-image: url('${
+                  config.CDN_BASE + p('section_2_cover')?.filename_disk
+                }')`
+              : ''
+          "
+        >
           <app-player
-            :video-url="
-              p('section_2_video') &&
-              config.CDN_BASE + p('section_2_video').filename_disk
-            "
-            :cover-url="
-              p('section_2_cover') &&
-              config.CDN_BASE + p('section_2_cover').filename_disk
-            "
+            v-if="p('section_2_video')"
+            :video-url="config.CDN_BASE + p('section_2_video')?.filename_disk"
+            :cover-url="config.CDN_BASE + p('section_2_cover')?.filename_disk"
           ></app-player>
         </div>
       </div>
@@ -61,7 +63,7 @@
         >
           <img
             class="block w-12 h-12 overflow-hidden"
-            :src="config.CDN_BASE + card.item.cover.filename_disk"
+            :src="config.CDN_BASE + card.item.cover?.filename_disk"
             alt=""
           />
           <h3
@@ -221,7 +223,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_4_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_4_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -242,7 +244,7 @@
         >
           <img
             class="block w-full overflow-hidden"
-            :src="config.CDN_BASE + card.item.cover.filename_disk"
+            :src="config.CDN_BASE + card.item.cover?.filename_disk"
             alt=""
           />
           <div class="px-6 pt-4 pb-5">
@@ -273,7 +275,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_6_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_6_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -299,7 +301,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_7_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_7_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -322,7 +324,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_8_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_8_cover')?.filename_disk"
             alt=""
           />
         </div>
@@ -345,7 +347,7 @@
         <div class="flex-1 flex items-center">
           <img
             class="rounded-2xl"
-            :src="config.CDN_BASE + p('section_9_cover').filename_disk"
+            :src="config.CDN_BASE + p('section_9_cover')?.filename_disk"
             alt=""
           />
         </div>
