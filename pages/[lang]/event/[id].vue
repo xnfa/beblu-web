@@ -202,11 +202,13 @@
             src="/images/sections/download/google-play-qrcode.jpg"
             alt=""
           />
-          <img
-            class="block w-[7.5rem] mt-[0.875rem]"
-            src="/images/sections/download/google-play.png"
-            alt=""
-          />
+          <a :href="s.settings.play_store" target="_blank">
+            <img
+              class="block w-[7.5rem] mt-[0.875rem]"
+              src="/images/sections/download/google-play.png"
+              alt=""
+            />
+          </a>
         </div>
         <div
           class="mt-[2.375rem] md:mt-0 flex flex-col items-center md:ml-[3.75rem]"
@@ -216,11 +218,13 @@
             src="/images/sections/download/app-store-qrcode.jpg"
             alt=""
           />
-          <img
-            class="block w-[7.5rem] mt-[0.875rem]"
-            src="/images/sections/download/app-store.png"
-            alt=""
-          />
+          <a :href="s.settings.app_store" target="_blank">
+            <img
+              class="block w-[7.5rem] mt-[0.875rem]"
+              src="/images/sections/download/app-store.png"
+              alt=""
+            />
+          </a>
         </div>
       </div>
     </div>
@@ -261,6 +265,16 @@
     `,
   });
   const event = data.value.event_translations_by_id;
+  const { data: s } = await useQuery({
+    query: `
+    {
+      settings {
+        app_store
+        play_store
+      }
+    }
+  `,
+  });
   useMeta({
     title: `${event?.title || "Page not found"} | ${useTitle("event")} | Beblu`,
   });
