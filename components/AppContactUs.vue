@@ -9,7 +9,7 @@
       leave-to-class="transform opacity-0"
     >
       <div
-        class="px-4 md:px-2 py-3 text-xl md:text-base fixed top-24 left-1/2 -translate-x-1/2 rounded text-white"
+        class="px-4 md:px-2 py-3 text-xl fixed top-24 left-1/2 -translate-x-1/2 rounded text-white"
         style="background-color: rgba(0, 0, 0, 0.8)"
         v-if="toastShow"
       >
@@ -34,7 +34,7 @@
           isSubmitted
             ? 'invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
             : '',
-          'mb-4 leading-none text-xl md:text-base block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
+          'mb-4 leading-none text-xl  block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
         ]"
       />
       <input
@@ -46,7 +46,7 @@
           isSubmitted
             ? 'invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
             : '',
-          'mb-4 leading-none text-xl md:text-base block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
+          'mb-4 leading-none text-xl  block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
         ]"
       />
       <input
@@ -59,7 +59,7 @@
           isSubmitted
             ? 'invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
             : '',
-          'mb-4 leading-none text-xl md:text-base block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
+          'mb-4 leading-none text-xl  block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
         ]"
       />
       <input
@@ -72,7 +72,7 @@
           isSubmitted
             ? 'invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
             : '',
-          'mb-4 leading-none text-xl md:text-base block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
+          'mb-4 leading-none text-xl  block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
         ]"
       />
       <textarea
@@ -89,7 +89,7 @@
           isSubmitted
             ? 'invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500'
             : '',
-          'mb-4 leading-none text-xl md:text-base block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
+          'mb-4 leading-none text-xl  block w-full px-4 py-[0.625rem] md:py-[0.8rem] bg-white border border-[#EBEDF0] rounded-md shadow-sm placeholder-[#BFBFBF] focus:outline-none focus:border-[#37C0BA] focus:ring-1 focus:ring-[#37C0BA] disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none ',
         ]"
       ></textarea>
       <p class="text-[#37C0BA] text-xs">

@@ -592,13 +592,13 @@
             end: "+=4000",
             // pinSpacing: false,
             scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-            snap: {
-              snapTo: "labelsDirectional", // snap to the closest label in the timeline
-              duration: 0.4, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-              delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
-              ease: "none", // the ease of the snap animation ("power3" by default)
-              inertia: false,
-            },
+            // snap: {
+            //   snapTo: "labelsDirectional", // snap to the closest label in the timeline
+            //   duration: 0.4, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
+            //   delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
+            //   ease: "none", // the ease of the snap animation ("power3" by default)
+            //   inertia: false,
+            // },
             onUpdate: (e) => {
               handle.goToAndStop(e.progress * 100, true);
             },

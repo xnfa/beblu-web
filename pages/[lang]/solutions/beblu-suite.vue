@@ -26,7 +26,7 @@
           >
             {{ p("section_2_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_2_content") }}
           </p>
         </div>
@@ -72,7 +72,7 @@
             {{ card.item.title }}
           </h3>
           <div
-            class="text-center text-light text-xl md:text-base highlight-bold"
+            class="text-center text-light text-xl highlight-bold"
             v-html="card.item.content"
           ></div>
         </div>
@@ -118,7 +118,7 @@
                 <circle cx="12" cy="12.48" r="2.16" fill="#CADAD9" />
               </svg>
 
-              <div class="text-xl md:text-base text-light">
+              <div class="text-xl text-light">
                 {{ section4Lines[0] }}
               </div>
             </div>
@@ -150,7 +150,7 @@
                 />
               </svg>
 
-              <div class="text-xl md:text-base text-light">
+              <div class="text-xl text-light">
                 {{ section4Lines[1] }}
               </div>
             </div>
@@ -172,7 +172,7 @@
                 />
               </svg>
 
-              <div class="text-xl md:text-base text-light">
+              <div class="text-xl text-light">
                 {{ section4Lines[2] }}
               </div>
             </div>
@@ -196,7 +196,7 @@
                 />
               </svg>
 
-              <div class="text-xl md:text-base text-light">
+              <div class="text-xl text-light">
                 {{ section4Lines[3] }}
               </div>
             </div>
@@ -214,7 +214,7 @@
                 />
               </svg>
 
-              <div class="text-xl md:text-base text-light">
+              <div class="text-xl text-light">
                 {{ section4Lines[4] }}
               </div>
             </div>
@@ -251,7 +251,7 @@
             <h3 class="font-bold text-2xl leading-[1.15] mb-2">
               {{ card.item.title }}
             </h3>
-            <p class="text-light text-xl md:text-base">
+            <p class="text-light text-xl">
               {{ card.item.content }}
             </p>
           </div>
@@ -268,7 +268,7 @@
           >
             {{ p("section_6_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_6_content") }}
           </p>
         </div>
@@ -294,7 +294,7 @@
           <h2 class="text-4xl font-bold leading-[1.15] text-left mb-4 md:mb-8">
             {{ p("section_7_subtitle") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_7_content") }}
           </p>
         </div>
@@ -317,7 +317,7 @@
           >
             {{ p("section_8_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_8_content") }}
           </p>
         </div>
@@ -340,7 +340,7 @@
           >
             {{ p("section_9_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_9_content") }}
           </p>
         </div>

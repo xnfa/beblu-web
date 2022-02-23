@@ -13,7 +13,7 @@
         >
           {{ p("title") }}
         </h1>
-        <p class="text-xl md:text-base text-white text-center">
+        <p class="text-xl text-white text-center">
           {{ p("content") }}
         </p>
       </div>

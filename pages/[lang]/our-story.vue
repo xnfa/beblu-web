@@ -73,7 +73,7 @@
             {{ card.item.title }}
           </h3>
           <p
-            class="text-[#707070] overflow-hidden text-xl md:text-base"
+            class="text-[#707070] overflow-hidden text-xl"
             style="
               display: -webkit-box;
               -webkit-line-clamp: 6;
@@ -94,9 +94,7 @@
       >
         {{ p("section_3_title") }}
       </h2>
-      <p
-        class="md:max-w-[27rem] mx-auto mb-10 px-8 md:px-0 text-xl md:text-base"
-      >
+      <p class="md:max-w-[27rem] mx-auto mb-10 px-8 md:px-0 text-xl">
         {{ p("section_3_content") }}
       </p>
       <div
@@ -143,7 +141,7 @@
           >
             {{ p("section_4_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_4_content") }}
           </p>
         </div>
@@ -232,7 +230,7 @@
               {{ card.item.title }}
             </h3>
             <p
-              class="text-light text-xl md:text-base overflow-hidden mb-3"
+              class="text-light text-xl overflow-hidden mb-3"
               style="
                 display: -webkit-box;
                 -webkit-line-clamp: 5;
@@ -274,7 +272,7 @@
               {{ card.item.title }}
             </h3>
             <p
-              class="text-light text-xl md:text-base overflow-hidden mb-3"
+              class="text-light text-xl overflow-hidden mb-3"
               style="
                 display: -webkit-box;
                 -webkit-line-clamp: 3;

@@ -1,13 +1,13 @@
 <template>
   <footer
-    class="bg-white body-font text-normal text-xl md:text-sm border-t-[#E9E9E9] border-t"
+    class="bg-white body-font text-normal text-xl md:text-base border-t-[#E9E9E9] border-t"
   >
     <div class="container mx-auto px-8 md:px-6 lg:px-0">
       <div
         class="py-10 md:py-24 flex items-start md:flex-row md:flex-nowrap flex-wrap flex-col"
       >
         <div class="flex items-start flex-col md:flex-row md:mx-0">
-          <app-link to="lang" class="block h-14 w-auto mr-16 mb-6">
+          <app-link to="lang" class="block w-auto mr-16 mb-6">
             <img
               :src="config.CDN_BASE + s.settings.logo?.filename_disk"
               alt="Workflow"
@@ -137,7 +137,7 @@
         v-if="!cookiesPrivacyAgreed"
       >
         <div
-          class="text-white text-xs cookie-privacy-text mb-[0.875rem] md:mb-0 md:mr-8"
+          class="text-white text-sm cookie-privacy-text mb-[0.875rem] md:mb-0 md:mr-8"
         >
           {{ l("cookies_privacy") }}
           <NuxtLink to="/cookie-policy" class="underline">{{
@@ -146,7 +146,7 @@
         </div>
         <button
           type="button"
-          class="border-white hover:bg-white hover:text-black text-center border rounded-full text-white p-2 text-xs leading-none w-[7.125rem] cookie-privacy-btn"
+          class="border-white hover:bg-white hover:text-black text-center border rounded-full text-white p-2 text-sm leading-none w-[7.125rem] cookie-privacy-btn"
           @click="agreeCookiesPrivacy"
         >
           {{ l("accept") }}

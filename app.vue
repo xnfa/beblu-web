@@ -104,7 +104,7 @@
   }
   @media (min-width: 768px) {
     .article p {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       line-height: 1.5;
       color: #707070;
       margin-bottom: 2.5rem;
@@ -114,7 +114,7 @@
     margin-bottom: 2.5rem;
   }
   .article ul li {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 24px;
     list-style-type: disc;
     margin-left: 1rem;

@@ -3,7 +3,7 @@
   <div v-else class="text-normal">
     <div class="mx-auto">
       <div
-        class="md:container md:mx-auto md:mt-8 md:rounded-lg aspect-video bg-cover bg-center rounded-2xl overflow-hidden"
+        class="md:container md:mx-auto md:mt-8 md:rounded-2xl aspect-video bg-cover bg-center overflow-hidden"
         v-if="p('section_1_cover')"
         :style="
           !p('section_1_video')
@@ -57,7 +57,7 @@
             {{ p("section_1_title_2") }}
           </h2>
         </div>
-        <p class="text-xl md:text-base text-light">
+        <p class="text-xl text-light">
           {{ p("section_1_content") }}
         </p>
       </div>
@@ -99,7 +99,7 @@
           >
             {{ p("section_3_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_3_content") }}
           </p>
         </div>
@@ -122,7 +122,7 @@
           >
             {{ p("section_4_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_4_content") }}
           </p>
         </div>
@@ -145,7 +145,7 @@
           >
             {{ p("section_5_title") }}
           </h2>
-          <p class="text-xl md:text-base text-light">
+          <p class="text-xl text-light">
             {{ p("section_5_content") }}
           </p>
         </div>
@@ -172,7 +172,7 @@
       >
         {{ p("section_6_title") }}
       </h2>
-      <p class="text-xl md:text-base text-white text-center md:mb-10">
+      <p class="text-xl text-white text-center md:mb-10">
         {{ p("section_6_content") }}
       </p>
       <app-link

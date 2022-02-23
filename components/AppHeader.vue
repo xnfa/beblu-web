@@ -2,7 +2,7 @@
 <template>
   <Disclosure
     as="nav"
-    class="navbar fixed top-0 w-full bg-white shadow-[0_1px_0_#E7E7E7] z-10"
+    class="navbar fixed top-0 w-full bg-white shadow-[0_1px_0_#E7E7E7] z-10 text-lg leading-6"
     v-slot="{ open, close }"
   >
     <div class="relative container mx-auto bg-white z-10 px-8 md:px-6 lg:p-0">
@@ -85,7 +85,7 @@
             "
           >
             <img
-              class="block h-7 w-auto"
+              class="block h-[2.375rem] w-auto"
               :src="config.CDN_BASE + s.settings.logo?.filename_disk"
               alt="Workflow"
               @click=""
@@ -140,13 +140,13 @@
                         to="lang-solutions-beblu-suite"
                         class="p-2 hover:text-[#37C0BA]"
                       >
-                        Beblu Suite
+                        {{ l("beblu_suite") }}
                       </app-link>
                       <app-link
                         to="lang-solutions-smart-sensors"
                         class="p-2 hover:text-[#37C0BA]"
                       >
-                        Smart Sensors
+                        {{ l("smart_sensors") }}
                       </app-link>
                     </DisclosurePanel>
                   </transition>
@@ -260,7 +260,7 @@
               closeMenu();
             "
           >
-            Beblu Suite
+            {{ l("beblu_suite") }}
           </app-link>
           <app-link
             to="lang-solutions-smart-sensors"
@@ -270,7 +270,7 @@
               closeMenu();
             "
           >
-            Smart Sensors
+            {{ l("smart_sensors") }}
           </app-link>
           <app-link
             to="lang-portfolio"
