@@ -9,6 +9,7 @@
         <div class="flex items-start flex-col md:flex-row md:mx-0">
           <app-link to="lang" class="block w-auto mr-16 mb-6">
             <img
+              class="h-16 pt-1"
               :src="config.CDN_BASE + s.settings.logo?.filename_disk"
               alt="Workflow"
             />
