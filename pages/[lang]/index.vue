@@ -10,7 +10,7 @@
         <img
           v-for="pop in section1Pops"
           :style="pop.offset"
-          class="absolute translate-x-[-50%] opacity-0 scale-50"
+          class="absolute translate-x-[-50%] opacity-0 scale-50 w-[194px]"
           :src="pop.url"
           :ref="setSection1PopRefs"
           alt=""
@@ -95,95 +95,52 @@
       </div>
     </section>
     <section
-      id="section_3"
-      class="overflow-hidden h-[100vh] bg-[#768797]"
-      ref="section_3"
+      :class="[
+        i === p('section_3_cards').length - 1
+          ? 'pb-[8.5rem] md:pb-[6rem]'
+          : 'pb-10 md:pb-14',
+        i === 0 ? 'md:pt-20' : '',
+        'overflow-hidden bg-[#768797] pb-10',
+      ]"
+      v-for="(card, i) in p('section_3_cards')"
+      ref="section_3_cards"
     >
       <div
-        class="flex flex-col md:flex-row container mx-auto items-center w-full h-[100vh]"
+        :class="[
+          i % 2 == 1 ? 'md:flex-row-reverse' : '',
+          'flex flex-col md:flex-row container mx-auto items-center w-full',
+        ]"
       >
         <div
-          class="w-full md:w-[50%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-end relative overflow-hidden order-6 md:order-1 mx-auto"
+          class="w-full md:w-[30%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-end relative overflow-hidden order-6 md:order-1 mx-auto"
         >
           <div
-            ref="canvas_3"
-            class="h-full md:h-auto md:w-full aspect-[375/471] mx-auto"
-          ></div>
+            class="h-full md:h-auto md:w-full mx-auto px-6 py-[3rem] flex items-end"
+            ref="section_3_covers"
+          >
+            <img
+              class="block"
+              :src="config.CDN_BASE + card.item.cover?.filename_disk"
+              alt=""
+            />
+          </div>
         </div>
         <div
-          class="w-full md:w-[50%] h-[20rem] order-5 text-white flex flex-col p-[3rem] md:py-0"
+          class="w-full md:w-[70%] order-5 text-white flex flex-col pt-[6rem] px-6 md:py-0"
         >
-          <div class="relative max-w-[24rem]">
-            <div class="absolute">
-              <h2
-                class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15] opacity-0"
-                ref="section3Header1"
-              >
-                {{ p("section_3_title_1") }}
-              </h2>
-              <p
-                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
-                ref="section3Text1"
-              >
-                {{ p("section_3_content_1") }}
-              </p>
-            </div>
-            <div class="absolute">
-              <h2
-                class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15] opacity-0"
-                ref="section3Header2"
-              >
-                {{ p("section_3_title_2") }}
-              </h2>
-              <p
-                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
-                ref="section3Text2"
-              >
-                {{ p("section_3_content_2") }}
-              </p>
-            </div>
-            <div class="absolute">
-              <h2
-                class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15] opacity-0"
-                ref="section3Header3"
-              >
-                {{ p("section_3_title_3") }}
-              </h2>
-              <p
-                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
-                ref="section3Text3"
-              >
-                {{ p("section_3_content_3") }}
-              </p>
-            </div>
-            <div class="absolute">
-              <h2
-                class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15] opacity-0"
-                ref="section3Header4"
-              >
-                {{ p("section_3_title_4") }}
-              </h2>
-              <p
-                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
-                ref="section3Text4"
-              >
-                {{ p("section_3_content_4") }}
-              </p>
-            </div>
-            <div class="absolute">
-              <h2
-                class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15] opacity-0"
-                ref="section3Header5"
-              >
-                {{ p("section_3_title_5") }}
-              </h2>
-              <p
-                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem] opacity-0"
-                ref="section3Text5"
-              >
-                {{ p("section_3_content_5") }}
-              </p>
-            </div>
+          <div class="relative opacity-0" ref="section_3_texts">
+            <h2
+              class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15]"
+              ref="section3Header1"
+            >
+              {{ card.item.title }}
+            </h2>
+            <p
+              class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem]"
+              ref="section3Text1"
+            >
+              {{ card.item.content }}
+            </p>
           </div>
         </div>
       </div>
@@ -284,24 +241,32 @@
   useMeta({
     title: `Beblu`,
   });
+  const config = useRuntimeConfig();
 
   const l = await useLabels();
   const p = await usePageLabels("home", [
     "section_1_content",
     "section_1_title",
+    `
+      section_1_cover {
+        filename_disk
+      }
+    `,
     "section_2_text_1",
     "section_2_text_2",
     "section_2_text_3",
-    "section_3_content_1",
-    "section_3_content_2",
-    "section_3_content_3",
-    "section_3_content_4",
-    "section_3_content_5",
-    "section_3_title_1",
-    "section_3_title_2",
-    "section_3_title_3",
-    "section_3_title_4",
-    "section_3_title_5",
+    `section_3_cards {
+      item {
+        ... on home_section_3_card {
+          id
+          title
+          content
+          cover {
+            filename_disk
+          }
+        }
+      }
+    }`,
     "section_4_btn_blog",
     "section_4_btn_events",
     "section_4_content",
@@ -333,7 +298,7 @@
       },
     },
     {
-      url: "/images/sections/home-section-1/04.svg",
+      url: "/images/sections/home-section-1/04.png",
       offset: {
         top: "-50px",
         left: "244px",
@@ -421,54 +386,22 @@
           renderer: "svg",
           loop: false,
           autoplay: false,
-          path: "/lottie/home-section-2/data.json", // the path to the animation json
+          path: "/lottie/home-section-2/data.json",
         });
 
         const tl = gsap.timeline({
           paused: true,
+          onUpdate: (e) => {
+            handle.goToAndStop(tl.progress() * 247, true);
+          },
+          repeatRefresh: true,
+          reversed: true,
           scrollTrigger: {
+            toggleActions: "play pause resume reset",
             id: "home_section_2",
             trigger: section_2,
-            scrub: 0.2,
-            pin: true,
-            start: "top top",
-            end: "+=6000",
-            // pinSpacing: false,
-            anticipatePin: 1,
-            // snap: {
-            //   snapTo: "labelsDirectional", // snap to the closest label in the timeline
-            //   duration: { min: 0.1, max: 13.28 }, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-            //   delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
-            //   ease: "none", // the ease of the snap animation ("power3" by default)
-            //   inertia: false,
-            // },
-            onUpdate: (e) => {
-              handle.goToAndStop(e.progress * 325, true);
-            },
-            onToggle: (e) => {
-              if (e.isActive) {
-                gsap.to(window, {
-                  duration: Math.max(13.28 * (1 - e.progress), 0.4),
-                  scrollTo: {
-                    y: "#section_3",
-                    offsetY: window.innerHeight,
-                    autoKill: true,
-                  },
-                });
-              }
-            },
-            onScrubComplete: (e) => {
-              if (e.direction === 1 && e.progress !== 0 && e.progress !== 1) {
-                gsap.to(window, {
-                  duration: Math.max(13.28 * (1 - e.progress), 0.4),
-                  scrollTo: {
-                    y: "#section_3",
-                    offsetY: window.innerHeight,
-                    autoKill: true,
-                  },
-                });
-              }
-            },
+            start: "top bottom",
+            end: "bottom top",
           },
         });
 
@@ -494,7 +427,7 @@
               duration: 0.4,
               ease: "power3",
             },
-            2.8
+            1.8
           )
           .fromTo(
             section2Text2,
@@ -507,7 +440,7 @@
               duration: 0.4,
               ease: "power3",
             },
-            3.2
+            2.2
           )
           // .addLabel("2", 6)
           .to(
@@ -518,7 +451,7 @@
               duration: 0.4,
               ease: "power3",
             },
-            7.6
+            4.1
           )
           .fromTo(
             section2Text3,
@@ -531,9 +464,9 @@
               duration: 0.4,
               ease: "power3",
             },
-            8
+            4.5
           )
-          .to(section2Text3, { duration: 0 }, 13.28)
+          .to(section2Text3, { duration: 0 }, 9.88)
           .addLabel("3");
 
         // ball move
@@ -560,245 +493,74 @@
         });
       },
       section3Animate() {
-        const {
-          section_3,
-          canvas_3,
-          section3Header1,
-          section3Text1,
-          section3Header2,
-          section3Text2,
-          section3Header3,
-          section3Text3,
-          section3Header4,
-          section3Text4,
-          section3Header5,
-          section3Text5,
-        } = this.$refs;
-        const handle = lottie.loadAnimation({
-          container: canvas_3, // the dom element that will contain the animation
-          renderer: "svg",
-          loop: false,
-          autoplay: false,
-          path: "/lottie/home-section-3/data.json", // the path to the animation json
-        });
-        const tl = gsap.timeline({
-          paused: true,
-          ease: "none",
-          scrollTrigger: {
-            id: "home_section_3",
-            trigger: section_3,
-            pin: true,
-            start: "top top",
-            end: "+=4000",
-            // pinSpacing: false,
-            scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-            // snap: {
-            //   snapTo: "labelsDirectional", // snap to the closest label in the timeline
-            //   duration: 0.4, // the snap animation should be at least 0.2 seconds, but no more than 3 seconds (determined by velocity)
-            //   delay: 0, // wait 0.2 seconds from the last scroll event before doing the snapping
-            //   ease: "none", // the ease of the snap animation ("power3" by default)
-            //   inertia: false,
-            // },
-            onUpdate: (e) => {
-              handle.goToAndStop(e.progress * 100, true);
-            },
-          },
-        });
-
-        // part 1
-        tl.fromTo(
-          section3Header1,
-          {
-            y: 50,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power3",
-          },
-          0
-        )
-          .fromTo(
-            section3Text1,
+        const { section_3_cards, section_3_covers, section_3_texts } =
+          this.$refs;
+        for (let i = 0; i < section_3_cards.length; i++) {
+          const section_3_card = section_3_cards[i];
+          const section_3_cover = section_3_covers[i];
+          const section_3_text = section_3_texts[i];
+          gsap.fromTo(
+            section_3_text,
             {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            0.1
-          )
-          .addLabel("1")
-          .to(
-            [section3Header1, section3Text1],
-            {
-              y: -50,
               opacity: 0,
-              duration: 0.3,
-              ease: "power3",
-            },
-            0.5
-          )
-          // part 2
-          .fromTo(
-            section3Header2,
-            {
-              y: 50,
+              y: "100px",
             },
             {
-              y: 0,
               opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            0.8
-          )
-          .fromTo(
-            section3Text2,
+              duration: 1,
+              y: "0",
+              repeatRefresh: true,
+              scrollTrigger: {
+                toggleActions: "play pause resume reset",
+                id: "home_section_3_text" + (i + 1),
+                trigger: section_3_card,
+                start: "+100px bottom",
+                end: "bottom top",
+              },
+            }
+          );
+          gsap.fromTo(
+            section_3_cover,
             {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            0.9
-          )
-          .addLabel("2")
-          .to(
-            [section3Header2, section3Text2],
-            {
-              y: -50,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power3",
-            },
-            1.3
-          )
-          // part 3
-          .fromTo(
-            section3Header3,
-            {
-              y: 50,
+              y: "100px",
             },
             {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            1.6
-          )
-          .fromTo(
-            section3Text3,
-            {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            1.7
-          )
-          .addLabel("3")
-          .to(
-            [section3Header3, section3Text3],
-            {
-              y: -50,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power3",
-            },
-            2.1
-          )
-          // part 4
-          .fromTo(
-            section3Header4,
-            {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            2.4
-          )
-          .fromTo(
-            section3Text4,
-            {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            2.5
-          )
-          .addLabel("4")
-          .to(
-            [section3Header4, section3Text4],
-            {
-              y: -50,
-              opacity: 0,
-              duration: 0.3,
-              ease: "power3",
-            },
-            2.9
-          )
-          // part 5
-          .fromTo(
-            section3Header5,
-            {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            3.2
-          )
-          .fromTo(
-            section3Text5,
-            {
-              y: 50,
-            },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 0.3,
-              ease: "power3",
-            },
-            3.3
-          )
-          .addLabel("5");
+              duration: 1,
+              y: "0",
+              repeatRefresh: true,
+              scrollTrigger: {
+                toggleActions: "play pause resume reset",
+                id: "home_section_3_cover" + (i + 1),
+                trigger: section_3_cover,
+                start: "top bottom",
+                end: "bottom top",
+              },
+            }
+          );
+        }
       },
       section4Animate() {
         const { section_4, section4Text, section4Cover1, section4Cover2 } =
           this.$refs;
-        gsap.to([section4Cover1, section4Cover2], {
-          opacity: 1,
-          duration: 0.3,
-          scrollTrigger: {
-            id: "home_section_4_1",
-            trigger: section_4,
-            start: "center bottom",
-            end: "center top",
+        gsap.fromTo(
+          [section4Cover1, section4Cover2],
+          {
+            opacity: 0,
+            y: "100px",
           },
-        });
+          {
+            opacity: 1,
+            y: "0",
+            duration: 1,
+            scrollTrigger: {
+              toggleActions: "play pause resume reset",
+              id: "home_section_4_1",
+              trigger: section_4,
+              start: "top bottom",
+              end: "bottom top",
+            },
+          }
+        );
         gsap.fromTo(
           section4Text,
           {
@@ -810,10 +572,11 @@
             y: "0",
             repeatRefresh: true,
             scrollTrigger: {
+              toggleActions: "play pause resume reset",
               id: "home_section_4_2",
               trigger: section_4,
-              start: "center bottom",
-              end: "center top",
+              start: "top bottom",
+              end: "bottom top",
             },
           }
         );
@@ -821,7 +584,7 @@
           id: "home_section_4_3",
           trigger: section_4,
           start: "top top",
-          end: "+=200",
+          end: "+=100",
           pin: true,
           anticipatePin: 1,
           // pinSpacing: false,
@@ -841,10 +604,11 @@
             y: "-50%",
             repeatRefresh: true,
             scrollTrigger: {
+              toggleActions: "play pause resume reset",
               id: "home_section_5_1",
               trigger: section_5,
-              start: "center bottom",
-              end: "center top",
+              start: "top bottom",
+              end: "bottom top",
             },
           }
         );
@@ -852,7 +616,7 @@
           id: "home_section_5_2",
           trigger: section_5,
           start: "top top",
-          end: "+=200",
+          end: "+=100",
           pin: true,
           anticipatePin: 1,
           // pinSpacing: false,
@@ -884,7 +648,10 @@
     },
     beforeUnmount() {
       ScrollTrigger.getById("home_section_2").kill(true);
-      ScrollTrigger.getById("home_section_3").kill(true);
+      for (let i = 0; i < this.$refs.section_3_cards.length; i++) {
+        ScrollTrigger.getById("home_section_3_text_" + i + 1).kill(true);
+        ScrollTrigger.getById("home_section_3_cover_" + i + 1).kill(true);
+      }
       ScrollTrigger.getById("home_section_4_1").kill(true);
       ScrollTrigger.getById("home_section_4_2").kill(true);
       ScrollTrigger.getById("home_section_4_3").kill(true);
