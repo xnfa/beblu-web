@@ -103,7 +103,7 @@
           class="flex flex-col md:flex-row max-w-[70rem] mx-auto items-center w-full h-full"
         >
           <div
-            class="w-full md:w-[28%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-center relative overflow-hidden order-6 md:order-1 mx-auto"
+            class="w-full md:w-[32%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-center relative overflow-hidden order-6 md:order-1 mx-auto"
           >
             <div
               class="h-full md:h-auto md:w-full mx-auto px-6 py-[3rem] flex items-center opacity-0"
@@ -117,7 +117,7 @@
             </div>
           </div>
           <div
-            class="w-full md:w-[72%] order-5 text-white flex flex-col pt-[6rem] md:pl-12 md:pr-6 px-6 md:pb-[9.875rem] md:py-0"
+            class="w-full md:w-[68%] order-5 text-white flex flex-col pt-[6rem] md:pl-12 md:pr-6 px-6 md:pb-[9.875rem] md:py-0"
           >
             <div class="relative opacity-0" ref="section3MdTexts">
               <h2
