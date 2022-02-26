@@ -85,10 +85,7 @@
         </div>
       </div>
     </section>
-    <section class="py-10 relative">
-      <div
-        class="absolute h-[7.5rem] bg-[#F4F6FA] w-full bottom-1/2 md:bottom-[13%] z-[-1]"
-      ></div>
+    <section class="py-10">
       <h2
         class="font-black text-[3rem] md:text-[4rem] leading-none text-center mb-6"
       >
@@ -98,8 +95,11 @@
         {{ p("section_3_content") }}
       </p>
       <div
-        class="container flex flex-row gap-4 md:gap-5 flex-wrap md:justify-center px-8 md:px-0 mx-auto"
+        class="relative flex flex-row gap-4 md:gap-5 flex-wrap md:justify-center px-8 md:px-0"
       >
+        <div
+          class="absolute h-[7.5rem] bg-[#F4F6FA] w-full -mx-8 top-[3.75rem] z-[-1]"
+        ></div>
         <div
           class="rounded-xl shadow-md bg-white p-2 pb-4 text-center w-[calc(50%-0.5rem)] md:w-[9.625rem]"
           v-for="card in p('section_3_cards')"

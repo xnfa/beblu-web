@@ -94,7 +94,7 @@
         ></div>
       </div>
     </section>
-    <section class="hidden md:block h-[100vh] bg-[#768797]" ref="section3md">
+    <section class="hidden md:block h-[100vh] bg-black" ref="section3md">
       <div
         class="overflow-hidden absolute w-full h-full"
         v-for="(card, i) in p('section_3_cards')"
@@ -443,7 +443,7 @@
           repeatRefresh: true,
           reversed: true,
           scrollTrigger: {
-            toggleActions: "play pause resume reset",
+            toggleActions: "play pause play reset",
             id: "home_section_2",
             trigger: section_2,
             start: "top bottom",
@@ -565,13 +565,12 @@
             start: "top top",
             end: "+=4000",
             // pinSpacing: false,
+            anticipatePin: 1,
             scrub: true,
             onUpdate: (e) => {
               const current = Math.floor(
                 e.progress * (11 / 10) * (section3MdCovers.length - 1)
               );
-              console.log("p", e.progress);
-              console.log(current);
               tweens[current]();
             },
           },
@@ -608,186 +607,6 @@
             );
           }
         }
-        // part 1
-        // tl.fromTo(
-        //   section3Header1,
-        //   {
-        //     y: 50,
-        //   },
-        //   {
-        //     y: 0,
-        //     opacity: 1,
-        //     duration: 0.3,
-        //     ease: "power3",
-        //   },
-        //   0
-        // )
-        //   .fromTo(
-        //     section3Text1,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     0.1
-        //   )
-        //   .addLabel("1")
-        //   .to(
-        //     [section3Header1, section3Text1],
-        //     {
-        //       y: -50,
-        //       opacity: 0,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     0.5
-        //   )
-        //   // part 2
-        //   .fromTo(
-        //     section3Header2,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     0.8
-        //   )
-        //   .fromTo(
-        //     section3Text2,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     0.9
-        //   )
-        //   .addLabel("2")
-        //   .to(
-        //     [section3Header2, section3Text2],
-        //     {
-        //       y: -50,
-        //       opacity: 0,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     1.3
-        //   )
-        //   // part 3
-        //   .fromTo(
-        //     section3Header3,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     1.6
-        //   )
-        //   .fromTo(
-        //     section3Text3,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     1.7
-        //   )
-        //   .addLabel("3")
-        //   .to(
-        //     [section3Header3, section3Text3],
-        //     {
-        //       y: -50,
-        //       opacity: 0,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     2.1
-        //   )
-        //   // part 4
-        //   .fromTo(
-        //     section3Header4,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     2.4
-        //   )
-        //   .fromTo(
-        //     section3Text4,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     2.5
-        //   )
-        //   .addLabel("4")
-        //   .to(
-        //     [section3Header4, section3Text4],
-        //     {
-        //       y: -50,
-        //       opacity: 0,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     2.9
-        //   )
-        //   // part 5
-        //   .fromTo(
-        //     section3Header5,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     3.2
-        //   )
-        //   .fromTo(
-        //     section3Text5,
-        //     {
-        //       y: 50,
-        //     },
-        //     {
-        //       y: 0,
-        //       opacity: 1,
-        //       duration: 0.3,
-        //       ease: "power3",
-        //     },
-        //     3.3
-        //   )
-        //   .addLabel("5");
       },
       section3Animate() {
         const { section_3_cards, section_3_covers, section_3_texts } =
