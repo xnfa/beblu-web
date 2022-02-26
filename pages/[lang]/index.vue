@@ -950,6 +950,7 @@
         ScrollTrigger.getById("home_section_3_text_" + i + 1).kill(true);
         ScrollTrigger.getById("home_section_3_cover_" + i + 1).kill(true);
       }
+      ScrollTrigger.getById("home_section_3_md").kill(true);
       ScrollTrigger.getById("home_section_4_1").kill(true);
       ScrollTrigger.getById("home_section_4_2").kill(true);
       ScrollTrigger.getById("home_section_4_3").kill(true);
