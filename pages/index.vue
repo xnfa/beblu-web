@@ -94,13 +94,56 @@
         ></div>
       </div>
     </section>
+    <section class="hidden md:block h-[100vh] bg-[#768797]" ref="section3md">
+      <div
+        class="overflow-hidden absolute w-full h-full"
+        v-for="(card, i) in p('section_3_cards')"
+      >
+        <div
+          class="flex flex-col md:flex-row max-w-[70rem] mx-auto items-center w-full h-full"
+        >
+          <div
+            class="w-full md:w-[28%] md:max-w-[660px] flex-1 md:h-full flex justify-center items-center relative overflow-hidden order-6 md:order-1 mx-auto"
+          >
+            <div
+              class="h-full md:h-auto md:w-full mx-auto px-6 py-[3rem] flex items-center opacity-0"
+              ref="section3MdCovers"
+            >
+              <img
+                class="block"
+                :src="config.CDN_BASE + card.item.cover_md?.filename_disk"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            class="w-full md:w-[72%] order-5 text-white flex flex-col pt-[6rem] md:pl-12 md:pr-6 px-6 md:pb-[9.875rem] md:py-0"
+          >
+            <div class="relative opacity-0" ref="section3MdTexts">
+              <h2
+                class="text-[3rem] md:text-[4.75rem] font-black leading-[1.15]"
+                ref="section3Header1"
+              >
+                {{ card.item.title }}
+              </h2>
+              <p
+                class="text-[1.375rem] font-light mt-[1.25rem] md:mt-[2.5rem]"
+                ref="section3Text1"
+              >
+                {{ card.item.content }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section
       :class="[
         i === p('section_3_cards').length - 1
           ? 'pb-[8.5rem] md:pb-[6rem]'
           : 'pb-10 md:pb-14',
         i === 0 ? 'md:pt-20' : '',
-        'overflow-hidden bg-[#768797] pb-10',
+        'overflow-hidden bg-[#768797] pb-10 md:hidden',
       ]"
       v-for="(card, i) in p('section_3_cards')"
       ref="section_3_cards"
@@ -262,6 +305,9 @@
           title
           content
           cover {
+            filename_disk
+          }
+          cover_md {
             filename_disk
           }
         }
@@ -492,6 +538,257 @@
           repeatRefresh: true,
         });
       },
+      section3MdAnimate() {
+        const { section3MdCovers, section3MdTexts, section3md } = this.$refs;
+
+        const tweens = section3MdCovers.map((v, k) => {
+          return () => {
+            if (k > 0) {
+              gsap.to(section3MdCovers[0], { opacity: 0.3, duration: 0.3 });
+            }
+            if (k > 1) {
+              gsap.to(section3MdCovers[k - 1], { opacity: 0, duration: 0.3 });
+            }
+            if (k < section3MdCovers.length - 1) {
+              gsap.to(section3MdCovers[k + 1], { opacity: 0, duration: 0.3 });
+            }
+            gsap.to(section3MdCovers[k], { opacity: 1, duration: 0.3 });
+          };
+        });
+        const textTl = gsap.timeline({
+          paused: true,
+          ease: "none",
+          scrollTrigger: {
+            id: "home_section_3_md",
+            trigger: section3md,
+            pin: true,
+            start: "top top",
+            end: "+=4000",
+            // pinSpacing: false,
+            scrub: true,
+            onUpdate: (e) => {
+              const current = Math.floor(
+                e.progress * (11 / 10) * (section3MdCovers.length - 1)
+              );
+              console.log("p", e.progress);
+              console.log(current);
+              tweens[current]();
+            },
+          },
+        });
+
+        for (let i = 0; i < section3MdCovers.length; i++) {
+          const text = section3MdTexts[i];
+
+          textTl.fromTo(
+            text,
+            {
+              y: 50,
+              opacity: 0,
+            },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power3",
+            },
+            2 * i
+          );
+
+          if (i < section3MdCovers.length - 1) {
+            textTl.to(
+              text,
+              {
+                y: -50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3",
+              },
+              2 * i + 1
+            );
+          }
+        }
+        // part 1
+        // tl.fromTo(
+        //   section3Header1,
+        //   {
+        //     y: 50,
+        //   },
+        //   {
+        //     y: 0,
+        //     opacity: 1,
+        //     duration: 0.3,
+        //     ease: "power3",
+        //   },
+        //   0
+        // )
+        //   .fromTo(
+        //     section3Text1,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     0.1
+        //   )
+        //   .addLabel("1")
+        //   .to(
+        //     [section3Header1, section3Text1],
+        //     {
+        //       y: -50,
+        //       opacity: 0,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     0.5
+        //   )
+        //   // part 2
+        //   .fromTo(
+        //     section3Header2,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     0.8
+        //   )
+        //   .fromTo(
+        //     section3Text2,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     0.9
+        //   )
+        //   .addLabel("2")
+        //   .to(
+        //     [section3Header2, section3Text2],
+        //     {
+        //       y: -50,
+        //       opacity: 0,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     1.3
+        //   )
+        //   // part 3
+        //   .fromTo(
+        //     section3Header3,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     1.6
+        //   )
+        //   .fromTo(
+        //     section3Text3,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     1.7
+        //   )
+        //   .addLabel("3")
+        //   .to(
+        //     [section3Header3, section3Text3],
+        //     {
+        //       y: -50,
+        //       opacity: 0,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     2.1
+        //   )
+        //   // part 4
+        //   .fromTo(
+        //     section3Header4,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     2.4
+        //   )
+        //   .fromTo(
+        //     section3Text4,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     2.5
+        //   )
+        //   .addLabel("4")
+        //   .to(
+        //     [section3Header4, section3Text4],
+        //     {
+        //       y: -50,
+        //       opacity: 0,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     2.9
+        //   )
+        //   // part 5
+        //   .fromTo(
+        //     section3Header5,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     3.2
+        //   )
+        //   .fromTo(
+        //     section3Text5,
+        //     {
+        //       y: 50,
+        //     },
+        //     {
+        //       y: 0,
+        //       opacity: 1,
+        //       duration: 0.3,
+        //       ease: "power3",
+        //     },
+        //     3.3
+        //   )
+        //   .addLabel("5");
+      },
       section3Animate() {
         const { section_3_cards, section_3_covers, section_3_texts } =
           this.$refs;
@@ -642,6 +939,7 @@
       this.section1Animate();
       this.section2Animate();
       this.section3Animate();
+      this.section3MdAnimate();
       this.section4Animate();
       this.section5Animate();
       this.section6Animate();

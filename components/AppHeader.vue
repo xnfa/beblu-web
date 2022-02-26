@@ -101,11 +101,11 @@
               >
                 {{ l("our_story") }}
               </app-link>
-              <Disclosure v-slot="{ open }">
-                <DisclosureButton
+              <Menu as="div" class="relative inline-block" v-slot="{ open }">
+                <MenuButton
                   :class="[
                     open ? 'bg-[#ECFCFE]' : '',
-                    'inline-flex relative items-center hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md box-border',
+                    'inline-flex items-center hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md box-border',
                   ]"
                 >
                   <router-link
@@ -125,33 +125,37 @@
                     :class="open ? 'transform rotate-180' : ''"
                     class="ml-1 w-4 h-4 text-[#A5B3C1] transition-all"
                   />
-                  <transition
-                    enter-active-class="transition ease-out duration-300"
-                    enter-from-class="transform opacity-0 scale-0"
-                    enter-to-class="transform opacity-100 scale-100"
-                    leave-active-class="transition ease-in duration-300"
-                    leave-from-class="transform opacity-100 scale-100"
-                    leave-to-class="transform opacity-0 scale-0"
+                </MenuButton>
+                <transition
+                  enter-active-class="transition ease-out duration-100"
+                  enter-from-class="transform opacity-0 scale-95"
+                  enter-to-class="transform opacity-100 scale-100"
+                  leave-active-class="transition ease-in duration-75"
+                  leave-from-class="transform opacity-100 scale-100"
+                  leave-to-class="transform opacity-0 scale-95"
+                >
+                  <MenuItems
+                    class="absolute left-[-2rem] top-8 mt-2 w-36 rounded-md bg-white shadow-lg py-1 flex flex-col text-center"
                   >
-                    <DisclosurePanel
-                      class="absolute left-[-2rem] top-8 mt-2 w-36 rounded-md bg-white shadow-lg py-1 flex flex-col"
-                    >
+                    <MenuItem v-slot="{ active }">
                       <app-link
                         to="lang-solutions-beblu-suite"
                         class="p-2 hover:text-[#37C0BA]"
                       >
                         {{ l("beblu_suite") }}
                       </app-link>
+                    </MenuItem>
+                    <MenuItem v-slot="{ active }">
                       <app-link
                         to="lang-solutions-smart-sensors"
                         class="p-2 hover:text-[#37C0BA]"
                       >
                         {{ l("smart_sensors") }}
                       </app-link>
-                    </DisclosurePanel>
-                  </transition>
-                </DisclosureButton>
-              </Disclosure>
+                    </MenuItem>
+                  </MenuItems>
+                </transition>
+              </Menu>
               <app-link
                 to="lang-portfolio"
                 class="inline-block hover:bg-[#ECFCFE] h-8 px-2 py-1 rounded-md"
