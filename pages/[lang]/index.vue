@@ -94,7 +94,7 @@
         ></div>
       </div>
     </section>
-    <section class="hidden md:block h-[100vh] bg-black" ref="section3md">
+    <section class="hidden md:block h-[100vh] bg-[#768797]" ref="section3md">
       <div
         class="overflow-hidden absolute w-full h-full"
         v-for="(card, i) in p('section_3_cards')"
@@ -200,7 +200,7 @@
         ref="section4Cover1"
       ></div>
       <div
-        class="h-[14.25rem] block md:hidden md:absolute w-full opacity-0 bg-center bg-cover"
+        class="h-[14.25rem] block md:hidden md:absolute w-full bg-center bg-cover"
         style="
           background-image: url('/images/sections/home-section-4/img_events-sm.png');
         "
@@ -659,7 +659,7 @@
         const { section_4, section4Text, section4Cover1, section4Cover2 } =
           this.$refs;
         gsap.fromTo(
-          [section4Cover1, section4Cover2],
+          section4Cover1,
           {
             opacity: 0,
             y: "100px",
