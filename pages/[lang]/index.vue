@@ -269,10 +269,10 @@
       </div>
     </section>
     <section
-      class="overflow-hidden relative min-h-[100vh] bg-cover bg-center bg-[#F4F6FA]"
+      class="overflow-hidden relative min-h-[100vh] bg-cover bg-center bg-[#F4F6FA] flex items-center"
       ref="section_6"
     >
-      <app-contact-us></app-contact-us>
+      <app-contact-us class="flex-1"></app-contact-us>
     </section>
   </div>
 </template>
