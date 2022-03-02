@@ -11,7 +11,6 @@
             <img
               class="h-16 pt-1"
               :src="config.CDN_BASE + s.settings.logo?.filename_disk"
-              alt="Workflow"
             />
           </app-link>
           <p v-html="l('address')"></p>

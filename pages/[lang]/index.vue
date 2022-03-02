@@ -628,7 +628,7 @@
               repeatRefresh: true,
               scrollTrigger: {
                 toggleActions: "play pause resume reset",
-                id: "home_section_3_text" + (i + 1),
+                id: "home_section_3_text_" + (i + 1),
                 trigger: section_3_card,
                 start: "+100px bottom",
                 end: "bottom top",
@@ -646,7 +646,7 @@
               repeatRefresh: true,
               scrollTrigger: {
                 toggleActions: "play pause resume reset",
-                id: "home_section_3_cover" + (i + 1),
+                id: "home_section_3_cover_" + (i + 1),
                 trigger: section_3_cover,
                 start: "top bottom",
                 end: "bottom top",
@@ -762,20 +762,6 @@
       this.section4Animate();
       this.section5Animate();
       this.section6Animate();
-    },
-    beforeUnmount() {
-      ScrollTrigger.getById("home_section_2").kill(true);
-      for (let i = 0; i < this.$refs.section_3_cards.length; i++) {
-        ScrollTrigger.getById("home_section_3_text_" + i + 1).kill(true);
-        ScrollTrigger.getById("home_section_3_cover_" + i + 1).kill(true);
-      }
-      ScrollTrigger.getById("home_section_3_md").kill(true);
-      ScrollTrigger.getById("home_section_4_1").kill(true);
-      ScrollTrigger.getById("home_section_4_2").kill(true);
-      ScrollTrigger.getById("home_section_4_3").kill(true);
-      ScrollTrigger.getById("home_section_5_1").kill(true);
-      ScrollTrigger.getById("home_section_5_2").kill(true);
-      ScrollTrigger.getById("home_section_6").kill(true);
     },
   };
 </script>

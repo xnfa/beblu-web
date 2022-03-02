@@ -87,7 +87,6 @@
             <img
               class="block h-[2.375rem] w-auto"
               :src="config.CDN_BASE + s.settings.logo?.filename_disk"
-              alt="Workflow"
               @click=""
             />
           </app-link>
