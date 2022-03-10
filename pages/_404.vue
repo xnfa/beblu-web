@@ -3,7 +3,7 @@
 </template>
 <script setup>
   const { ssrContext } = useNuxtApp();
-  ssrContext.nuxt.error = {
+  ssrContext?.nuxt?.error = {
     statusCode: 404,
   };
 </script>

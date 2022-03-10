@@ -5,6 +5,9 @@
       <Meta name="description" content="Work Smart Now" />
       <Script type="application/ld+json" :children="ld"></Script>
     </Head>
+    <section class="h-0 overflow-hidden">
+      <img src="/images/thumbnail.jpg" />
+    </section>
     <section
       class="relative overflow-hidden h-[calc(100vh-4rem)] hero flex flex-col items-center"
       ref="section_1"
