@@ -156,7 +156,7 @@
     </section>
     <section
       class="bg-[#F4F6FA] py-[3.75rem] md:py-20 px-[1.125rem] md:px-8"
-      v-if="p('section_5_cards').length > 0"
+      v-if="sortedPresses.length > 0"
     >
       <h2
         class="text-[3rem] md:text-[4rem] font-black leading-none text-center mb-8 md:mb-10 md:max-w-[34rem] mx-auto"
@@ -167,7 +167,7 @@
         <a
           class="block bg-white rounded-2xl overflow-hidden w-[calc(50%-0.75rem)]"
           :href="card.item.url"
-          v-for="card in p('section_5_cards')"
+          v-for="card in sortedPresses"
           target="_blank"
         >
           <div
@@ -205,12 +205,12 @@
       </div>
       <div
         class="flex-row gap-6 md:gap-5 justify-center flex-wrap container mx-auto hidden md:flex max-w-[55.25rem]"
-        v-if="p('section_5_cards').length === 1"
+        v-if="sortedPresses.length === 1"
       >
         <a
           class="bg-white rounded-2xl overflow-hidden w-full flex"
           :href="card.item.url"
-          v-for="card in p('section_5_cards')"
+          v-for="card in sortedPresses"
           target="_blank"
         >
           <div
@@ -248,12 +248,12 @@
       </div>
       <div
         class="flex-row gap-6 justify-center md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 hidden md:flex"
-        v-if="p('section_5_cards').length > 1"
+        v-if="sortedPresses.length > 1"
       >
         <a
           class="block bg-white rounded-2xl overflow-hidden w-[calc(16.67%-1.045rem)]"
           :href="card.item.url"
-          v-for="card in p('section_5_cards')"
+          v-for="card in sortedPresses"
           target="_blank"
         >
           <div
@@ -336,6 +336,7 @@
   import { usePageLabels } from "~~/composables/usePageLabels";
   import moment from "moment";
   import { useTitle } from "~~/composables/useTitle";
+  import _ from "lodash";
   useMeta({
     title: `${useTitle("our_story")} | Beblu`,
   });
@@ -413,4 +414,5 @@
     "section_7_btn_label",
     "section_7_title",
   ]);
+  const sortedPresses = _.sortBy(p("section_5_cards") || [], "item.date");
 </script>
