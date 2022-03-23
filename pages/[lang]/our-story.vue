@@ -167,7 +167,7 @@
         <a
           class="block bg-white rounded-2xl overflow-hidden w-[calc(50%-0.75rem)]"
           :href="card.item.url"
-          v-for="card in p('section_5_cards').slice(0, 2)"
+          v-for="card in p('section_5_cards')"
           target="_blank"
         >
           <div
@@ -204,12 +204,13 @@
         </a>
       </div>
       <div
-        class="flex-row gap-6 md:gap-5 justify-center flex-wrap container mx-auto hidden md:flex xl:hidden max-w-[55.25rem]"
+        class="flex-row gap-6 md:gap-5 justify-center flex-wrap container mx-auto hidden md:flex max-w-[55.25rem]"
+        v-if="p('section_5_cards').length === 1"
       >
         <a
           class="bg-white rounded-2xl overflow-hidden w-full flex"
           :href="card.item.url"
-          v-for="card in p('section_5_cards').slice(0, 1)"
+          v-for="card in p('section_5_cards')"
           target="_blank"
         >
           <div
@@ -246,12 +247,13 @@
         </a>
       </div>
       <div
-        class="flex-row gap-6 justify-center md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 hidden xl:flex"
+        class="flex-row gap-6 justify-center md:gap-5 flex-wrap container mx-auto px-[1.375rem] md:px-0 hidden md:flex"
+        v-if="p('section_5_cards').length > 1"
       >
         <a
           class="block bg-white rounded-2xl overflow-hidden w-[calc(16.67%-1.045rem)]"
           :href="card.item.url"
-          v-for="card in p('section_5_cards').slice(0, 6)"
+          v-for="card in p('section_5_cards')"
           target="_blank"
         >
           <div
