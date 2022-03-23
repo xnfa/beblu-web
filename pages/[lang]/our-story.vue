@@ -415,4 +415,5 @@
     "section_7_title",
   ]);
   const sortedPresses = _.sortBy(p("section_5_cards") || [], "item.date");
+  _.reverse(sortedPresses);
 </script>
