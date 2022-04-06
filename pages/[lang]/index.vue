@@ -153,16 +153,12 @@
     <section class="overflow-hidden relative h-[100vh] bg-[#000000]" ref="section_4">
       <div
         class="md:h-full hidden md:block md:absolute w-full opacity-0 bg-center bg-cover"
-        style="
-          background-image: url('/images/sections/home-section-4/img_events.png');
-        "
+        :style="`background-image: url('${config.CDN_BASE + p('section_4_bg')?.filename_disk}');`"
         ref="section4Cover1"
       ></div>
       <div
         class="h-[14.25rem] block md:hidden md:absolute w-full bg-center bg-cover"
-        style="
-          background-image: url('/images/sections/home-section-4/img_events-sm.png');
-        "
+        :style="`background-image: url('${config.CDN_BASE + p('section_4_bg_sm')?.filename_disk}');`"
         ref="section4Cover2"
       ></div>
       <div
@@ -283,6 +279,12 @@ const p = await usePageLabels("home", [
   "section_4_btn_blog",
   "section_4_btn_events",
   "section_4_content",
+  `section_4_bg {
+    filename_disk
+  }`,
+  `section_4_bg_sm {
+    filename_disk
+  }`,
   "section_4_title",
   "section_5_content",
   "section_5_title",
